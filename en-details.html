@@ -3,41 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan Details | L&W Property Solutions</title>
+    <title>Plan Details | L&W</title>
     <style>
         :root { --dark-green: #14523B; --light-green: #4CAF50; --gold: #FFB300; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; margin: 0; background: #fff; }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         h2 { color: var(--dark-green); border-left: 6px solid var(--light-green); padding-left: 15px; margin-top: 50px; }
         table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        th { background: var(--dark-green); color: white; padding: 18px; }
+        th { background: var(--dark-green); color: white; padding: 18px; text-align: center; }
         td { padding: 18px; border-bottom: 1px solid #eee; text-align: center; }
         .highlight { background: #f0f7f4; font-weight: bold; color: var(--dark-green); }
         .vip-box { background: linear-gradient(rgba(20,82,59,0.9), rgba(20,82,59,0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; color: white; padding: 60px 40px; border-radius: 30px; text-align: center; margin: 60px 0; }
-        .btn-pay { background: var(--gold); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px; font-size: 1.2rem; }
+        .btn-stripe { background: var(--gold); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 15px; font-size: 1.1rem; }
+        .btn-contact { background: white; color: var(--dark-green); padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 15px; font-size: 1.1rem; border: 2px solid white; }
     </style>
 </head>
 <body>
 <div class="container">
     <a href="en-index.html" style="color:var(--light-green); text-decoration:none; font-weight:bold;">← Back to Home</a>
-    <h1>Priority Care Plan Details</h1>
-    <p>We eliminate unpredictable maintenance costs for NYC landlords. Labor is always covered.</p>
+    <h1>Service Plan Details</h1>
     <table>
-        <thead><tr><th>Service Category</th><th>Monthly ($99/mo)</th><th>VIP Annual ($1,080/yr)</th></tr></thead>
+        <thead><tr><th>Services</th><th>Monthly ($99/mo)</th><th>VIP Annual ($1,080/yr)</th></tr></thead>
         <tbody>
-            <tr><td>Standard Labor Cost</td><td>Included ($0)</td><td class="highlight">Included ($0)</td></tr>
-            <tr><td>Emergency Repair (24H)</td><td>$150/visit</td><td class="highlight">2 Free Visits / Year</td></tr>
-            <tr><td>Minor Repairs (Faucets, Lights)</td><td>$80 - $150</td><td class="highlight">2 Free Visits / Year</td></tr>
+            <tr><td>Maintenance Labor Cost</td><td>Included ($0)</td><td class="highlight">Included ($0)</td></tr>
+            <tr><td>Emergency Support (24/7)</td><td>$150/visit</td><td class="highlight">2 Free Visits / Year</td></tr>
+            <tr><td>Minor Repairs</td><td>$80 - $150/visit</td><td class="highlight">2 Free Visits / Year</td></tr>
             <tr><td>Seasonal Inspection</td><td>Extra Charge</td><td class="highlight">1 Free Visit / Year</td></tr>
-            <tr><td>Annual Total Cost</td><td>$1,188+</td><td class="highlight"><b>$1,080 (Save 10%)</b></td></tr>
+            <tr><td>Annual Total</td><td>$1,188+</td><td class="highlight"><b>$1,080 (Save 10%)</b></td></tr>
         </tbody>
     </table>
     <div class="vip-box">
         <h2 style="color:white; border:none;">VIP Annual Care Plan</h2>
-        <p>Ultimate peace-of-mind. Includes priority scheduling and deep seasonal inspections for your property.</p>
-        <a href="#/ms/signup/YOUR_PLAN_ID" class="btn-pay">Upgrade to VIP Now</a>
+        <p>Once payment is confirmed, our team will contact you within 24 hours to finalize your property registration.</p>
+        <a href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn-stripe">Pay $1,080 Now</a>
+        <p style="margin: 20px 0;">or</p>
+        <a href="tel:3479892686" class="btn-contact">📞 Call for Inquiry</a>
     </div>
 </div>
-<script data-memberstack-app="app_cmk8w07om03860sqhc4ewdip4" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
 </body>
 </html>
