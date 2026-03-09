@@ -14,7 +14,9 @@
         td { padding: 15px; border-bottom: 1px solid #eee; text-align: center; }
         .highlight { background: #f0f7f4; font-weight: bold; color: var(--dark-green); }
         .vip-box { background: linear-gradient(rgba(20,82,59,0.9), rgba(20,82,59,0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; color: white; padding: 60px 40px; border-radius: 30px; text-align: center; margin: 60px 0; }
-        .btn-pay { background: var(--gold); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px; font-size: 1.2rem; }
+        .btn-stripe { background: var(--gold); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 15px; font-size: 1.1rem; transition: 0.3s; }
+        .btn-contact { background: white; color: var(--dark-green); padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 15px; font-size: 1.1rem; border: 2px solid white; transition: 0.3s; }
+        .btn-stripe:hover, .btn-contact:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -29,13 +31,18 @@
             <tr><td>紧急维修响应 (24H)</td><td>$150/次</td><td class="highlight">每年赠送 2 次</td></tr>
             <tr><td>小型维修 (灯具/龙头等)</td><td>$80 - $150/次</td><td class="highlight">每年赠送 2 次</td></tr>
             <tr><td>季节性系统检查</td><td>需付费</td><td class="highlight">每年赠送 1 次</td></tr>
-            <tr><td>全年总成本</td><td>$1,188+</td><td class="highlight"><b>$1,080 (节省 10%)</b></td></tr>
+            <tr><td>全年总成本</td><td>$1,188+</td><td class="highlight"><b>$1,080 (省10%)</b></td></tr>
         </tbody>
     </table>
     <div class="vip-box">
         <h2 style="color:white; border:none;">VIP 年度托管计划</h2>
-        <p>适合追求极致省心的纽约房东。包含所有赠送权益，提供最优先的报修响应。</p>
-        <a href="#/ms/signup/65eb..." class="btn-pay">立即开启 VIP 计划</a>
+        <p>加入保障计划，锁定全年维修成本。支付成功后我们将于 24 小时内联系您完成登记。</p>
+        
+        <a href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn-stripe">立即支付 $1,080</a>
+        
+        <p style="margin: 20px 0;">或</p>
+        
+        <a href="tel:3479892686" class="btn-contact">📞 电话咨询详情</a>
     </div>
 </div>
 </body>
