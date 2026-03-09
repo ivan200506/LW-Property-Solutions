@@ -9,14 +9,18 @@
         body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.7; }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .lang-switch { text-decoration: none; color: var(--dark-green); border: 1px solid var(--dark-green); padding: 5px 12px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; }
+        
         .hero { 
             background: linear-gradient(rgba(20,82,59,0.75), rgba(20,82,59,0.75)), url('https://images.unsplash.com/photo-1449153001391-42ca4b1d2d21?auto=format&fit=crop&w=1600&q=80');
             background-size: cover; background-position: center; background-attachment: fixed;
-            height: 85vh; display: flex; align-items: center; color: white; text-align: center;
+            height: 90vh; display: flex; align-items: center; color: white; text-align: center;
         }
         .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2; }
-        .btn { background: var(--gold); color: white; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.3s; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        .price-badge { background: var(--gold); color: #fff; display: inline-block; padding: 5px 25px; border-radius: 5px; font-size: 1.8rem; font-weight: 900; margin-bottom: 25px; transform: rotate(-2deg); box-shadow: 5px 5px 15px rgba(0,0,0,0.2); }
+        .hero p { font-size: 1.3rem; margin-bottom: 35px; opacity: 0.9; }
+        
+        .btn { background: var(--gold); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.3rem; display: inline-block; transition: 0.3s; }
         .section { padding: 90px 20px; max-width: 1100px; margin: 0 auto; }
         footer { background: var(--dark-green); color: white; padding: 50px 0; text-align: center; }
     </style>
@@ -31,20 +35,21 @@
 </nav>
 <section class="hero">
     <div class="hero-content">
-        <h1>Your Property, Our Full Responsibility</h1>
-        <p>The "Medical Insurance" for NYC Landlords. Pay $0 for labor and lock in your maintenance budget.</p>
-        <a href="en-details.html" class="btn">View Care Plans</a>
+        <h1>NYC Landlord Protection Plan</h1>
+        <div class="price-badge">Only $99 / Month</div>
+        <p>Say goodbye to expensive labor costs. Your property deserves 24/7 professional care.</p>
+        <a href="en-details.html" class="btn">Get Protected Now</a>
     </div>
 </section>
 <section class="section">
     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:40px;">
-        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">Zero Labor Cost</h3><p>Enjoy $0 labor fees on standard repairs. We lock in your budget so you can plan ahead.</p></div>
-        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">Peace of Mind</h3><p>No more chasing contractors. We handle everything from leaks to tenant emergencies.</p></div>
-        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">Priority Care</h3><p>Annual members receive 24/7 priority response for all emergency requests.</p></div>
+        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">$0 Labor Fees</h3><p>As a member, you pay zero labor costs for standard repairs. Budget with confidence.</p></div>
+        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">Full Responsibility</h3><p>From plumbing leaks to electrical issues, we take over. No more chasing contractors.</p></div>
+        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">Expert Support</h3><p>We treat your property like our own. Professional, fast, and local NYC experts.</p></div>
     </div>
 </section>
 <footer>
-    <p>L&W Property Solutions LLC | NYC Property Experts</p>
+    <p>L&W Property Solutions LLC | Brooklyn & NYC</p>
     <p>24/7 Hotline: <a href="tel:3479892686" style="color:var(--gold); text-decoration:none;">347-989-2686</a></p>
 </footer>
 </body>
