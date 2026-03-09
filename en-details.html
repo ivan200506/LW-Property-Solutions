@@ -3,37 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan Details | L&W</title>
+    <title>Plan Details | L&W Property Solutions</title>
     <style>
         :root { --dark-green: #14523B; --light-green: #4CAF50; --gold: #FFB300; }
-        body { font-family: sans-serif; line-height: 1.8; color: #333; margin: 0; background: #fdfdfd; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; margin: 0; background: #fff; }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; }
-        th { background: var(--dark-green); color: white; padding: 15px; }
-        td { padding: 15px; border-bottom: 1px solid #eee; text-align: center; }
-        .vip-box { background: linear-gradient(135deg, #14523B, #1e7a58); color: white; padding: 40px; border-radius: 20px; text-align: center; }
-        .btn-pay { background: var(--gold); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
+        
+        h2 { color: var(--dark-green); border-left: 6px solid var(--light-green); padding-left: 15px; margin-top: 50px; }
+        
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; box-shadow: 0 5px 25px rgba(0,0,0,0.05); border-radius: 12px; overflow: hidden; }
+        th { background: var(--dark-green); color: white; padding: 18px; text-align: center; }
+        td { padding: 18px; border-bottom: 1px solid #eee; text-align: center; }
+        .highlight { background: #f0f7f4; font-weight: bold; color: var(--dark-green); }
+
+        /* VIP Card Design */
+        .vip-box { 
+            background: linear-gradient(rgba(20,82,59,0.9), rgba(20,82,59,0.9)), 
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80');
+            background-size: cover; background-position: center;
+            color: white; padding: 60px 40px; border-radius: 30px; text-align: center; margin: 60px 0;
+            box-shadow: 0 15px 35px rgba(20,82,59,0.3);
+        }
+        .btn-pay { background: var(--gold); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px; font-size: 1.2rem; transition: 0.3s; }
+        .btn-pay:hover { transform: scale(1.05); background: #ffa000; }
+
+        .back-link { color: var(--light-green); text-decoration: none; font-weight: bold; display: inline-block; margin-bottom: 20px; }
     </style>
 </head>
 <body>
+
 <div class="container">
-    <a href="en-index.html" style="color:var(--light-green); text-decoration:none;">← Back to Home</a>
+    <a href="en-index.html" class="back-link">← Back to Home</a>
     <h1>Priority Care Plan Details</h1>
+    <p>We help you eliminate the most unpredictable expense of property management: <strong>Labor Costs</strong>. As a member, you only pay for materials; we handle the rest.</p>
+
+    <h2>Plan Comparison</h2>
     <table>
-        <thead><tr><th>Services</th><th>Monthly ($99)</th><th>VIP Annual ($1,080)</th></tr></thead>
+        <thead>
+            <tr>
+                <th>Service Item</th>
+                <th>Monthly ($99/mo)</th>
+                <th>VIP Annual ($1,080/yr)</th>
+            </tr>
+        </thead>
         <tbody>
-            <tr><td>Standard Labor Cost</td><td>$0 (Included)</td><td>$0 (Included)</td></tr>
-            <tr><td>Emergency Response</td><td>$150/visit</td><td>✅ 2 Free Visits/Year</td></tr>
-            <tr><td>Seasonal Inspection</td><td>Extra Charge</td><td>✅ 1 Free Visit/Year</td></tr>
-            <tr><td>Total Annual Cost</td><td>$1,188</td><td><b>$1,080 (Save 10%)</b></td></tr>
+            <tr>
+                <td>Standard Maintenance Labor</td>
+                <td>$0 (Included)</td>
+                <td class="highlight">$0 (Included)</td>
+            </tr>
+            <tr>
+                <td>Emergency Response (24/7)</td>
+                <td>$150 / visit</td>
+                <td class="highlight">✅ 2 Free Visits / Year</td>
+            </tr>
+            <tr>
+                <td>Minor Repairs/Replacements</td>
+                <td>$80 - $150 / visit</td>
+                <td class="highlight">✅ 2 Free Visits / Year</td>
+            </tr>
+            <tr>
+                <td>Seasonal System Inspection</td>
+                <td>Extra Charge</td>
+                <td class="highlight">✅ 1 Free Visit / Year</td>
+            </tr>
+            <tr>
+                <td>Pest Control</td>
+                <td>Extra Charge</td>
+                <td class="highlight">✅ 1 Free Visit / Year</td>
+            </tr>
+            <tr>
+                <td>Total Annual Cost</td>
+                <td>$1,188+</td>
+                <td class="highlight"><b>$1,080 (Save 10%)</b></td>
+            </tr>
         </tbody>
     </table>
+
     <div class="vip-box">
-        <h3>VIP Annual Management</h3>
-        <p>Comprehensive protection including free emergency calls and deep inspections. Over $2,000 in value.</p>
-        <a href="#/ms/signup/YOUR_PLAN_ID" class="btn-pay">Join VIP Plan Now</a>
+        <h2 style="color:white; border:none; padding:0; margin-bottom:15px;">VIP Annual Care Plan</h2>
+        <p>The ultimate peace-of-mind solution for NYC landlords. Includes priority scheduling and comprehensive protection valued over $2,000.</p>
+        <a href="#/ms/signup/YOUR_ANNUAL_PLAN_ID" class="btn-pay">Upgrade to VIP Now</a>
     </div>
+
+    <h2>Advanced Installation Estimates</h2>
+    <ul style="list-style: none; padding: 0;">
+        <li style="padding:15px; border-bottom:1px solid #eee; background:#fff; border-radius:10px; margin-bottom:10px;">🏠 <b>HVAC Installation</b>: $4,000 - $10,000 (VIP Member Discount)</li>
+        <li style="padding:15px; border-bottom:1px solid #eee; background:#fff; border-radius:10px; margin-bottom:10px;">📹 <b>Security Systems</b>: $1,000 - $3,000</li>
+        <li style="padding:15px; border-bottom:1px solid #eee; background:#fff; border-radius:10px; margin-bottom:10px;">💧 <b>Water Heater Systems</b>: $1,500 - $4,000</li>
+    </ul>
 </div>
+
 <script data-memberstack-app="app_cmk8w07om03860sqhc4ewdip4" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
 </body>
 </html>
