@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L&W Property Solutions | 纽约房东保障计划</title>
     <style>
-        :root { --dark-green: #14523B; --light-green: #4CAF50; --gold: #FFB300; --bg: #F8F9FA; }
+        :root { --dark-green: #14523B; --light-green: #4CAF50; --gold: #FFB300; }
         body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; margin: 0; color: #333; line-height: 1.7; }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
         .lang-switch { text-decoration: none; color: var(--dark-green); border: 1px solid var(--dark-green); padding: 5px 12px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; }
+        .phone-link { text-decoration: none; color: var(--dark-green); font-weight: bold; font-size: 1rem; }
         .hero { 
             background: linear-gradient(rgba(20,82,59,0.7), rgba(20,82,59,0.7)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80');
             background-size: cover; background-position: center; background-attachment: fixed;
@@ -28,16 +30,16 @@
 <body>
 <nav>
     <img src="Logo.png" alt="L&W Logo" style="height: 55px;">
-    <div>
+    <div class="nav-right">
+        <a href="tel:3479892686" class="phone-link">📞 347-989-2686</a>
         <a href="en-index.html" class="lang-switch">English</a>
-        <a href="#/ms/login" style="margin-left:20px; text-decoration:none; color:var(--dark-green); font-weight:bold;">登录</a>
     </div>
 </nav>
 <section class="hero">
     <div class="hero-content">
         <h1>不仅仅是维修，更是您在纽约最可靠的房屋后盾</h1>
-        <p>“出问题时，您不该慌张。” —— L&W 房东保障计划，让您告别昂贵的人工费和无尽的等待。</p>
-        <a href="details.html" class="btn">立即查看保障方案</a>
+        <p>纽约房东的“房屋医保”。人工费全免，让维修不再成为您的负担。</p>
+        <a href="details.html" class="btn">查看保障方案</a>
     </div>
 </section>
 <section class="section">
@@ -60,6 +62,5 @@
     <p>L&W Property Solutions LLC | Brooklyn & NYC</p>
     <p>24/7 报修专线: <a href="tel:3479892686" style="color:var(--gold); text-decoration:none;">347-989-2686</a></p>
 </footer>
-<script data-memberstack-app="app_cmk8w07om03860sqhc4ewdip4" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
 </body>
 </html>
