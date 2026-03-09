@@ -7,76 +7,58 @@
     <style>
         :root { --dark-green: #14523B; --light-green: #4CAF50; --gold: #FFB300; --bg: #F8F9FA; }
         body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; margin: 0; color: #333; line-height: 1.7; }
-        
         nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .lang-switch { text-decoration: none; color: var(--dark-green); border: 1px solid var(--dark-green); padding: 4px 12px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; }
-
-        /* 视差背景 Hero 区域 */
-        .parallax-hero { 
-            background: linear-gradient(rgba(20,82,59,0.75), rgba(20,82,59,0.75)), 
-                        url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover; background-position: center; 
-            background-attachment: fixed; /* 视差关键代码 */
+        .lang-switch { text-decoration: none; color: var(--dark-green); border: 1px solid var(--dark-green); padding: 5px 12px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; }
+        .hero { 
+            background: linear-gradient(rgba(20,82,59,0.7), rgba(20,82,59,0.7)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
             height: 85vh; display: flex; align-items: center; color: white; text-align: center;
         }
         .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2; text-shadow: 2px 2px 15px rgba(0,0,0,0.4); }
-
-        .btn { background: var(--gold); color: white; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.3s; box-shadow: 0 8px 20px rgba(255,179,0,0.3); }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2; }
+        .btn { background: var(--gold); color: white; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.3s; box-shadow: 0 8px 20px rgba(255,179,0,0.3); border: none; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,179,0,0.5); }
-
         .section { padding: 90px 20px; max-width: 1100px; margin: 0 auto; }
-        .prop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
-        .prop-item h3 { color: var(--light-green); border-bottom: 3px solid var(--gold); display: inline-block; margin-bottom: 20px; }
-
+        .prop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .prop-item h3 { color: var(--light-green); border-bottom: 3px solid var(--gold); display: inline-block; margin-bottom: 15px; }
         footer { background: var(--dark-green); color: white; padding: 50px 0; text-align: center; }
-        
-        @media (max-width: 768px) { 
-            .parallax-hero { background-attachment: scroll; } /* 移动端视差兼容处理 */
-            .hero h1 { font-size: 2.2rem; }
-        }
     </style>
 </head>
 <body>
-
 <nav>
-    <img src="LW Logo 1MB.jpg" alt="L&W Logo" style="height: 55px;">
+    <img src="Logo.png" alt="L&W Logo" style="height: 55px;">
     <div>
         <a href="en-index.html" class="lang-switch">English</a>
         <a href="#/ms/login" style="margin-left:20px; text-decoration:none; color:var(--dark-green); font-weight:bold;">登录</a>
     </div>
 </nav>
-
-<section class="parallax-hero">
+<section class="hero">
     <div class="hero-content">
-        <h1>不仅仅是维修，更是您在纽约最可靠的房屋后盾</h1>
-        <p>“出问题时，您不该慌张。” —— 房东保障计划，人工费全免，我们负责到底。</p>
-        <a href="details.html" class="btn">立即获取优先保障</a>
+        <h1>您的房产，我们负责到底</h1>
+        <p>纽约房东的“房屋医保”。人工费全免，让维修不再成为您的负担 [cite: 3, 48]。</p>
+        <a href="details.html" class="btn">立即开通保障</a>
     </div>
 </section>
-
 <section class="section">
     <div class="prop-grid">
         <div class="prop-item">
             <h3>为什么选择我们？</h3>
-            <p>房产出问题真正让人头疼的不是修理本身，而是：找不到人、等不到回复、人工费失控、事情没人负责。</p>
+            <p>房产出问题真正让人头疼的是找不到人、人工费失控、事情没人负责 [cite: 43]。我们专注于为您解决这些痛点 [cite: 3]。</p>
         </div>
         <div class="prop-item">
             <h3>我们的承诺</h3>
-            <p>只要您是会员，所有常规维修<strong>人工费全免</strong>。我们只收材料成本，帮您锁死所有不可控的开支。</p>
+            <p>只要您是会员，所有常规维修人工费全免 。我们只收材料成本，帮您锁定所有不可控开支。</p>
         </div>
         <div class="prop-item">
-            <h3>服务宗旨</h3>
-            <p>事情会有人负责到底。不管是漏水、电力故障还是租客紧急呼叫，我们第一时间替您接手处理。</p>
+            <h3>优先响应</h3>
+            <p>不管是漏水还是紧急呼叫，年费客户在紧急请求中获得优先处理，减少等待时间 [cite: 50]。</p>
         </div>
     </div>
 </section>
-
 <footer>
-    <p>L&W Property Solutions LLC | Brooklyn & NYC</p>
+    <p>L&W Property Solutions LLC | 纽约物业专家 [cite: 3]</p>
     <p>24/7 报修专线: <a href="tel:3479892686" style="color:var(--gold); text-decoration:none;">347-989-2686</a></p>
 </footer>
-
 <script data-memberstack-app="app_cmk8w07om03860sqhc4ewdip4" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
 </body>
 </html>
