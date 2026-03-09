@@ -3,213 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Priority Care Plan | L&W Home Solutions LLC</title>
-    
-    <script data-memberstack-app="app_cmk8w07om03860sqhc4ewdip4" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
-
+    <title>方案详情 | L&W Property Solutions</title>
     <style>
-        :root {
-            --primary-green: #1B5E20;
-            --accent-gold: #F9A825;
-            --light-bg: #F4F7F4;
-            --text-dark: #2D3436;
-            --text-gray: #636E72;
+        :root { --logo-dark: #14523B; --logo-light: #4CAF50; --accent-gold: #FFB300; }
+        body { font-family: sans-serif; line-height: 1.8; color: #333; margin: 0; padding: 0; background-color: #fdfdfd; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        
+        h2 { color: var(--logo-dark); border-left: 6px solid var(--logo-light); padding-left: 15px; margin-top: 50px; }
+        
+        /* 定制表格 */
+        table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        th { background: var(--logo-dark); color: white; padding: 20px; }
+        td { padding: 18px; border-bottom: 1px solid #eee; text-align: center; }
+        .highlight-cell { background: #f0f7f4; font-weight: bold; color: var(--logo-dark); border-left: 2px solid var(--logo-light); }
+
+        /* VIP 金卡区域 */
+        .vip-card { 
+            background: linear-gradient(135deg, #14523B 0%, #1e7a58 100%); color: white; 
+            padding: 50px; border-radius: 30px; text-align: center; margin: 60px 0; position: relative;
+            box-shadow: 0 20px 50px rgba(20, 82, 59, 0.3);
+        }
+        .vip-badge { position: absolute; top: -20px; right: 20px; background: var(--accent-gold); padding: 8px 20px; border-radius: 10px; font-weight: bold; transform: rotate(5deg); }
+        
+        .btn-vip { 
+            background: var(--accent-gold); color: white; padding: 22px 60px; border-radius: 50px; 
+            text-decoration: none; font-size: 1.4rem; font-weight: bold; display: inline-block; margin-top: 30px;
         }
 
-        body {
-            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            margin: 0; padding: 0; color: var(--text-dark); background: #fff;
-            line-height: 1.8;
-        }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
-        /* --- 导航栏 --- */
-        .nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky; top: 0; z-index: 100;
-        }
-        .nav img { height: 45px; }
-        .nav-right a { margin-left: 20px; text-decoration: none; font-weight: bold; color: var(--primary-green); }
-        .login-btn { border: 1px solid var(--primary-green); padding: 5px 15px; border-radius: 4px; }
-
-        /* --- Hero 视觉区 --- */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover; background-position: center;
-            color: white; text-align: center; padding: 120px 20px;
-        }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
-        .hero strong { color: var(--accent-gold); }
-
-        /* --- 核心理念 --- */
-        .concept { padding: 80px 0; text-align: center; background: var(--light-bg); }
-        .concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .concept-card { padding: 30px; background: #fff; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .concept-card h3 { color: var(--primary-green); }
-
-        /* --- 核心权益 (重点) --- */
-        .benefits { padding: 80px 0; }
-        .benefit-item {
-            display: flex; align-items: flex-start; margin-bottom: 40px;
-            background: #fff; border-left: 5px solid var(--accent-gold); padding: 20px;
-            box-shadow: 5px 5px 20px rgba(0,0,0,0.02);
-        }
-        .benefit-item h3 { margin: 0 0 10px 0; color: var(--primary-green); }
-        .benefit-icon { font-size: 2rem; margin-right: 20px; }
-
-        /* --- 对比区 --- */
-        .vs-section { padding: 80px 0; background: #2d3436; color: white; border-radius: 20px; margin: 40px 20px; }
-        .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 40px; }
-        .vs-card h4 { font-size: 1.5rem; margin-bottom: 20px; }
-        .vs-member { color: var(--accent-gold); }
-
-        /* --- 价格与动作 --- */
-        .pricing { text-align: center; padding: 100px 20px; }
-        .price-box {
-            display: inline-block; padding: 40px; border: 2px solid var(--primary-green);
-            border-radius: 20px; background: var(--light-bg);
-        }
-        .price-box h2 { font-size: 3.5rem; margin: 10px 0; color: var(--primary-green); }
-        .btn-main {
-            background: var(--accent-gold); color: white; padding: 20px 60px;
-            font-size: 1.4rem; border-radius: 50px; text-decoration: none;
-            display: inline-block; font-weight: bold; margin-top: 30px;
-            box-shadow: 0 10px 20px rgba(249, 168, 37, 0.3);
-        }
-
-        /* --- 页脚 --- */
-        .footer { background: #1a1a1a; color: #fff; padding: 60px 20px; text-align: center; }
-        .footer a { color: var(--accent-gold); text-decoration: none; }
-
-        @media (max-width: 768px) {
-            .vs-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
-        }
+        .back-link { color: var(--logo-light); font-weight: bold; text-decoration: none; display: inline-block; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-    <nav class="nav">
-        <img src="logo.png" alt="L&W Home Solutions">
-        <div class="nav-right">
-            <a href="#/ms/login" data-ms-content="!logged-in" class="login-btn">房东登录</a>
-            <a href="#/ms/profile" data-ms-content="logged-in" class="login-btn">我的账户</a>
-        </div>
-    </nav>
+<div class="container">
+    <a href="index.html" class="back-link">← 返回首页</a>
+    <h1>Priority Care Plan 计划细则</h1>
+    <p>我们深知维护房产的压力。L&W 将这种压力转化为系统化的保障 [cite: 3, 40]。</p>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Priority Care Plan</h1>
-            <p>不是为了“没问题的时候用”，而是为了<strong>出问题的时候，你不用慌。</strong></p>
-            <p>我们不承诺房子永远不出问题，但承诺：问题发生时，你不会被晾着，事情会有人负责到底。</p>
-            <a href="details.html" class="btn-main">立即开通保障</a>
-        </div>
-    </section>
+    <h2>权益对比 [cite: 14, 46]</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>服务项目</th>
+                <th>月付计划 ($99/月)</th>
+                <th style="background:#1e7a58;">VIP 年费计划 ($1,080/年)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>基础物业检查 [cite: 24]</td>
+                <td>✅ 包含</td>
+                <td class="highlight-cell">✅ 包含</td>
+            </tr>
+            <tr>
+                <td>紧急维修响应 (24H) [cite: 28]</td>
+                <td>$150/次</td>
+                <td class="highlight-cell">✅ 每年赠送 2 次</td>
+            </tr>
+            <tr>
+                <td>季节性系统检查 [cite: 32]</td>
+                <td>需额外付费</td>
+                <td class="highlight-cell">✅ 每年赠送 1 次</td>
+            </tr>
+            <tr>
+                <td>小型维修人工费 [cite: 46]</td>
+                <td>需付费</td>
+                <td class="highlight-cell">✅ 每年赠送 2 次</td>
+            </tr>
+            <tr>
+                <td>全年总成本 [cite: 46]</td>
+                <td>$1,188+</td>
+                <td class="highlight-cell"><b>$1,080 (立省 10%)</b></td>
+            </tr>
+        </tbody>
+    </table>
 
-    <section class="concept">
-        <div class="container">
-            <h2>为什么需要这个计划？</h2>
-            <p>房子出问题，真正头疼的从来不是修理本身，而是找不到人、等不到回复、人工费失控。</p>
-            <div class="concept-grid">
-                <div class="concept-card">
-                    <h3>有人接手</h3>
-                    <p>有人第一时间站出来，替你把事情接走、盯住、解决到底。</p>
-                </div>
-                <div class="concept-card">
-                    <h3>有人把关</h3>
-                    <p>站在你这一边帮你判断：现在该修，还是可以等等。</p>
-                </div>
-                <div class="concept-card">
-                    <h3>有人负责</h3>
-                    <p>你不需要再追着 Handyman 跑，我们就是你的负责人。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="vip-card">
+        <div class="vip-badge">BEST VALUE</div>
+        <h2>VIP 全年托管计划</h2>
+        <p>不仅仅是省钱，更是纽约房东最尊崇的保障体验。包含紧急报修、季节性消杀及窗户密封折扣 [cite: 14, 51]。</p>
+        <a href="#/ms/signup/YOUR_PLAN_ID" class="btn-vip">立即加入 VIP 计划</a>
+    </div>
 
-    <section class="benefits">
-        <div class="container">
-            <h2 style="text-align:center; margin-bottom:50px;">会员核心权益</h2>
-            
-            <div class="benefit-item">
-                <div class="benefit-icon">🛠️</div>
-                <div>
-                    <h3>维修人工费全免</h3>
-                    <p>成为会员后，维修项目<strong>人工费全免</strong>，仅收取实际材料成本。我们帮你直接锁死房东最不可控的成本，杜绝随意加价。</p>
-                </div>
-            </div>
+    <h2>高级设备安装参考价格 [cite: 16, 32]</h2>
+    <ul style="list-style: none; padding: 0;">
+        <li style="background:#fff; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #eee;">🏠 <b>冷暖气系统安装</b>: $4,000 - $10,000 (VIP享优惠)</li>
+        <li style="background:#fff; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #eee;">📹 <b>监控系统安装</b>: $1,000 - $3,000</li>
+        <li style="background:#fff; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #eee;">💧 <b>热水系统更换</b>: $1,500 - $4,000</li>
+    </ul>
+</div>
 
-            <div class="benefit-item">
-                <div class="benefit-icon">⚡</div>
-                <div>
-                    <h3>紧急情况优先响应</h3>
-                    <p>漏水、电力、门锁故障或租客报修，会员享有最高优先权。周末或假日，当别人还在等回复时，我们已经在处理。</p>
-                </div>
-            </div>
-
-            <div class="benefit-item">
-                <div class="benefit-icon">💰</div>
-                <div>
-                    <h3>费用灵活抵扣</h3>
-                    <p>每月 $99 费用可作为服务费抵扣使用。当月未使用可累计（最多 3 个月）。这不仅是维修，更是长期的房屋管家服务。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="vs-section">
-        <div class="container">
-            <div class="vs-grid">
-                <div class="vs-card">
-                    <h4>非会员</h4>
-                    <ul>
-                        <li>人工费按项目计算（高成本）</li>
-                        <li>紧急情况需排队等待</li>
-                        <li>周末/假日不保证响应</li>
-                        <li>出事才临时找人，心累</li>
-                    </ul>
-                </div>
-                <div class="vs-card vs-member">
-                    <h4>Priority Care 会员</h4>
-                    <ul>
-                        <li>维修人工费全免（仅收材料费）</li>
-                        <li>紧急问题第一时间响应</li>
-                        <li>周末 / 假日优先协调处理</li>
-                        <li>有人长期替你盯着房子，省心</li>
-                    </ul>
-                </div>
-            </div>
-            <p style="text-align:center; margin-top:40px; font-style:italic; opacity:0.8;">没状况，是保障；出状况，是现金差别 + 心态差别。</p>
-        </div>
-    </section>
-
-    <section class="pricing">
-        <div class="container">
-            <div class="price-box">
-                <p>Brooklyn & NYC 房东首选</p>
-                <h2>$99<span>/mo</span></h2>
-                <p>建立长期信任，告别一次性交易</p>
-            </div>
-            <br>
-            <a href="#/ms/signup" class="btn-main">获取优先保障</a>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <h3>L&W Home Solutions LLC</h3>
-            <p>📍 Brooklyn & NYC area</p>
-            <p>📞 电话: <a href="tel:3479892686">347-989-2686</a></p>
-            <p>📧 邮件: support@lw-propertysolutions.com</p>
-            <p style="margin-top:40px; font-size:0.8rem; opacity:0.5;">&copy; 2026 L&W Home Solutions LLC. All Rights Reserved.</p>
-        </div>
-    </footer>
-
+<script data-memberstack-app="app_cmk8w07om03860sqhc4ewdip4" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
 </body>
 </html>
-
-
-
