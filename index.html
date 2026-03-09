@@ -11,20 +11,25 @@
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .lang-switch { text-decoration: none; color: var(--dark-green); border: 1px solid var(--dark-green); padding: 5px 12px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; }
         .phone-link { text-decoration: none; color: var(--dark-green); font-weight: bold; font-size: 1rem; }
+        
         .hero { 
             background: linear-gradient(rgba(20,82,59,0.7), rgba(20,82,59,0.7)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80');
             background-size: cover; background-position: center; background-attachment: fixed;
-            height: 85vh; display: flex; align-items: center; color: white; text-align: center;
+            height: 90vh; display: flex; align-items: center; color: white; text-align: center;
         }
         .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
-        .btn { background: var(--gold); color: white; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; transition: 0.3s; box-shadow: 0 8px 20px rgba(255,179,0,0.3); border: none; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        .price-badge { background: var(--gold); color: #fff; display: inline-block; padding: 5px 20px; border-radius: 5px; font-size: 1.8rem; font-weight: 900; margin-bottom: 25px; transform: rotate(-2deg); box-shadow: 5px 5px 15px rgba(0,0,0,0.2); }
+        .hero p { font-size: 1.3rem; margin-bottom: 35px; opacity: 0.9; }
+        
+        .btn { background: var(--gold); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.3rem; display: inline-block; transition: 0.3s; box-shadow: 0 8px 20px rgba(255,179,0,0.3); border: none; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,179,0,0.5); }
+        
         .section { padding: 90px 20px; max-width: 1100px; margin: 0 auto; }
         .prop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .prop-item h3 { color: var(--light-green); border-bottom: 3px solid var(--gold); display: inline-block; margin-bottom: 15px; }
         footer { background: var(--dark-green); color: white; padding: 50px 0; text-align: center; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero { background-attachment: scroll; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .price-badge { font-size: 1.4rem; } .hero { background-attachment: scroll; } }
     </style>
 </head>
 <body>
@@ -37,24 +42,25 @@
 </nav>
 <section class="hero">
     <div class="hero-content">
-        <h1>不仅仅是维修，更是您在纽约最可靠的房屋后盾</h1>
-        <p>纽约房东的“房屋医保”。人工费全免，让维修不再成为您的负担。</p>
-        <a href="details.html" class="btn">查看保障方案</a>
+        <h1>纽约房东保障计划</h1>
+        <div class="price-badge">每月仅需 $99</div>
+        <p>告别昂贵人工费，让专业团队成为您房产的 24/7 后盾</p>
+        <a href="details.html" class="btn">立即加入 · 锁定优惠</a>
     </div>
 </section>
 <section class="section">
     <div class="prop-grid">
         <div class="prop-item">
-            <h3>为什么选择我们？</h3>
-            <p>房产出问题真正让人头疼的是找不到人、人工费失控、事情没人负责。我们专门为您解决这些痛点。</p>
+            <h3>人工费全免</h3>
+            <p>只要是会员，所有常规维修人工费通通 $0。您只需支付材料成本，彻底杜绝维修黑洞。</p>
         </div>
         <div class="prop-item">
-            <h3>我们的承诺</h3>
-            <p>只要您是会员，所有常规维修人工费全免。我们只收材料成本，帮您锁定所有不可控开支。</p>
+            <h3>低成本 · 高保障</h3>
+            <p>每天不到 $4，即可拥有专属维修团队。无论是漏水还是电路故障，我们第一时间到场。</p>
         </div>
         <div class="prop-item">
             <h3>服务宗旨</h3>
-            <p>不管是漏水、电力故障还是租客紧急呼叫，我们第一时间替您接手处理。事情有人负责到底。</p>
+            <p>我们不仅是在修房子，更是在保护您的投资。专业、透明、高效，是 L&W 对纽约房东的承诺。</p>
         </div>
     </div>
 </section>
