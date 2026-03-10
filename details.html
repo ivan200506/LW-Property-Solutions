@@ -3,56 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>方案详情 | L&W</title>
+    <title>方案详情 | L&W Property Solutions</title>
     <style>
-        :root { --dark-green: #14523B; --light-green: #4CAF50; --gold: #FFB300; }
-        body { font-family: sans-serif; line-height: 1.8; color: #333; margin: 0; background: #fff; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        h2 { color: var(--dark-green); border-left: 6px solid var(--light-green); padding-left: 15px; margin-top: 50px; }
-        table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        th { background: var(--dark-green); color: white; padding: 15px; }
-        td { padding: 15px; border-bottom: 1px solid #eee; text-align: center; }
-        .highlight { background: #f0f7f4; font-weight: bold; color: var(--dark-green); }
+        /* 定义变量，确保全站配色统一且现代 */
+        :root { 
+            --dark-green: #14523B; /* 沿用公司深绿 */
+            --light-green: #4CAF50; /* 沿用公司浅绿 */
+            --gold: #FFB300;       /* 黄金价格色 */
+            --bg-gray: #f8fbf9;    /* 现代柔和背景色 */
+            --text-main: #333;     /* 主文字色 */
+            --text-muted: #666;   /* 辅助文字色 */
+        }
+
+        body { 
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background-color: var(--bg-gray); 
+            color: var(--text-main); 
+            line-height: 1.8; 
+            margin: 0; 
+        }
+
+        .container { 
+            max-width: 1100px; /* 增加容器宽度，更具呼吸感 */
+            margin: 0 auto; 
+            padding: 80px 20px; 
+        }
+
+        /* 顶部导航与返回按钮 */
+        .top-nav { margin-bottom: 60px; text-align: left; }
+        .back-btn { 
+            text-decoration: none; 
+            color: var(--dark-green); 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+
+        /* 头部标题区 */
+        .header { text-align: center; margin-bottom: 80px; }
+        .header h1 { color: var(--dark-green); font-size: 2.8rem; margin-bottom: 15px; }
+        .header p { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+
+        /* --- 核心：服务卡片网格布局 --- */
+        .service-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 响应式网格 */
+            gap: 30px; 
+            margin-bottom: 80px;
+        }
+
+        /* --- 单个服务卡片样式 --- */
+        .service-card {
+            background: white;
+            padding: 50px 35px; /* 增加内边距，提升高级感 */
+            border-radius: 20px; /* 柔和圆角 */
+            text-align: center;
+            transition: all 0.3s ease; /* 顺滑的悬停过渡 */
+            border: 1px solid #eee; /* 极淡的边框 */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* 悬停时的 3D 浮动和阴影效果 */
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06); /* 现代柔和阴影 */
+            border-color: var(--light-green);
+        }
+
+        /* 卡片内图标 */
+        .service-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        /* 卡片文字 */
+        .service-card h3 { color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem; }
+        .service-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 25px; flex-grow: 1; }
         
+        /* 价格/状态标签 */
+        .card-tag {
+            background-color: var(--bg-gray);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: var(--dark-green);
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        /* --- 底部支付框变身 --- */
         .vip-box { 
-            background: linear-gradient(rgba(20,82,59,0.9), rgba(20,82,59,0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80'); 
-            background-size: cover; background-position: center; color: white; padding: 50px 30px; border-radius: 30px; text-align: center; margin: 60px 0; 
+            background: linear-gradient(135deg, var(--dark-green), #1a6d4e); /* 现代渐变绿色背景 */
+            color: white; 
+            padding: 80px 50px; 
+            border-radius: 30px; 
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(20,82,59,0.3);
+            margin-bottom: 30px;
         }
-        .payment-options { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 30px 0; }
-        .option-card { flex: 1; min-width: 250px; max-width: 350px; display: flex; flex-direction: column; align-items: center; }
-        
-        .btn-stripe { background: var(--gold); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 80%; }
-        .btn-stripe.annual { background: #fff; color: var(--dark-green); }
-        .btn-stripe:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-        
-        .sub-text { display: block; font-size: 0.9rem; margin-top: 10px; opacity: 0.9; }
-        .save-tag { display: block; font-size: 0.9rem; color: var(--gold); margin-top: 10px; font-weight: bold; }
-        
+
+        /* 顶部标题区 */
+        .vip-title h2 { color: white; font-size: 2.5rem; border: none; padding: 0; margin-bottom: 10px; }
+        .vip-title p { opacity: 0.9; font-size: 1.2rem; }
+
+        /* 支付按钮区域布局 */
+        .payment-options { 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            flex-wrap: wrap; 
+            margin: 50px 0; 
+        }
+        .option-card { flex: 1; min-width: 280px; max-width: 380px; text-align: center; }
+
+        /* --- Stripe 支付按钮样式 --- */
+        .btn-stripe { 
+            background: var(--gold); 
+            color: white; 
+            padding: 20px 0; /* 高度增加 */
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            display: inline-block; 
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            width: 90%; /* 按钮宽度占比 */
+        }
+        /* 年付按钮样式 */
+        .btn-stripe.annual { background: white; color: var(--dark-green); }
+
+        /* 悬停效果 */
+        .btn-stripe:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+        }
+
+        /* 按钮下方的文本描述 */
+        .sub-text { display: block; font-size: 0.9rem; margin-top: 15px; opacity: 0.9; }
+        .save-tag { display: block; font-size: 0.95rem; color: var(--gold); margin-top: 15px; font-weight: bold; }
+
+        /* --- 底部联系条 --- */
         .contact-bar { 
-            background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-top: 30px;
-            display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.15); /* 加一条淡线 */
+            padding-top: 40px;
+            display: flex; 
+            justify-content: center; 
+            gap: 50px; 
+            flex-wrap: wrap; 
+            align-items: center;
         }
-        .contact-item { text-decoration: none; color: white; font-weight: bold; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
+        .contact-item { text-decoration: none; color: white; font-weight: bold; font-size: 1.1rem; }
     </style>
 </head>
 <body>
 <div class="container">
-    <a href="index.html" style="color:var(--light-green); text-decoration:none; font-weight:bold;">← 返回首页</a>
-    <h1>Priority Care Plan 计划细则</h1>
-    <h2>核心保障对比</h2>
-    <table>
-        <thead><tr><th>服务项目</th><th>月付计划 ($99/月)</th><th>VIP 年费计划 ($1,080/年)</th></tr></thead>
-        <tbody>
-            <tr><td>常规维修人工费</td><td>包含 ($0)</td><td class="highlight">包含 ($0)</td></tr>
-            <tr><td>紧急维修响应 (24H)</td><td>$150/次</td><td class="highlight">每年赠送 2 次</td></tr>
-            <tr><td>小型维修 (灯具/龙头等)</td><td>$80 - $150/次</td><td class="highlight">每年赠送 2 次</td></tr>
-            <tr><td>季节性系统检查</td><td>需付费</td><td class="highlight">每年赠送 1 次</td></tr>
-            <tr><td>全年总成本</td><td>$1,188+</td><td class="highlight"><b>$1,080 (省10%)</b></td></tr>
-        </tbody>
-    </table>
+    <div class="top-nav">
+        <a href="index.html" class="back-btn">← 返回首页</a>
+    </div>
+
+    <div class="header">
+        <h1>Priority Care 计划细节</h1>
+        <p>专业、透明、高效的纽约物业维护标准</p>
+    </div>
+
+    <div class="service-grid">
+        <div class="service-card">
+            <span class="icon">🛠️</span>
+            <h3>常规维修人工</h3>
+            <p>只要是计划涵盖的维修项目，我们免收所有人工费用。您只需支付透明的材料成本。</p>
+            <div class="card-tag">计划涵盖: $0 人工费</div>
+        </div>
+
+        <div class="service-card">
+            <span class="icon">🚨</span>
+            <h3>24/7 紧急响应</h3>
+            <p>漏水、断电或其他突发状况？我们的团队全天候待命，确保您的资产安全。</p>
+            <div class="card-tag">月付会员: $150/次</div>
+            <p style="color:var(--gold); font-size: 0.9rem;">(年付会员免费赠送 2 次)</p>
+        </div>
+
+        <div class="service-card">
+            <span class="icon">🔍</span>
+            <h3>年度资产健康评估</h3>
+            <p>预防胜于治疗。我们每年为您提供一次全面的房屋结构与设施检查，排除隐患。</p>
+            <div class="card-tag">计划包含 (推荐)</div>
+        </div>
+    </div>
+
     <div class="vip-box">
-        <h2 style="color:white; border:none; margin-bottom:10px;">选择您的保障方案</h2>
-        <p>即刻加入，锁定全天候专业维修团队</p>
+        <div class="vip-title">
+            <h2>选择您的保障方案</h2>
+            <p>即刻锁定您的专属物业团队，享受无忧房东体验</p>
+        </div>
         
         <div class="payment-options">
             <div class="option-card">
@@ -60,19 +208,16 @@
                 <span class="sub-text">随开随停，灵活无忧</span>
             </div>
             <div class="option-card">
-                <a href="https://buy.stripe.com/7sY14mfohaoLdHH6Ef3ks03" class="btn-stripe annual">年费计划 $1,080</a>
+                <a href="https://buy.stripe.com/7sY14mfohaoLdHH6Ef3ks03" class="btn-stripe annual">年付计划 $1,080</a>
                 <span class="save-tag">立省 $108 (推荐)</span>
             </div>
         </div>
         
         <div class="contact-bar">
-            <a href="tel:3479892686" class="contact-item">📞 347-989-2686</a>
-            <a href="mailto:support@lw-propertysolutions.com" class="contact-item">📧 support@lw-propertysolutions.com</a>
+            <a href="tel:3479892686" class="contact-item">📞 致电咨询: 347-989-2686</a>
+            <a href="mailto:support@lw-propertysolutions.com" class="contact-item">📧 邮件咨询: support@lw-propertysolutions.com</a>
         </div>
     </div>
 </div>
 </body>
 </html>
-
-
-
