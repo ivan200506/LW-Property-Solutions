@@ -3,60 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan Details | L&W</title>
+    <title>Plan Details | L&W Property Solutions</title>
     <style>
-        :root { --dark-green: #14523B; --light-green: #4CAF50; --gold: #FFB300; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; margin: 0; background: #fff; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        h2 { color: var(--dark-green); border-left: 6px solid var(--light-green); padding-left: 15px; margin-top: 50px; }
-        table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        th { background: var(--dark-green); color: white; padding: 18px; text-align: center; }
-        td { padding: 18px; border-bottom: 1px solid #eee; text-align: center; }
-        .highlight { background: #f0f7f4; font-weight: bold; color: var(--dark-green); }
+        /* Modern Design Variables */
+        :root { 
+            --dark-green: #14523B; 
+            --light-green: #4CAF50; 
+            --gold: #FFB300;       
+            --bg-gray: #f8fbf9;    
+            --text-main: #333;     
+            --text-muted: #666;   
+        }
+
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            background-color: var(--bg-gray); 
+            color: var(--text-main); 
+            line-height: 1.8; 
+            margin: 0; 
+        }
+
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 80px 20px; 
+        }
+
+        /* Top Navigation */
+        .top-nav { margin-bottom: 60px; text-align: left; }
+        .back-btn { 
+            text-decoration: none; 
+            color: var(--dark-green); 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+
+        /* Header Section */
+        .header { text-align: center; margin-bottom: 80px; }
+        .header h1 { color: var(--dark-green); font-size: 2.8rem; margin-bottom: 15px; }
+        .header p { color: var(--text-muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto; }
+
+        /* Service Cards Grid */
+        .service-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            margin-bottom: 80px;
+        }
+
+        /* Card Styles - Based on modern UI reference */
+        .service-card {
+            background: white;
+            padding: 50px 35px; 
+            border-radius: 20px; 
+            text-align: center;
+            transition: all 0.3s ease; 
+            border: 1px solid #eee; 
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06); 
+            border-color: var(--light-green);
+        }
+
+        /* Card Icon */
+        .service-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        /* Card Content */
+        .service-card h3 { color: var(--dark-green); margin-bottom: 15px; font-size: 1.5rem; }
+        .service-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 25px; flex-grow: 1; }
         
+        /* Card Status Tag */
+        .card-tag {
+            background-color: var(--bg-gray);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: var(--dark-green);
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        /* VIP Payment Section */
         .vip-box { 
-            background: linear-gradient(rgba(20,82,59,0.9), rgba(20,82,59,0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80'); 
-            background-size: cover; background-position: center; color: white; padding: 50px 30px; border-radius: 30px; text-align: center; margin: 60px 0; 
+            background: linear-gradient(135deg, var(--dark-green), #1a6d4e); 
+            color: white; 
+            padding: 80px 50px; 
+            border-radius: 30px; 
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(20,82,59,0.3);
+            margin-bottom: 30px;
         }
-        .payment-options { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 30px 0; }
-        .option-card { flex: 1; min-width: 250px; max-width: 350px; display: flex; flex-direction: column; align-items: center; }
-        
-        .btn-stripe { background: var(--gold); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 80%; }
-        .btn-stripe.annual { background: #fff; color: var(--dark-green); }
-        .btn-stripe:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-        
-        .sub-text { display: block; font-size: 0.9rem; margin-top: 10px; opacity: 0.9; }
-        .save-tag { display: block; font-size: 0.9rem; color: var(--gold); margin-top: 10px; font-weight: bold; }
-        
+
+        .vip-title h2 { color: white; font-size: 2.5rem; border: none; padding: 0; margin-bottom: 10px; }
+        .vip-title p { opacity: 0.9; font-size: 1.2rem; }
+
+        /* Stripe Button Layout */
+        .payment-options { 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            flex-wrap: wrap; 
+            margin: 50px 0; 
+        }
+        .option-card { flex: 1; min-width: 280px; max-width: 380px; text-align: center; }
+
+        /* Stripe Buttons */
+        .btn-stripe { 
+            background: var(--gold); 
+            color: white; 
+            padding: 20px 0; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            display: inline-block; 
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            width: 90%; 
+        }
+        .btn-stripe.annual { background: white; color: var(--dark-green); }
+
+        .btn-stripe:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+        }
+
+        /* Button Subtitles */
+        .sub-text { display: block; font-size: 0.9rem; margin-top: 15px; opacity: 0.9; }
+        .save-tag { display: block; font-size: 0.95rem; color: var(--gold); margin-top: 15px; font-weight: bold; }
+
+        /* Footer Contact Bar */
         .contact-bar { 
-            background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-top: 30px;
-            display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.15); 
+            padding-top: 40px;
+            display: flex; 
+            justify-content: center; 
+            gap: 50px; 
+            flex-wrap: wrap; 
+            align-items: center;
         }
-        .contact-item { text-decoration: none; color: white; font-weight: bold; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
+        .contact-item { text-decoration: none; color: white; font-weight: bold; font-size: 1.1rem; }
     </style>
 </head>
 <body>
 <div class="container">
-    <a href="en-index.html" style="color:var(--light-green); text-decoration:none; font-weight:bold;">← Back to Home</a>
-    <h1>Service Plan Details</h1>
-    <table>
-        <thead><tr><th>Services</th><th>Monthly ($99/mo)</th><th>VIP Annual ($1,080/yr)</th></tr></thead>
-        <tbody>
-            <tr><td>Standard Labor Cost</td><td>Included ($0)</td><td class="highlight">Included ($0)</td></tr>
-            <tr><td>Emergency Repair (24H)</td><td>$150/visit</td><td class="highlight">2 Free Visits / Year</td></tr>
-            <tr><td>Minor Repair (Faucets/Lights)</td><td>$80 - $150</td><td class="highlight">2 Free Visits / Year</td></tr>
-            <tr><td>Seasonal Inspection</td><td>Extra Charge</td><td class="highlight">1 Free Visit / Year</td></tr>
-            <tr><td>Annual Total</td><td>$1,188+</td><td class="highlight"><b>$1,080 (Save 10%)</b></td></tr>
-        </tbody>
-    </table>
+    <div class="top-nav">
+        <a href="en-index.html" class="back-btn">← Back to Home</a>
+    </div>
+
+    <div class="header">
+        <h1>Priority Care Plan Details</h1>
+        <p>Professional, transparent, and efficient property maintenance standards in NYC.</p>
+    </div>
+
+    <div class="service-grid">
+        <div class="service-card">
+            <span class="icon">🛠️</span>
+            <h3>Standard Labor Costs</h3>
+            <p>For all covered maintenance items, we waive all labor fees. You only pay for transparent material costs.</p>
+            <div class="card-tag">Plan Included: $0 Labor</div>
+        </div>
+
+        <div class="service-card">
+            <span class="icon">🚨</span>
+            <h3>24/7 Emergency Response</h3>
+            <p>Water leaks, power outages, or other sudden issues? Our team is on standby 24/7 to secure your asset.</p>
+            <div class="card-tag">Monthly: $150/visit</div>
+            <p style="color:var(--gold); font-size: 0.9rem;">(Annual Members: 2 Free Visits / Year)</p>
+        </div>
+
+        <div class="service-card">
+            <span class="icon">🔍</span>
+            <h3>Annual Asset Health Assessment</h3>
+            <p>Prevention is better than cure. We provide a comprehensive structural and facility inspection every year.</p>
+            <div class="card-tag">Included in Plan (Recommended)</div>
+        </div>
+    </div>
+
     <div class="vip-box">
-        <h2 style="color:white; border:none; margin-bottom:10px;">Select Your Protection</h2>
-        <p>Instant activation. Protect your investment 24/7.</p>
+        <div class="vip-title">
+            <h2>Select Your Protection Plan</h2>
+            <p>Lock in your dedicated maintenance team now for a worry-free landlord experience.</p>
+        </div>
         
         <div class="payment-options">
             <div class="option-card">
                 <a href="https://buy.stripe.com/cNi3cudg954r9rr0fR3ks00" class="btn-stripe">Monthly Plan $99</a>
-                <span class="sub-text">Cancel Anytime</span>
+                <span class="sub-text">Cancel anytime, flexible solution</span>
             </div>
             <div class="option-card">
                 <a href="https://buy.stripe.com/00wbJ06RLbsP4770fR3ks01" class="btn-stripe annual">Annual Plan $1,080</a>
@@ -65,13 +210,10 @@
         </div>
         
         <div class="contact-bar">
-            <a href="tel:3479892686" class="contact-item">📞 347-989-2686</a>
-            <a href="mailto:support@lw-propertysolutions.com" class="contact-item">📧 support@lw-propertysolutions.com</a>
+            <a href="tel:3479892686" class="contact-item">📞 Hotline: 347-989-2686</a>
+            <a href="mailto:support@lw-propertysolutions.com" class="contact-item">📧 Email: support@lw-propertysolutions.com</a>
         </div>
     </div>
 </div>
 </body>
 </html>
-
-
-
