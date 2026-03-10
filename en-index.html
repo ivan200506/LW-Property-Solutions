@@ -3,72 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L&W Property Solutions | NYC Landlord Protection</title>
+    <title>L&W Property Solutions | NYC Premier Landlord Protection Plan</title>
     <style>
-        :root { --dark-green: #14523B; --light-green: #4CAF50; --gold: #FFB300; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.7; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .lang-switch { text-decoration: none; color: var(--dark-green); border: 1px solid var(--dark-green); padding: 5px 12px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; }
-        
-
-        .hero { 
-         
-            background: linear-gradient(rgba(20,82,59,0.75), rgba(20,82,59,0.75)), url('https://images.unsplash.com/photo-1512915928681-549b493f6567?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed; 
-            height: 90vh; 
-            display: flex; 
-            align-items: center; 
-            color: white; 
-            text-align: center;
+        :root { 
+            --dark-green: #14523B; 
+            --light-green: #4CAF50; 
+            --gold: #FFB300; 
+            --soft-bg: #f4f7f6;
+            --white: #ffffff;
         }
- 
 
-        .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: var(--white); }
         
-     
-        .price-badge { background: var(--gold); color: #fff; display: inline-block; padding: 5px 25px; border-radius: 5px; font-size: 1.8rem; font-weight: 900; margin-bottom: 25px; transform: rotate(-2deg); box-shadow: 5px 5px 15px rgba(0,0,0,0.2); }
-        .hero p { font-size: 1.3rem; margin-bottom: 35px; opacity: 0.9; }
+        /* Navigation */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 8%; background: var(--white); position: sticky; top: 0; z-index: 1000; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03); 
+        }
+        .lang-switch { 
+            text-decoration: none; color: var(--dark-green); border: 1.5px solid var(--dark-green); 
+            padding: 6px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s;
+        }
+        .lang-switch:hover { background: var(--dark-green); color: white; }
+
+        /* Hero Section */
+        .hero { 
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 80px 8% 100px; background-color: var(--dark-green); color: white;
+            gap: 50px; flex-wrap: wrap;
+        }
+        .hero-text { flex: 1.2; min-width: 320px; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 25px; }
+        .hero-text h1 span { color: var(--light-green); }
         
-        .btn { background: var(--gold); color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.3rem; display: inline-block; transition: 0.3s; box-shadow: 0 8px 20px rgba(255,179,0,0.3); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,179,0,0.5); }
-        
-        .section { padding: 90px 20px; max-width: 1100px; margin: 0 auto; }
-        footer { background: var(--dark-green); color: white; padding: 50px 0; text-align: center; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .price-badge { font-size: 1.4rem; } .hero { background-attachment: scroll; } }
+        .hero-image-container { flex: 1; min-width: 320px; }
+        .hero-image-container img {
+            width: 100%; height: 550px; object-fit: cover; border-radius: 30px;
+            background-color: #1e3a30; /* Fallback color */
+            box-shadow: 25px 25px 0px rgba(76, 175, 80, 0.2); 
+            display: block;
+        }
+
+        .price-chip {
+            background: var(--gold); color: white; padding: 12px 25px; border-radius: 12px;
+            display: inline-flex; align-items: center; gap: 15px; font-size: 1.4rem; font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .btn-cta { 
+            background: var(--light-green); color: white; padding: 18px 45px; border-radius: 50px; 
+            text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; 
+            transition: 0.3s;
+        }
+        .btn-cta:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+        /* Feature Cards */
+        .info-section { padding: 80px 8%; background: var(--soft-bg); text-align: center; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card {
+            background: white; padding: 45px 30px; border-radius: 25px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #eee; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Success Stories */
+        .case-section { padding: 100px 8%; background: var(--white); }
+        .case-header { text-align: center; margin-bottom: 60px; }
+        .case-header h2 { font-size: 2.5rem; color: var(--dark-green); }
+        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .case-card { border-radius: 20px; overflow: hidden; background: var(--soft-bg); border: 1px solid #eee; transition: 0.3s; }
+        .case-img { width: 100%; height: 260px; object-fit: cover; background: #ccc; display: block; }
+        .case-info { padding: 25px; }
+        .case-tag { display: inline-block; padding: 4px 12px; background: var(--light-green); color: white; border-radius: 4px; font-size: 0.8rem; margin-bottom: 15px; }
+
+        /* Footer */
+        footer { background: #111; color: white; padding: 60px 8%; text-align: center; }
+        footer a { color: var(--light-green); text-decoration: none; font-weight: bold; }
+        .contact-group { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
+
+        @media (max-width: 992px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 50px 5%; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-image-container img { height: 350px; }
+        }
     </style>
 </head>
 <body>
+
 <nav>
-    <img src="Logo.png" alt="L&W Logo" style="height: 55px;">
+    <img src="Logo.png" alt="L&W Logo" style="height: 50px;">
     <div>
-        <a href="tel:3479892686" style="text-decoration:none; color:var(--dark-green); font-weight:bold; margin-right:20px;">📞 347-989-2686</a>
         <a href="index.html" class="lang-switch">中文版</a>
     </div>
 </nav>
+
 <section class="hero">
-    <div class="hero-content">
-        <h1>NYC Landlord Protection Plan</h1>
-        <div class="price-badge">Only $99 / Month</div>
-        <p>Say goodbye to expensive labor costs. Your property deserves 24/7 professional care.</p>
-        <a href="en-details.html" class="btn">Get Protected Now</a>
+    <div class="hero-text">
+        <div style="background:rgba(255,255,255,0.1); padding:8px 18px; border-radius:50px; display:inline-block; margin-bottom:20px; color:var(--light-green); font-weight:bold; font-size:0.85rem;">PREMIUM NYC PROPERTY MANAGEMENT</div>
+        <h1>Building Trust, <span>One Home at a Time</span></h1>
+        <div class="price-chip">
+            <span>Priority Plan</span>
+            <span style="border-left: 1px solid rgba(255,255,255,0.3); padding-left:15px;">$99 / Mo</span>
+        </div>
+        <p>Eliminate unpredictable maintenance bills. We provide NYC landlords with 24/7 proactive property care, so you can focus on your life while we handle the rest.</p>
+        <a href="en-details.html" class="btn-cta">Explore Plan Details →</a>
+    </div>
+
+    <div class="hero-image-container">
+        <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="NYC Premier Property">
     </div>
 </section>
-<section class="section">
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:40px;">
-        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">$0 Labor Fees</h3><p>As a member, you pay zero labor costs for standard repairs. Budget with confidence.</p></div>
-        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">Full Responsibility</h3><p>From plumbing leaks to electrical issues, we take over. No more chasing contractors.</p></div>
-        <div><h3 style="color:var(--light-green); border-bottom:3px solid var(--gold); display:inline-block;">Expert Support</h3><p>We treat your property like our own. Professional, fast, and local NYC experts.</p></div>
+
+<section class="info-section">
+    <div class="card-grid">
+        <div class="card">
+            <span class="icon" style="font-size:3rem; display:block; margin-bottom:20px;">💰</span>
+            <h3>Zero Labor Charges</h3>
+            <p>As a plan member, pay $0 in labor costs for all covered standard repairs. Predictable budgeting with no hidden fees.</p>
+        </div>
+        <div class="card">
+            <span class="icon" style="font-size:3rem; display:block; margin-bottom:20px;">🏘️</span>
+            <h3>Full-Service Management</h3>
+            <p>From plumbing leaks to electrical upgrades, just one call. We handle logistics and professional execution remotely.</p>
+        </div>
+        <div class="card">
+            <span class="icon" style="font-size:3rem; display:block; margin-bottom:20px;">🛡️</span>
+            <h3>24/7 Priority Response</h3>
+            <p>Emergencies don't wait. Our members enjoy a dedicated priority dispatch channel to keep their assets secure 24/7.</p>
+        </div>
     </div>
 </section>
+
+<section class="case-section">
+    <div class="case-header">
+        <h2>Success Stories</h2>
+        <p>Real-world examples of how we protect NYC property assets</p>
+    </div>
+    <div class="case-grid">
+        <div class="case-card">
+            <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600" class="case-img" alt="Leak Repair Case">
+            <div class="case-info">
+                <span class="case-tag">Emergency</span>
+                <h4>Brooklyn Apartment Leak</h4>
+                <p>Midnight response, arrived within 30 minutes to stop the leak, saving the landlord's hardwood floors.</p>
+            </div>
+        </div>
+        <div class="case-card">
+            <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=600" class="case-img" alt="Electrical Case">
+            <div class="case-info">
+                <span class="case-tag">Maintenance</span>
+                <h4>Queens Townhouse Electrical</h4>
+                <p>Identified overheating risks during an annual inspection, upgrading the system before summer peak demand.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <footer>
-    <p>L&W Property Solutions LLC | Brooklyn & NYC</p>
-    <p>24/7 Hotline: <a href="tel:3479892686" style="color:var(--gold); text-decoration:none;">347-989-2686</a></p>
-    <p>Email: <a href="mailto:support@lw-propertysolutions.com" style="color:white; text-decoration:none;">support@lw-propertysolutions.com</a></p>
+    <p>© 2026 L&W Property Solutions LLC. All Rights Reserved.</p>
+    <div class="contact-group">
+        <a href="tel:3479892686">📞 347-989-2686</a>
+        <a href="mailto:support@lw-propertysolutions.com">📧 support@lw-propertysolutions.com</a>
+    </div>
 </footer>
+
 </body>
 </html>
-
-
