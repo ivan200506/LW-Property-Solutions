@@ -3,134 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L&W Property Solutions | 纽约专业房东保障计划</title>
+    <title>L&W Property Solutions | 纽约无忧房东保障</title>
     <style>
-        :root { 
-            --dark-green: #14523B; 
-            --light-green: #4CAF50; 
-            --gold: #FFB300; 
-            --soft-bg: #f4f7f6;
-            --white: #ffffff;
-        }
-
-        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: var(--white); }
+        :root { --dark: #14523B; --green: #4CAF50; --gold: #FFB300; --bg: #ffffff; --text: #1a1a1a; --light-bg: #f9f9f9; }
+        body { font-family: 'Inter', 'PingFang SC', sans-serif; margin: 0; color: var(--text); background: var(--bg); }
         
-        nav { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 15px 8%; background: var(--white); position: sticky; top: 0; z-index: 1000; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.03); 
-        }
-        .lang-switch { 
-            text-decoration: none; color: var(--dark-green); border: 1.5px solid var(--dark-green); 
-            padding: 6px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; transition: 0.3s;
-        }
+        nav { padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; }
+        .lang-link { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.85rem; border: 1px solid var(--dark); padding: 5px 15px; border-radius: 4px; }
 
         /* Hero Section */
-        .hero { 
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 80px 8% 100px; background-color: var(--dark-green); color: white;
-            gap: 50px; flex-wrap: wrap;
-        }
-        .hero-text { flex: 1.2; min-width: 320px; }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 25px; }
-        .hero-text h1 span { color: var(--light-green); }
+        .hero { padding: 60px 8% 100px; display: flex; align-items: center; gap: 60px; min-height: 60vh; }
+        .hero-content { flex: 1.2; }
+        .hero-image { flex: 1; border-radius: 20px; height: 500px; object-fit: cover; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); }
         
-        .hero-image-container { flex: 1; min-width: 320px; }
-        
-        /* 图片样式修正：增加了背景色占位 */
-        .hero-image-container img {
-            width: 100%; height: 550px; object-fit: cover; border-radius: 30px;
-            background-color: #1e3a30; /* 图片加载前的占位色 */
-            box-shadow: 25px 25px 0px rgba(76, 175, 80, 0.2); 
-            display: block;
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; color: var(--dark); letter-spacing: -1px; }
+        .comparison-banner { 
+            background: #f4f7f5; padding: 20px 30px; border-left: 4px solid var(--gold);
+            font-size: 1.1rem; margin-bottom: 40px; border-radius: 0 8px 8px 0; line-height: 1.6;
         }
 
-        .price-chip {
-            background: var(--gold); color: white; padding: 12px 25px; border-radius: 12px;
-            display: inline-flex; align-items: center; gap: 15px; font-size: 1.4rem; font-weight: bold;
-            margin-bottom: 30px;
+        .btn-black { 
+            background: var(--dark); color: white; padding: 18px 40px; border-radius: 5px; 
+            text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s;
         }
+        .btn-black:hover { background: var(--green); transform: translateY(-2px); }
 
-        .btn-cta { 
-            background: var(--light-green); color: white; padding: 18px 45px; border-radius: 50px; 
-            text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; 
-        }
+        /* 核心特点 */
+        .features { padding: 100px 8%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; background: var(--light-bg); }
+        .f-item h3 { font-size: 1.5rem; color: var(--dark); margin-bottom: 15px; }
+        .f-item p { color: #666; font-size: 1rem; line-height: 1.7; }
 
-        .info-section { padding: 80px 8%; background: var(--soft-bg); text-align: center; }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 45px 30px; border-radius: 25px; border: 1px solid #eee; }
+        /* 极简案例区 */
+        .cases { padding: 100px 8%; }
+        .section-label { font-weight: bold; color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 20px; display: block; }
+        .cases h2 { font-size: 2.2rem; color: var(--dark); margin-bottom: 50px; }
+        .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .case-card { text-decoration: none; color: inherit; }
+        .case-img { width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; filter: grayscale(0.2); transition: 0.5s; }
+        .case-card:hover .case-img { filter: grayscale(0); transform: scale(1.02); }
+        .case-card h4 { font-size: 1.3rem; margin: 0 0 10px 0; color: var(--dark); }
+        .case-card p { color: #777; margin: 0; font-size: 0.95rem; }
 
-        .case-section { padding: 100px 8%; background: var(--white); }
-        .case-header { text-align: center; margin-bottom: 60px; }
-        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .case-card { border-radius: 20px; overflow: hidden; background: var(--soft-bg); border: 1px solid #eee; }
-        .case-img { width: 100%; height: 260px; object-fit: cover; background: #ccc; display: block; }
-        .case-info { padding: 25px; }
-
-        footer { background: #111; color: white; padding: 60px 8%; text-align: center; }
-        footer a { color: var(--light-green); text-decoration: none; }
-        .contact-group { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
+        footer { padding: 80px 8%; background: #111; color: #aaa; text-align: center; font-size: 0.9rem; }
+        .footer-contact { margin-top: 20px; font-weight: 600; color: #fff; font-size: 1.1rem; }
 
         @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding: 50px 5%; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero-image-container img { height: 350px; }
+            .hero { flex-direction: column; text-align: center; padding: 40px 5%; }
+            h1 { font-size: 2.5rem; }
+            .features, .case-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <img src="Logo.png" alt="L&W Logo" style="height: 50px;">
-    <div>
-        <a href="en-index.html" class="lang-switch">English</a>
-    </div>
+    <img src="Logo.png" alt="L&W" style="height: 40px;">
+    <a href="en-index.html" class="lang-link">English</a>
 </nav>
 
 <section class="hero">
-    <div class="hero-text">
-        <div style="background:rgba(255,255,255,0.1); padding:8px 18px; border-radius:50px; display:inline-block; margin-bottom:20px; color:var(--light-green); font-weight:bold;">专业纽约物业托管服务</div>
-        <h1>建立信任，<span>从守护您的家开始</span></h1>
-        <div class="price-chip">
-            <span>Priority Plan</span>
-            <span style="border-left: 1px solid rgba(255,255,255,0.3); padding-left:15px;">$99 / 月</span>
+    <div class="hero-content">
+        <h1>建立信任，<br>从守护您的房产开始</h1>
+        <div class="comparison-banner">
+            纽约大多数维修仅第一小时的人工就超过 <strong>$200</strong>。<br>
+            在 L&W，您只需 <strong>$99</strong> 就能买下一整月的安心。
         </div>
-        <p>告别突如其来的昂贵维修账单。我们为纽约房东提供 24/7 全时响应，维修交给我们。</p>
-        <a href="details.html" class="btn-cta">查看保障计划详情 →</a>
+        <a href="details.html" class="btn-black">开启无忧托管 →</a>
     </div>
+    <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg" class="hero-image" alt="NYC Property">
+</section>
 
-    <div class="hero-image-container">
-        <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="NYC Property">
+<section class="features">
+    <div class="f-item">
+        <h3>$0 人工费</h3>
+        <p>会员涵盖内的标准维修人工费永远为 $0。告别意外报价，精准掌控持有成本。</p>
+    </div>
+    <div class="f-item">
+        <h3>24/7 紧急响应</h3>
+        <p>凌晨两点的漏水或停电？这是我们的问题。我们修复，您继续安睡。</p>
+    </div>
+    <div class="f-item">
+        <h3>主动式维护</h3>
+        <p>年度健康评估与预防性维护。我们像对待自己的资产一样对待您的家。</p>
     </div>
 </section>
 
-<section class="info-section">
-    <div class="card-grid">
-        <div class="card"><h3>$0 人工费</h3><p>所有涵盖范围内的标准维修人工费全部为 $0。</p></div>
-        <div class="card"><h3>全权物业托管</h3><p>只需一个电话，我们负责调度与专业施工。</p></div>
-        <div class="card"><h3>24/7 优先响应</h3><p>尊享全天候优先调度通道。</p></div>
-    </div>
-</section>
-
-<section class="case-section">
-    <div class="case-header"><h2>精选服务案例</h2></div>
+<section class="cases">
+    <span class="section-label">Success Stories</span>
+    <h2>精选服务案例</h2>
     <div class="case-grid">
         <div class="case-card">
-            <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600" class="case-img">
-            <div class="case-info"><h4>布鲁克林公寓漏水处理</h4><p>凌晨紧急响应，30分钟内抵达止损。</p></div>
+            <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg" class="case-img">
+            <h4>布鲁克林公寓紧急止损</h4>
+            <p>深夜管道爆裂，30分钟抵达现场。成功避免了数万美元的地板损失。</p>
         </div>
         <div class="case-card">
-            <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=600" class="case-img">
-            <div class="case-info"><h4>纽约联排别墅电路优化</h4><p>在年度例行检查中排除隐患。</p></div>
+            <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg" class="case-img">
+            <h4>皇后区联排别墅预防性检查</h4>
+            <p>在夏季用电高峰前完成电路优化，为租客排除了重大火灾隐患。</p>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 L&W Property Solutions LLC. All Rights Reserved.</p>
-    <div class="contact-group">
-        <a href="tel:3479892686">📞 347-989-2686</a>
-        <a href="mailto:support@lw-propertysolutions.com">📧 support@lw-propertysolutions.com</a>
+    <p>© 2026 L&W Property Solutions LLC. 纽约房产维护专家</p>
+    <div class="footer-contact">
+        347-989-2686  |  support@lw-propertysolutions.com
     </div>
 </footer>
 
