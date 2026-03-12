@@ -3,64 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>L&W Property Solutions | 纽约无忧房东保障</title>
+    <title>L&W Property Solutions | 纽约房东保障计划</title>
     <style>
         :root { --dark: #14523B; --green: #4CAF50; --gold: #FFB300; --bg: #ffffff; --text: #1a1a1a; --light-bg: #f9f9f9; }
         body { font-family: 'Inter', 'PingFang SC', sans-serif; margin: 0; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
-        
         nav { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; }
         .lang-link { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.8rem; border: 1.5px solid var(--dark); padding: 5px 12px; border-radius: 4px; }
-
-        /* Hero Section */
-        .hero { padding: 40px 8% 80px; display: flex; align-items: center; gap: 40px; min-height: 60vh; }
+        .hero { padding: 40px 8% 60px; display: flex; align-items: center; gap: 40px; min-height: 60vh; }
         .hero-content { flex: 1.2; }
         .hero-image { flex: 1; border-radius: 20px; height: 500px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        
         h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; color: var(--dark); letter-spacing: -1.5px; }
-        .comparison-banner { 
-            background: #f4f7f5; padding: 25px; border-left: 4px solid var(--gold);
-            font-size: 1.1rem; margin-bottom: 40px; border-radius: 0 8px 8px 0; line-height: 1.6;
-        }
-
-        .btn-black { 
-            background: var(--dark); color: white; padding: 18px 40px; border-radius: 5px; 
-            text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s;
-        }
-
-        /* Features */
+        .trust-badges { display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        .badge { font-size: 0.85rem; font-weight: 700; color: var(--green); letter-spacing: 1px; }
+        .comparison-banner { background: #f4f7f5; padding: 25px; border-left: 4px solid var(--gold); font-size: 1.1rem; margin-bottom: 10px; border-radius: 0 8px 8px 0; line-height: 1.6; }
+        .scope-trigger { font-size: 0.9rem; color: var(--green); cursor: pointer; text-decoration: underline; margin-bottom: 35px; display: inline-block; font-weight: 600; }
+        .btn-black { background: var(--dark); color: white; padding: 18px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s; }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+        .modal-content { background: #fff; margin: 10% auto; padding: 40px; width: 85%; max-width: 500px; border-radius: 15px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #aaa; }
+        .modal-list { list-style: none; padding: 0; margin-top: 20px; }
+        .modal-list li { padding: 10px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.95rem; }
+        .modal-list li::before { content: "✓"; color: var(--green); margin-right: 10px; font-weight: bold; }
         .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; background: var(--light-bg); }
         .f-item h3 { font-size: 1.4rem; color: var(--dark); margin-bottom: 12px; }
         .f-item p { color: #666; font-size: 0.95rem; line-height: 1.7; }
-
-        /* Cases */
         .cases { padding: 80px 8%; }
         .section-label { font-weight: bold; color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; margin-bottom: 15px; display: block; }
         .cases h2 { font-size: 2rem; color: var(--dark); margin-bottom: 40px; }
         .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .case-img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
-        .case-card { text-decoration: none; color: inherit; }
-        .case-card h4 { font-size: 1.2rem; margin: 0 0 8px 0; color: var(--dark); }
-
         footer { padding: 60px 8%; background: #111; color: #888; text-align: center; font-size: 0.85rem; }
         .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 1rem; }
-
-        /* --- 核心优化：手机端精准适配 (Media Queries) --- */
-        @media (max-width: 768px) {
-            nav { padding: 15px 5%; }
-            .hero { flex-direction: column-reverse; text-align: center; padding: 20px 6% 60px; gap: 30px; }
-            h1 { font-size: 2.2rem; margin-bottom: 20px; }
-            .hero-image { height: 280px; width: 100%; }
-            .comparison-banner { font-size: 1rem; padding: 20px; text-align: left; }
-            .btn-black { width: 100%; box-sizing: border-box; text-align: center; }
-            
-            .features { grid-template-columns: 1fr; padding: 60px 8%; gap: 40px; }
-            .cases { padding: 60px 6%; }
-            .case-grid { grid-template-columns: 1fr; gap: 40px; }
-            .case-img { height: 240px; }
-            .cases h2 { font-size: 1.8rem; text-align: center; }
-            
-            .contact-group { flex-direction: column; gap: 10px; }
-        }
+        @media (max-width: 768px) { .hero { flex-direction: column-reverse; text-align: center; padding: 20px 6% 60px; } h1 { font-size: 2.2rem; } .hero-image { height: 280px; width: 100%; } .trust-badges, .scope-trigger { justify-content: center; } .btn-black { width: 100%; text-align: center; } .features, .case-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -72,15 +46,40 @@
 
 <section class="hero">
     <div class="hero-content">
+        <div class="trust-badges">
+            <span class="badge">LICENSED & INSURED</span>
+            <span class="badge">无长期合同</span>
+        </div>
         <h1>建立信任，<br>从守护房产开始</h1>
         <div class="comparison-banner">
             纽约大多数维修仅第一小时人工就超过 <strong>$200</strong>。<br>
             在 L&W，您只需 <strong>$99</strong> 就能买下一整月的安心。
         </div>
+        <span class="scope-trigger" onclick="toggleModal()">涵盖哪些项目？</span><br>
         <a href="details.html" class="btn-black">开启无忧托管 →</a>
     </div>
     <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg" class="hero-image" alt="NYC Property">
 </section>
+
+<div id="scopeModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="toggleModal()">&times;</span>
+        <h3 style="margin-top:0; color:var(--dark);">计划包含的人工服务</h3>
+        <ul class="modal-list">
+            <li>水管疏通与止漏</li>
+            <li>马桶配件更换与维修</li>
+            <li>水龙头/淋浴头修复</li>
+            <li>电路故障排查</li>
+            <li>开关、插座及灯具更换</li>
+            <li>门锁更换与调整</li>
+            <li>烟雾/一氧化碳报警器维护</li>
+            <li>恒温器故障排查</li>
+            <li>厨卫密封胶补漏</li>
+            <li>年度房产健康安全评估</li>
+        </ul>
+        <p style="font-size: 0.75rem; color: #999; margin-top: 20px;">* 注：以上仅包含人工费。耗材与零件费用由房东按实承担。</p>
+    </div>
+</div>
 
 <section class="features">
     <div class="f-item">
@@ -104,23 +103,30 @@
         <div class="case-card">
             <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg" class="case-img">
             <h4>布鲁克林公寓紧急止损</h4>
-            <p>深夜管道爆裂，30分钟抵达现场。成功避免了数万美元的地板损失。</p>
+            <p>“L&W 在首月就帮我省下了 $600 的人工费。半夜报修响应极快。” —— 陈先生，法拉盛房东</p>
         </div>
         <div class="case-card">
             <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg" class="case-img">
-            <h4>皇后区联排别墅预防性检查</h4>
+            <h4>皇后区联排别墅预防检查</h4>
             <p>在夏季用电高峰前完成电路优化，为租客排除了重大火灾隐患。</p>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 L&W Property Solutions LLC.</p>
-    <div class="footer-contact">
-        347-989-2686<br>
-        support@lw-propertysolutions.com
-    </div>
+    <p>© 2026 L&W Property Solutions LLC. 版权所有。</p>
+    <div class="footer-contact">347-989-2686<br>support@lw-propertysolutions.com</div>
 </footer>
 
+<script>
+    function toggleModal() {
+        const modal = document.getElementById('scopeModal');
+        modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+    }
+    window.onclick = function(event) {
+        const modal = document.getElementById('scopeModal');
+        if (event.target == modal) modal.style.display = "none";
+    }
+</script>
 </body>
 </html>
