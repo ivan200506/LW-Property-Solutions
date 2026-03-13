@@ -14,7 +14,7 @@
         .hero-image { flex: 1; border-radius: 20px; height: 500px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 25px; color: var(--dark); letter-spacing: -1.5px; }
         
-        /* Vertical alignment for badges */
+        /* Vertical badges alignment */
         .trust-badges { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; align-items: flex-start; }
         .badge { font-size: 0.8rem; font-weight: 700; color: var(--green); letter-spacing: 1px; text-transform: uppercase; }
 
@@ -42,14 +42,19 @@
         footer { padding: 60px 8%; background: #111; color: #888; text-align: center; font-size: 0.85rem; }
         .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 1rem; }
 
+        /* --- Mobile Scale Fixes --- */
         @media (max-width: 768px) { 
-            .hero { flex-direction: column-reverse; text-align: center; padding: 20px 6% 60px; } 
+            .hero { flex-direction: column-reverse; text-align: center; padding: 20px 6% 40px; gap: 30px; } 
             .hero-content { text-align: center; } 
-            .trust-badges { align-items: center; } 
-            h1 { font-size: 2.2rem; } 
-            .hero-image { height: 280px; width: 100%; } 
-            .btn-black { width: 100%; text-align: center; } 
-            .features, .case-grid { grid-template-columns: 1fr; } 
+            .trust-badges { align-items: center; margin-bottom: 20px; } 
+            h1 { font-size: 2.2rem; letter-spacing: -1px; margin-bottom: 20px; } 
+            .hero-image { height: 260px; width: 100%; margin-top: 10px; } 
+            .comparison-banner { font-size: 1rem; padding: 20px; text-align: left; }
+            .btn-black { width: 100%; text-align: center; padding: 16px 0; box-sizing: border-box; } 
+            .features { padding: 40px 8%; gap: 30px; }
+            .case-grid { grid-template-columns: 1fr; gap: 40px; }
+            .case-img { height: 240px; }
+            .modal-content { width: 80%; padding: 25px; margin: 20% auto; }
         }
     </style>
 </head>
@@ -75,7 +80,7 @@
 <div id="scopeModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="toggleModal()">&times;</span>
-        <h3>Labor Services Included</h3>
+        <h3 style="margin-top:0; color:var(--dark);">Labor Services Included</h3>
         <ul class="modal-list">
             <li>Drain Unclogging</li><li>Toilet Repairs</li><li>Faucet Service</li><li>Electrical Troubleshooting</li><li>Fixture Replacement</li><li>Lock Adjustments</li><li>Smoke Detector Service</li><li>Thermostat Fixes</li><li>Kitchen/Bath Caulking</li><li>Annual Assessment</li>
         </ul>
