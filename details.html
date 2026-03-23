@@ -78,6 +78,49 @@
         </div>
     </div>
 </div>
+
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <h3 style="margin-top:0; color:var(--dark);">服务细节协议</h3>
+        <div class="terms-box">
+            <p><strong>1. 服务定义：</strong> 本保障计划仅涵盖维修过程中的人工费用。任何因维修所需的更换零件、耗材（如水龙头、灯泡、开关等）费用由房东承担。</p>
+            <p><strong>2. 服务范围：</strong> 仅限于计划中列出的标准维护项目。超出范围的结构性大修需另行报价。</p>
+            <p><strong>3. 取消与退款：</strong> 本计划为订阅制。您可以随时取消下月订阅，但当前已支付的费用（月费或年费）不予退还。</p>
+            <p><strong>4. 紧急响应：</strong> 24/7 响应是指接收报修信息的即时性，实际排单维修将根据紧急程度优先处理。</p>
+            <p><strong>5. 责任声明：</strong> L&W 不对因房屋原有结构缺陷或历史遗留问题导致的继发性损坏承担责任。</p>
+        </div>
+        <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; text-align: left; margin-bottom: 20px;">
+            <input type="checkbox" id="agreeCheckbox" style="margin-top: 5px;">
+            <span style="font-size: 0.9rem;">我已完整阅读并同意上述《L&W 房产保障服务细节协议》</span>
+        </label>
+        <button id="finalPayBtn" class="btn-gold" style="width: 100%; opacity: 0.5; cursor: not-allowed;" disabled>确认并支付</button>
+        <p style="margin-top: 15px; font-size: 0.8rem; color: #999; cursor: pointer;" onclick="closeTerms()">返回修改</p>
+    </div>
+</div>
+
+<script>
+    let stripeUrl = "";
+    function openTerms(url) {
+        stripeUrl = url;
+        document.getElementById('termsModal').style.display = 'block';
+    }
+    function closeTerms() {
+        document.getElementById('termsModal').style.display = 'none';
+        document.getElementById('agreeCheckbox').checked = false;
+        updateBtn();
+    }
+    document.getElementById('agreeCheckbox').onchange = updateBtn;
+    function updateBtn() {
+        const btn = document.getElementById('finalPayBtn');
+        const isChecked = document.getElementById('agreeCheckbox').checked;
+        btn.disabled = !isChecked;
+        btn.style.opacity = isChecked ? "1" : "0.5";
+        btn.style.cursor = isChecked ? "pointer" : "not-allowed";
+    }
+    document.getElementById('finalPayBtn').onclick = function() {
+        if(!this.disabled) window.location.href = stripeUrl;
+    }
+</script>
 <footer>© 2026 L&W Property Solutions LLC. All Rights Reserved.</footer>
 </body>
 </html>
