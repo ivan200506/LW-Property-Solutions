@@ -27,6 +27,8 @@
         .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; background: var(--light-bg); }
         .f-item h3 { font-size: 1.4rem; color: var(--dark); margin-bottom: 12px; }
         .f-item p { color: #666; font-size: 0.95rem; line-height: 1.7; }
+        .brand-philosophy { padding: 80px 10%; background: #fff; text-align: center; }
+        .philosophy-content { max-width: 700px; margin: 0 auto; }
         .cases { padding: 80px 8%; }
         .section-label { font-weight: bold; color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; margin-bottom: 15px; display: block; }
         .cases h2 { font-size: 2rem; color: var(--dark); margin-bottom: 40px; }
@@ -35,7 +37,6 @@
         footer { padding: 60px 8%; background: #111; color: #888; text-align: center; font-size: 0.85rem; }
         .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 1rem; }
 
-        /* --- 修正后的手机端缩放代码 --- */
         @media (max-width: 768px) { 
             .hero { flex-direction: column-reverse; text-align: center; padding: 20px 6% 40px; gap: 30px; } 
             .hero-content { text-align: center; } 
@@ -45,6 +46,9 @@
             .comparison-banner { font-size: 1rem; padding: 20px; text-align: left; }
             .btn-black { width: 100%; text-align: center; padding: 16px 0; box-sizing: border-box; } 
             .features { padding: 40px 8%; gap: 30px; }
+            .brand-philosophy { padding: 50px 8%; }
+            .brand-philosophy h2 { font-size: 1.5rem; }
+            .brand-philosophy p { font-size: 0.95rem; text-align: left; }
             .case-grid { grid-template-columns: 1fr; gap: 40px; }
             .case-img { height: 240px; }
             .modal-content { width: 80%; padding: 25px; margin: 20% auto; }
@@ -85,6 +89,17 @@
     <div class="f-item"><h3>$0 人工费</h3><p>标准维修人工费永远为 $0。告别意外报价，精准掌控成本。</p></div>
     <div class="f-item"><h3>24/7 紧急响应</h3><p>凌晨两点的漏水或停电？我们修复，您继续安睡。</p></div>
     <div class="f-item"><h3>主动式维护</h3><p>年度健康评估，我们像对待自己资产一样对待您的家。</p></div>
+</section>
+
+<section class="brand-philosophy">
+    <div class="philosophy-content">
+        <h2 style="color: var(--dark); font-size: 1.8rem; margin-bottom: 25px;">守护，是为了让生活一如往常</h2>
+        <p style="color: #555; line-height: 1.8; font-size: 1.05rem; text-align: justify; margin: 0;">
+            在纽约，一次突如其来的漏水或电路故障，打断的往往不只是家务，还有您难得的周末和本该安稳的睡眠。
+            <br><br>
+            L&W 存在的意义，不仅仅是修理那些冰冷的管道与电线。我们深知，房屋的核心功能，是承载您的每一个日常。我们默默守护那些看不见的基石，只为确保无论窗外如何寒暑交替，您的生活节奏始终从容，家永远是那个无需操心的避风港。
+        </p>
+    </div>
 </section>
 
 <section class="cases">
