@@ -18,6 +18,14 @@
         .comparison-banner { background: #f4f7f5; padding: 25px; border-left: 4px solid var(--gold); font-size: 1.1rem; margin-bottom: 10px; border-radius: 0 8px 8px 0; line-height: 1.6; }
         .scope-trigger { font-size: 0.9rem; color: var(--green); cursor: pointer; text-decoration: underline; margin-bottom: 35px; display: inline-block; font-weight: 600; }
         .btn-black { background: var(--dark); color: white; padding: 18px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s; }
+        
+        /* 新增 Q&A 样式 */
+        .faq-section { padding: 80px 8%; background: var(--light-bg); }
+        .faq-grid { max-width: 900px; margin: 40px auto 0; display: grid; gap: 20px; }
+        .faq-item { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; }
+        .faq-q { font-weight: 800; color: var(--dark); font-size: 1.1rem; display: block; margin-bottom: 12px; }
+        .faq-a { color: #555; line-height: 1.8; border-left: 3px solid var(--gold); padding-left: 15px; }
+
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
         .modal-content { background: #fff; margin: 10% auto; padding: 40px; width: 85%; max-width: 500px; border-radius: 15px; position: relative; }
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #aaa; }
@@ -39,19 +47,10 @@
 
         @media (max-width: 768px) { 
             .hero { flex-direction: column-reverse; text-align: center; padding: 20px 6% 40px; gap: 30px; } 
-            .hero-content { text-align: center; } 
-            .trust-badges { align-items: center; margin-bottom: 20px; } 
-            h1 { font-size: 2.2rem; letter-spacing: -1px; margin-bottom: 20px; } 
-            .hero-image { height: 260px; width: 100%; margin-top: 10px; } 
-            .comparison-banner { font-size: 1rem; padding: 20px; text-align: left; }
-            .btn-black { width: 100%; text-align: center; padding: 16px 0; box-sizing: border-box; } 
-            .features { padding: 40px 8%; gap: 30px; }
-            .brand-philosophy { padding: 50px 8%; }
-            .brand-philosophy h2 { font-size: 1.5rem; }
-            .brand-philosophy p { font-size: 0.95rem; text-align: left; }
-            .case-grid { grid-template-columns: 1fr; gap: 40px; }
-            .case-img { height: 240px; }
-            .modal-content { width: 80%; padding: 25px; margin: 20% auto; }
+            h1 { font-size: 2.2rem; } 
+            .btn-black { width: 100%; } 
+            .features { grid-template-columns: 1fr; }
+            .case-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -115,6 +114,33 @@
             <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg" class="case-img">
             <h4>皇后区别墅</h4>
             <p>夏季高峰前完成电路优化，排除隐患。</p>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <span class="section-label" style="text-align: center;">Common Questions</span>
+    <h2 style="text-align: center; color: var(--dark); font-size: 2rem; margin-bottom: 10px;">常见问题解答</h2>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <span class="faq-q">❓ Q1：为什么要每月花 $99？我现在没问题啊</span>
+            <div class="faq-a">正常情况下大家都不会有问题，但一旦出现问题，时间 + 找人 + 不确定价格，才是最麻烦的。我们让问题发生时，您不用再焦虑和到处找人。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">❓ Q2：如果我一个月不用，不就浪费了吗？</span>
+            <div class="faq-a">这个就像保险一样，不是为了“用回本”，而是为了避免一次大的麻烦或高成本。而且您是随时可以预约维护的，没有次数限制。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">❓ Q3：人工真的完全免费？</span>
+            <div class="faq-a">对，我们自己团队做的维修人工费是全免的，您只需要承担实际的零件成本。这是我们计划的核心。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">❓ Q4：那你们会不会乱加材料费？</span>
+            <div class="faq-a">不会，我们材料都是按实际成本计算，而且会提前跟您确认，不会有任何隐藏收费。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">❓ Q5：什么情况不包含？</span>
+            <div class="faq-a">比如大型工程，或者需要专业执照的施工（像大规模电路/结构改造），这种我们会帮您协调，但不在本计划包含的人工范围内。</div>
         </div>
     </div>
 </section>
