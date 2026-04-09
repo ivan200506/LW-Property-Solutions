@@ -2,61 +2,73 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>L&W Property Solutions | 纽约专业房东保障计划</title>
     <style>
         :root { --dark: #14523B; --green: #4CAF50; --gold: #FFB300; --bg: #ffffff; --text: #1a1a1a; --light-bg: #f9f9f9; }
-        body { font-family: 'Inter', 'PingFang SC', sans-serif; margin: 0; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
-        nav { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; }
-        .lang-link { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.8rem; border: 1.5px solid var(--dark); padding: 5px 12px; border-radius: 4px; }
-        .hero { padding: 40px 8% 60px; display: flex; align-items: center; gap: 40px; min-height: 60vh; }
-        .hero-content { flex: 1.2; text-align: left; }
-        .hero-image { flex: 1; border-radius: 20px; height: 500px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 25px; color: var(--dark); letter-spacing: -1.5px; }
-        .trust-badges { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; align-items: flex-start; }
-        .badge { font-size: 0.85rem; font-weight: 700; color: var(--green); letter-spacing: 1px; text-transform: uppercase; }
-        .comparison-banner { background: #f4f7f5; padding: 25px; border-left: 4px solid var(--gold); font-size: 1.1rem; margin-bottom: 10px; border-radius: 0 8px 8px 0; line-height: 1.6; }
-        .scope-trigger { font-size: 0.9rem; color: var(--green); cursor: pointer; text-decoration: underline; margin-bottom: 35px; display: inline-block; font-weight: 600; }
-        .btn-black { background: var(--dark); color: white; padding: 18px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', 'PingFang SC', sans-serif; margin: 0; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; width: 100%; }
         
-        /* 新增 Q&A 样式 */
-        .faq-section { padding: 80px 8%; background: var(--light-bg); }
-        .faq-grid { max-width: 900px; margin: 40px auto 0; display: grid; gap: 20px; }
-        .faq-item { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; }
-        .faq-q { font-weight: 800; color: var(--dark); font-size: 1.1rem; display: block; margin-bottom: 12px; }
-        .faq-a { color: #555; line-height: 1.8; border-left: 3px solid var(--gold); padding-left: 15px; }
+        nav { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+        .lang-link { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.8rem; border: 1.5px solid var(--dark); padding: 4px 10px; border-radius: 4px; }
+        
+        .hero { padding: 40px 5%; display: flex; align-items: center; gap: 40px; min-height: 70vh; }
+        .hero-content { flex: 1.2; text-align: left; }
+        .hero-image { flex: 1; border-radius: 20px; height: 500px; width: 100%; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 20px; color: var(--dark); letter-spacing: -1.5px; word-wrap: break-word; }
+        .trust-badges { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; align-items: flex-start; }
+        .badge { font-size: 0.8rem; font-weight: 700; color: var(--green); letter-spacing: 1px; text-transform: uppercase; }
+        
+        .comparison-banner { background: #f4f7f5; padding: 20px; border-left: 4px solid var(--gold); font-size: 1.05rem; margin-bottom: 15px; border-radius: 0 8px 8px 0; line-height: 1.6; }
+        .scope-trigger { font-size: 0.9rem; color: var(--green); cursor: pointer; text-decoration: underline; margin-bottom: 30px; display: inline-block; font-weight: 600; }
+        .btn-black { background: var(--dark); color: white; padding: 18px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s; text-align: center; }
+        
+        .features { padding: 60px 5%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; background: var(--light-bg); }
+        .f-item h3 { font-size: 1.3rem; color: var(--dark); margin-bottom: 10px; }
+        .f-item p { color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+        .brand-philosophy { padding: 60px 5%; background: #fff; }
+        .philosophy-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        
+        .cases { padding: 60px 5%; }
+        .section-label { font-weight: bold; color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; margin-bottom: 15px; display: block; }
+        .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .case-card { margin-bottom: 20px; }
+        .case-img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 12px; }
+
+        .faq-section { padding: 60px 5%; background: var(--light-bg); }
+        .faq-grid { max-width: 800px; margin: 30px auto 0; display: grid; gap: 15px; }
+        .faq-item { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .faq-q { font-weight: 800; color: var(--dark); font-size: 1rem; display: block; margin-bottom: 10px; line-height: 1.4; }
+        .faq-a { color: #555; line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 12px; font-size: 0.95rem; }
 
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
-        .modal-content { background: #fff; margin: 10% auto; padding: 40px; width: 85%; max-width: 500px; border-radius: 15px; position: relative; }
-        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #aaa; }
-        .modal-list { list-style: none; padding: 0; margin-top: 20px; }
-        .modal-list li { padding: 10px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.95rem; }
-        .modal-list li::before { content: "✓"; color: var(--green); margin-right: 10px; font-weight: bold; }
-        .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; background: var(--light-bg); }
-        .f-item h3 { font-size: 1.4rem; color: var(--dark); margin-bottom: 12px; }
-        .f-item p { color: #666; font-size: 0.95rem; line-height: 1.7; }
-        .brand-philosophy { padding: 80px 10%; background: #fff; text-align: center; }
-        .philosophy-content { max-width: 700px; margin: 0 auto; }
-        .cases { padding: 80px 8%; }
-        .section-label { font-weight: bold; color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; margin-bottom: 15px; display: block; }
-        .cases h2 { font-size: 2rem; color: var(--dark); margin-bottom: 40px; }
-        .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-        .case-img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
-        footer { padding: 60px 8%; background: #111; color: #888; text-align: center; font-size: 0.85rem; }
-        .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 1rem; }
+        .modal-content { background: #fff; margin: 15% auto; padding: 30px 20px; width: 90%; max-width: 500px; border-radius: 15px; position: relative; max-height: 80vh; overflow-y: auto; }
+        .close-btn { position: absolute; right: 15px; top: 10px; font-size: 28px; cursor: pointer; color: #aaa; }
+        .modal-list { list-style: none; padding: 0; margin-top: 15px; }
+        .modal-list li { padding: 8px 0; border-bottom: 1px solid #f2f2f2; font-size: 0.9rem; }
+        
+        footer { padding: 40px 5%; background: #111; color: #888; text-align: center; font-size: 0.8rem; }
+        .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 0.95rem; line-height: 1.5; }
 
         @media (max-width: 768px) { 
-            .hero { flex-direction: column-reverse; text-align: center; padding: 20px 6% 40px; gap: 30px; } 
-            h1 { font-size: 2.2rem; } 
-            .btn-black { width: 100%; } 
-            .features { grid-template-columns: 1fr; }
+            .hero { flex-direction: column-reverse; text-align: center; padding: 30px 5%; gap: 25px; } 
+            .hero-content { width: 100%; }
+            h1 { font-size: 2.3rem; margin-bottom: 15px; } 
+            .hero-image { height: 300px; border-radius: 15px; }
+            .trust-badges { align-items: center; }
+            .btn-black { width: 100%; padding: 16px; } 
+            .features { grid-template-columns: 1fr; gap: 25px; }
             .case-grid { grid-template-columns: 1fr; }
+            .comparison-banner { font-size: 0.95rem; text-align: left; }
+            .faq-item { padding: 20px; }
         }
     </style>
 </head>
 <body>
 <nav>
-    <img src="Logo.png" alt="L&W" style="height: 35px;">
+    <img src="Logo.png" alt="L&W" style="height: 30px;">
     <a href="en-index.html" class="lang-link">English</a>
 </nav>
 <section class="hero">
@@ -76,77 +88,75 @@
 <div id="scopeModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="toggleModal()">&times;</span>
-        <h3 style="margin-top:0; color:var(--dark);">计划包含的人工服务</h3>
+        <h3 style="margin-top:0; color:var(--dark); font-size:1.2rem;">计划包含的人工服务</h3>
         <ul class="modal-list">
-            <li>水管疏通与止漏</li><li>马桶配件更换与维修</li><li>水龙头/淋浴头修复</li><li>电路故障排查</li><li>开关、插座及灯具更换</li><li>门锁更换与调整</li><li>烟雾/一氧化碳报警器维护</li><li>恒温器故障排查</li><li>厨卫密封胶补漏</li><li>年度房产健康安全评估</li>
+            <li>✓ 水管疏通与止漏</li><li>✓ 马桶配件更换与维修</li><li>✓ 水龙头/淋浴头修复</li><li>✓ 电路故障排查</li><li>✓ 开关、插座及灯具更换</li><li>✓ 门锁更换与调整</li><li>✓ 烟雾/一氧化碳报警器维护</li><li>✓ 恒温器故障排查</li><li>✓ 厨卫密封胶补漏</li><li>✓ 年度房产健康安全评估</li>
         </ul>
-        <p style="font-size: 0.75rem; color: #999; margin-top: 20px;">* 注：以上仅包含人工费。耗材与零件费用由房东按实承担。</p>
+        <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">* 注：以上仅包含人工费。耗材与零件费用由房东按实承担。</p>
     </div>
 </div>
 
 <section class="features">
-    <div class="f-item"><h3>$0 人工费</h3><p>标准维修人工费永远为 $0。告别意外报价，精准掌控成本。</p></div>
-    <div class="f-item"><h3>24/7 紧急响应</h3><p>凌晨两点的漏水或停电？我们修复，您继续安睡。</p></div>
-    <div class="f-item"><h3>主动式维护</h3><p>年度健康评估，我们像对待自己资产一样对待您的家。</p></div>
+    <div class="f-item"><h3>$0 人工费</h3><p>标准维修人工费永远为 $0。告别意外报价。</p></div>
+    <div class="f-item"><h3>24/7 紧急响应</h3><p>深夜突发故障？我们响应，您继续安睡。</p></div>
+    <div class="f-item"><h3>主动式维护</h3><p>年度健康评估，防患于未然，守护资产价值。</p></div>
 </section>
 
 <section class="brand-philosophy">
     <div class="philosophy-content">
-        <h2 style="color: var(--dark); font-size: 1.8rem; margin-bottom: 25px;">守护，是为了让生活一如往常</h2>
-        <p style="color: #555; line-height: 1.8; font-size: 1.05rem; text-align: justify; margin: 0;">
-            在纽约，一次突如其来的漏水或电路故障，打断的往往不只是家务，还有您难得的周末和本该安稳的睡眠。
-            <br><br>
-            L&W 存在的意义，不仅仅是修理那些冰冷的管道与电线。我们深知，房屋的核心功能，是承载您的每一个日常。我们默默守护那些看不见的基石，只为确保无论窗外如何寒暑交替，您的生活节奏始终从容，家永远是那个无需操心的避风港。
+        <h2 style="color: var(--dark); font-size: 1.6rem; margin-bottom: 20px;">守护，是为了让生活一如往常</h2>
+        <p style="color: #555; line-height: 1.7; font-size: 1rem; text-align: justify; margin: 0;">
+            在纽约，一次突如其来的漏水或电路故障，打断的往往不只是家务。L&W 存在的意义，不仅仅是修理管道。我们深知，房屋的核心功能是承载您的日常。我们默默守护那些看不见的基石，只为确保您的生活节奏始终从容，家永远是那个无需操心的避风港。
         </p>
     </div>
 </section>
 
 <section class="cases">
     <span class="section-label">Success Stories</span>
-    <h2>精选服务案例</h2>
+    <h2 style="font-size: 1.8rem; color: var(--dark); margin-bottom: 30px;">精选服务案例</h2>
     <div class="case-grid">
         <div class="case-card">
             <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg" class="case-img">
             <h4>布鲁克林公寓</h4>
-            <p>“L&W 首月就帮我省下了 $600 的人工费。响应极快。” —— 陈先生</p>
+            <p style="font-size:0.9rem;">“L&W 首月就帮我省下了 $600 的人工费。响应极快。” —— 陈先生</p>
         </div>
         <div class="case-card">
             <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg" class="case-img">
             <h4>皇后区别墅</h4>
-            <p>夏季高峰前完成电路优化，排除隐患。</p>
+            <p style="font-size:0.9rem;">夏季高峰前完成电路优化，排除隐患。</p>
         </div>
     </div>
 </section>
 
 <section class="faq-section">
     <span class="section-label" style="text-align: center;">Common Questions</span>
-    <h2 style="text-align: center; color: var(--dark); font-size: 2rem; margin-bottom: 10px;">常见问题解答</h2>
+    <h2 style="text-align: center; color: var(--dark); font-size: 1.8rem; margin-bottom: 10px;">常见问题解答</h2>
     <div class="faq-grid">
         <div class="faq-item">
             <span class="faq-q">❓ Q1：为什么要每月花 $99？我现在没问题啊</span>
-            <div class="faq-a">正常情况下大家都不会有问题，但一旦出现问题，时间 + 找人 + 不确定价格，才是最麻烦的。我们让问题发生时，您不用再焦虑和到处找人。</div>
+            <div class="faq-a">我们让问题发生时，您不用再焦虑和到处找人。提前锁定服务。</div>
         </div>
         <div class="faq-item">
             <span class="faq-q">❓ Q2：如果我一个月不用，不就浪费了吗？</span>
-            <div class="faq-a">这个就像保险一样，不是为了“用回本”，而是为了避免一次大的麻烦或高成本。而且您是随时可以预约维护的，没有次数限制。</div>
+            <div class="faq-a">这就像保险，是为了避免一次大的麻烦。而且您可以随时预约维护。</div>
         </div>
         <div class="faq-item">
             <span class="faq-q">❓ Q3：人工真的完全免费？</span>
-            <div class="faq-a">对，我们自己团队做的维修人工费是全免的，您只需要承担实际的零件成本。这是我们计划的核心。</div>
+            <div class="faq-a">对，我们团队做的标准维修人工费全免，您只需承担实际零件成本。</div>
         </div>
         <div class="faq-item">
             <span class="faq-q">❓ Q4：那你们会不会乱加材料费？</span>
-            <div class="faq-a">不会，我们材料都是按实际成本计算，而且会提前跟您确认，不会有任何隐藏收费。</div>
+            <div class="faq-a">不会，材料按实际成本计算并提前确认，绝无隐藏收费。</div>
         </div>
         <div class="faq-item">
             <span class="faq-q">❓ Q5：什么情况不包含？</span>
-            <div class="faq-a">比如大型工程，或者需要专业执照的施工（像大规模电路/结构改造），这种我们会帮您协调，但不在本计划包含的人工范围内。</div>
+            <div class="faq-a">大型工程或需特定执照的结构改造不包含，但我们可以协助协调。</div>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 L&W Property Solutions LLC. 版权所有。</p>
+    <p>© 2026 L&W Property Solutions LLC.</p>
     <div class="footer-contact">347-989-2686<br>support@lw-propertysolutions.com</div>
 </footer>
 <script>
