@@ -14,48 +14,36 @@
         .section { margin-bottom: 60px; }
         .section h2 { font-size: 1.5rem; color: var(--dark); border-left: 4px solid var(--green); padding-left: 15px; margin-bottom: 25px; }
         
-        /* Table */
+        /* Table & Process */
         .table-container { overflow-x: auto; margin: 20px 0; border: 1px solid #eee; border-radius: 8px; }
         .comparison-table { width: 100%; border-collapse: collapse; background: #fff; min-width: 600px; }
         .comparison-table th { background: var(--light-bg); padding: 15px; text-align: center; color: var(--dark); border-bottom: 2px solid #eee; }
         .comparison-table td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; text-align: center; }
         .comparison-table td:first-child { text-align: left; font-weight: 600; background: #fafafa; width: 25%; }
-        .highlight-col { background: #fdfaf0; font-weight: 600; }
         .save-tag { background: var(--gold); color: var(--dark); padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; display: block; margin-top: 4px; }
         
-        /* Process */
         .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 30px; }
         .step-item { text-align: center; background: var(--light-bg); padding: 25px; border-radius: 12px; }
         .step-num { width: 35px; height: 35px; background: var(--dark); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; }
-        .step-item h4 { color: var(--dark); margin: 10px 0; }
-        .step-item p { font-size: 0.85rem; color: #666; margin: 0; }
 
-        /* Quick Subscribe - Fixed Flex Symmetry */
+        /* Pricing Cards */
         .pricing-grid { display: flex; flex-direction: row; gap: 20px; margin-top: 40px; align-items: stretch; justify-content: center; }
-        .price-card { 
-            flex: 1; 
-            border: 1px solid #eee; padding: 35px 25px; border-radius: 15px; 
-            display: flex; flex-direction: column; text-align: center; transition: 0.3s;
-        }
+        .price-card { flex: 1; border: 1px solid #eee; padding: 35px 25px; border-radius: 15px; display: flex; flex-direction: column; text-align: center; transition: 0.3s; }
         .price-card:hover { border-color: var(--green); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
-        .price-card h3 { color: var(--dark); margin-top: 0; font-size: 1.4rem; }
         .price-val { font-size: 2.2rem; font-weight: 800; color: var(--dark); margin: 15px 0; }
         .price-desc { font-size: 0.85rem; color: #777; margin-bottom: 30px; flex-grow: 1; min-height: 60px; }
         
         .btn-gold { background: var(--gold); color: var(--dark); padding: 14px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1rem; border: none; cursor: pointer; margin-bottom: 12px; width: 100%; }
         .btn-outline { border: 1.5px solid var(--dark); color: var(--dark); padding: 13px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1rem; background: transparent; cursor: pointer; width: 100%; }
 
+        /* Modal */
         .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
         .modal-content { background: #fff; margin: 5% auto; padding: 30px; width: 90%; max-width: 550px; border-radius: 15px; text-align: center; }
-        .terms-box { height: 250px; overflow-y: auto; border: 1px solid #eee; padding: 15px; font-size: 0.85rem; text-align: left; background: #fcfcfc; margin: 20px 0; }
+        .terms-box { height: 280px; overflow-y: auto; border: 1px solid #eee; padding: 20px; font-size: 0.85rem; text-align: left; background: #fcfcfc; margin: 20px 0; border-radius: 8px; }
+        .terms-box h4 { margin-top: 0; color: var(--dark); border-bottom: 1px solid #eee; padding-bottom: 10px; }
 
         footer { text-align: center; padding: 60px 8%; color: #999; font-size: 0.8rem; }
-
-        @media (max-width: 992px) {
-            .pricing-grid { flex-direction: column; align-items: center; }
-            .price-card { width: 100%; max-width: 400px; }
-            .steps { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 992px) { .pricing-grid { flex-direction: column; align-items: center; } .price-card { width: 100%; max-width: 400px; } .steps { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -65,61 +53,60 @@
 </nav>
 
 <div class="content-wrap">
-    <h1>Protection Plan Details</h1>
-
+    <h1>Plan Details</h1>
     <div class="section">
-        <h2>Feature Comparison</h2>
+        <h2>Comparison</h2>
         <div class="table-container">
             <table class="comparison-table">
                 <thead>
-                    <tr><th>Benefits</th><th>Basic Plan</th><th>Standard Plan</th><th>Premium Plan</th></tr>
+                    <tr><th>Benefits</th><th>Basic</th><th>Standard</th><th>Premium</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Monthly Billing</td><td>$99/mo</td><td>$199/mo</td><td>$299/mo</td></tr>
-                    <tr><td>Annual Billing <span class="save-tag">Save 10%</span></td><td class="highlight-col">$89/mo</td><td class="highlight-col">$179/mo</td><td class="highlight-col">$269/mo</td></tr>
-                    <tr><td>Routine Assessment</td><td>Included</td><td>Included</td><td>Included</td></tr>
-                    <tr><td>Standard Labor</td><td>Minor Only</td><td>Included</td><td>Included</td></tr>
-                    <tr><td>Emergency Labor</td><td>Extra Fee</td><td>Extra Fee</td><td>Included</td></tr>
-                    <tr><td>Appliance Support</td><td>×</td><td>×</td><td>Included</td></tr>
-                    <tr><td>Priority Status</td><td>Standard</td><td>High Priority</td><td>VIP Priority</td></tr>
+                    <tr><td>Monthly</td><td>$99/mo</td><td>$199/mo</td><td>$299/mo</td></tr>
+                    <tr><td>Annual <span class="save-tag">Save 10%</span></td><td style="background:#fdfaf0;font-weight:600;">$89/mo</td><td style="background:#fdfaf0;font-weight:600;">$179/mo</td><td style="background:#fdfaf0;font-weight:600;">$269/mo</td></tr>
+                    <tr><td>Routine Assessment</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+                    <tr><td>Labor Waiver</td><td>Partial</td><td>Full</td><td>Full</td></tr>
+                    <tr><td>Emergencies</td><td>Extra</td><td>Extra</td><td>Full</td></tr>
+                    <tr><td>Appliances</td><td>×</td><td>×</td><td>Yes</td></tr>
+                    <tr><td>Priority</td><td>Standard</td><td>High</td><td>VIP</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
     <div class="section">
-        <h2>Service Process</h2>
+        <h2>Process</h2>
         <div class="steps">
-            <div class="step-item"><div class="step-num">1</div><h4>Request</h4><p>Call 347-989-2686 or submit online. We'll schedule based on your tier.</p></div>
-            <div class="step-item"><div class="step-num">2</div><h4>On-Site</h4><p>L&W technicians arrive. Labor fees waived for Standard & Premium members.</p></div>
-            <div class="step-item"><div class="step-num">3</div><h4>Done</h4><p>Confirm the resolution on-site. Pay only for transparent part costs.</p></div>
+            <div class="step-item"><div class="step-num">1</div><h4>Request</h4><p>Call 347-989-2686 for priority scheduling.</p></div>
+            <div class="step-item"><div class="step-num">2</div><h4>On-Site</h4><p>Certified techs arrive. Labor waived for Standard/Premium.</p></div>
+            <div class="step-item"><div class="step-num">3</div><h4>Done</h4><p>Confirm the fix. Pay only for parts if any.</p></div>
         </div>
     </div>
 
     <div class="section">
-        <h2>Quick Subscription</h2>
+        <h2>Quick Subscribe</h2>
         <div class="pricing-grid">
             <div class="price-card">
                 <h3>Basic Plan</h3>
                 <div class="price-val">$99<small>/mo</small></div>
-                <p class="price-desc">Ideal for small apartments focusing on prevention and basic system maintenance.</p>
-                <button onclick="openTerms('https://buy.stripe.com/00wbJ06RLbsP4770fR3ks01')" class="btn-gold">Annual (Save $120)</button>
-                <button onclick="openTerms('https://buy.stripe.com/cNi3cudg954r9rr0fR3ks00')" class="btn-outline">Monthly</button>
+                <p class="price-desc">Best for small apartments focusing on prevention.</p>
+                <button onclick="openTerms('basic_annual', 'https://buy.stripe.com/00wbJ06RLbsP4770fR3ks01')" class="btn-gold">Annual (Save $120)</button>
+                <button onclick="openTerms('basic_monthly', 'https://buy.stripe.com/cNi3cudg954r9rr0fR3ks00')" class="btn-outline">Monthly</button>
             </div>
             <div class="price-card" style="border: 2px solid var(--green); position: relative;">
-                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 2px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">MOST POPULAR</div>
+                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 2px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">POPULAR</div>
                 <h3>Standard Plan</h3>
                 <div class="price-val">$199<small>/mo</small></div>
-                <p class="price-desc">Comprehensive labor coverage for all standard repairs. Best value for NYC owners.</p>
-                <button onclick="openTerms('STRIPE_STD_ANNUAL')" class="btn-gold">Annual (Save $240)</button>
-                <button onclick="openTerms('STRIPE_STD_MONTHLY')" class="btn-outline">Monthly</button>
+                <p class="price-desc">Covers all standard labor. Most popular for NYC owners.</p>
+                <button onclick="openTerms('std_annual', 'EN_STRIPE_STD_ANN')" class="btn-gold">Annual (Save $240)</button>
+                <button onclick="openTerms('std_monthly', 'EN_STRIPE_STD_MON')" class="btn-outline">Monthly</button>
             </div>
             <div class="price-card">
                 <h3>Premium Plan</h3>
                 <div class="price-val">$299<small>/mo</small></div>
-                <p class="price-desc">Total peace of mind with emergency labor and support for core appliances included.</p>
-                <button onclick="openTerms('STRIPE_PRE_ANNUAL')" class="btn-gold">Annual (Save $360)</button>
-                <button onclick="openTerms('STRIPE_PRE_MONTHLY')" class="btn-outline">Monthly</button>
+                <p class="price-desc">Emergency labor and appliance support included.</p>
+                <button onclick="openTerms('pre_annual', 'EN_STRIPE_PRE_ANN')" class="btn-gold">Annual (Save $360)</button>
+                <button onclick="openTerms('pre_monthly', 'EN_STRIPE_PRE_MON')" class="btn-outline">Monthly</button>
             </div>
         </div>
     </div>
@@ -127,29 +114,44 @@
 
 <div id="termsModal" class="modal">
     <div class="modal-content">
-        <h3 style="color:var(--dark);">Service Agreement</h3>
-        <div class="terms-box">
-            <p><strong>1. Labor Policy:</strong> Plan waives labor fees for covered services; parts billed at cost.</p>
-            <p><strong>2. Priority:</strong> Scheduling is prioritized based on your membership tier.</p>
-            <p><strong>3. Billing:</strong> Subscriptions auto-renew. Annual fees are non-refundable once charged.</p>
-        </div>
-        <label style="display: flex; gap: 10px; cursor: pointer; margin-bottom: 20px; text-align: left;">
-            <input type="checkbox" id="agreeCheckbox"> <span style="font-size: 0.9rem;">I agree to the L&W Service Agreement</span>
+        <h3 id="modalTitle">Agreement</h3>
+        <div id="termsContent" class="terms-box"></div>
+        <label style="display: flex; gap: 10px; cursor: pointer; margin-bottom: 20px; text-align: left; align-items: flex-start;">
+            <input type="checkbox" id="agreeCheckbox" style="margin-top: 5px;"> 
+            <span style="font-size: 0.9rem;">I agree to the Service Details Agreement and confirm parts cost is responsibility of the owner.</span>
         </label>
-        <button id="finalPayBtn" class="btn-gold" style="opacity: 0.5;" disabled>Agree & Pay</button>
-        <p style="margin-top: 15px; font-size: 0.8rem; color: #999; cursor: pointer;" onclick="closeTerms()">Cancel</p>
+        <button id="finalPayBtn" class="btn-gold" style="opacity: 0.5; cursor: not-allowed;" disabled>Agree & Pay</button>
+        <p style="margin-top: 15px; font-size: 0.8rem; color: #999; cursor: pointer;" onclick="closeTerms()">Back</p>
     </div>
 </div>
 
 <script>
     let stripeUrl = "";
-    function openTerms(url) { stripeUrl = url; document.getElementById('termsModal').style.display = 'block'; }
-    function closeTerms() { document.getElementById('termsModal').style.display = 'none'; }
-    document.getElementById('agreeCheckbox').onchange = function() {
-        const btn = document.getElementById('finalPayBtn');
-        btn.disabled = !this.checked;
-        btn.style.opacity = this.checked ? "1" : "0.5";
+    const termsData = {
+        'basic_monthly': { title: 'Basic Plan (Monthly)', content: '<h4>Key Terms:</h4><ul><li><b>Labor:</b> Includes monthly check and minor fixes (<30m). Extra labor at member rates.</li><li><b>Response:</b> Standard (48-72h).</li><li><b>Appliances:</b> Not included.</li><li><b>Policy:</b> Billed monthly, cancel anytime.</li></ul>' },
+        'basic_annual': { title: 'Basic Plan (Annual)', content: '<h4>Key Terms:</h4><ul><li><b>Labor:</b> Same as monthly.</li><li><b>Bonus:</b> 1 Deep Safety Assessment per year.</li><li><b>Billing:</b> 10% discount applied. Non-refundable annual fee.</li></ul>' },
+        'std_monthly': { title: 'Standard Plan (Monthly)', content: '<h4>Key Terms:</h4><ul><li><b>Labor:</b> Full waiver of labor for plumbing/electrical/HVAC repairs.</li><li><b>Response:</b> Priority (24-48h).</li><li><b>Appliances:</b> Not included.</li><li><b>Emergency:</b> Surcharge for <24h emergency dispatch.</li></ul>' },
+        'std_annual': { title: 'Standard Plan (Annual)', content: '<h4>Key Terms:</h4><ul><li><b>Labor:</b> Same as monthly.</li><li><b>Bonus:</b> Quarterly HVAC/Hot Water filter cleaning.</li><li><b>Priority:</b> Higher priority than monthly subs.</li><li><b>Billing:</b> Annual contract, non-refundable.</li></ul>' },
+        'pre_monthly': { title: 'Premium Plan (Monthly)', content: '<h4>Key Terms:</h4><ul><li><b>Labor:</b> Covers all routine and Core Appliance (Fridge/Washer) labor.</li><li><b>Response:</b> VIP (12-24h).</li><li><b>Emergency:</b> 1 Free After-Hours dispatch per month.</li></ul>' },
+        'pre_annual': { title: 'Premium Plan (Annual)', content: '<h4>Key Terms:</h4><ul><li><b>Labor:</b> Same as monthly.</li><li><b>Value:</b> Free labor for minor appliance part replacements.</li><li><b>Guarantee:</b> Tech dispatch within 24h.</li><li><b>Price:</b> Locked for the contract term.</li></ul>' }
     };
+
+    function openTerms(planId, url) {
+        stripeUrl = url;
+        const data = termsData[planId];
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('termsContent').innerHTML = data.content;
+        document.getElementById('termsModal').style.display = 'block';
+    }
+    function closeTerms() { document.getElementById('termsModal').style.display = 'none'; document.getElementById('agreeCheckbox').checked = false; updateBtn(); }
+    document.getElementById('agreeCheckbox').onchange = updateBtn;
+    function updateBtn() {
+        const btn = document.getElementById('finalPayBtn');
+        const isChecked = document.getElementById('agreeCheckbox').checked;
+        btn.disabled = !isChecked;
+        btn.style.opacity = isChecked ? "1" : "0.5";
+        btn.style.cursor = isChecked ? "pointer" : "not-allowed";
+    }
     document.getElementById('finalPayBtn').onclick = function() { window.location.href = stripeUrl; };
 </script>
 <footer>© 2026 L&W Property Solutions LLC. All Rights Reserved.</footer>
