@@ -20,13 +20,16 @@
         
         /* Table Styles */
         .table-container { overflow-x: auto; margin: 20px 0; border: 1px solid #eee; border-radius: 8px; }
-        .comparison-table { width: 100%; border-collapse: collapse; background: #fff; min-width: 700px; }
+        .comparison-table { width: 100%; border-collapse: collapse; background: #fff; min-width: 750px; }
         .comparison-table th { background: var(--light-bg); padding: 15px; text-align: center; color: var(--dark); border-bottom: 2px solid #eee; }
         .comparison-table td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; text-align: center; }
         .comparison-table td:first-child { text-align: left; font-weight: 600; background: #fafafa; width: 25%; }
         .highlight-col { background: #fdfaf0; font-weight: 600; }
         .save-tag { background: var(--gold); color: var(--dark); padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; display: block; margin-top: 4px; }
         
+        /* Secondary Gray Text for Bonus Items */
+        .text-secondary { color: #777; font-size: 0.8rem; display: block; margin-top: 4px; font-weight: normal; }
+
         /* Process Steps */
         .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 30px; }
         .step-item { text-align: center; background: var(--light-bg); padding: 25px; border-radius: 12px; }
@@ -81,10 +84,22 @@
                 <tbody>
                     <tr><td>Monthly Subscription</td><td>$99/mo</td><td>$199/mo</td><td>$299/mo</td></tr>
                     <tr><td>Annual Subscription <span class="save-tag">Save 10%</span></td><td class="highlight-col">$89/mo</td><td class="highlight-col">$179/mo</td><td class="highlight-col">$269/mo</td></tr>
-                    <tr><td>Routine HVAC/Plumbing Check</td><td>Included</td><td>Included</td><td>Included</td></tr>
-                    <tr><td>Standard Repair Labor</td><td>Partial Coverage</td><td>Full Waiver</td><td>Full Waiver</td></tr>
-                    <tr><td>Emergency Labor Fee</td><td>Extra Charge</td><td>Extra Charge</td><td>Full Waiver</td></tr>
-                    <tr><td>Core Appliance Support</td><td>×</td><td>×</td><td>Included</td></tr>
+                    <tr><td>Routine Plumbing/Electrical Check</td><td>Included</td><td>Included</td><td>Included</td></tr>
+                    <tr><td>Water Heater Preventative Maintenance</td><td>Included</td><td>Included</td><td>Included</td></tr>
+                    <tr><td>Seasonal HVAC System Tune-up</td><td>Included</td><td>Included</td><td>Included</td></tr>
+                    <tr><td>Standard Repair Labor</td><td>1 Visit / Month</td><td>2 Visits / Month</td><td>3 Visits / Month</td></tr>
+                    <tr><td>Emergency Labor Fee</td><td>Extra Charge</td><td>1 Visit / Month</td><td>Full Waiver</td></tr>
+                    <tr><td>Core Appliance Support</td>
+                        <td>1 Visit / Month</td>
+                        <td>
+                            2 Visits / Month
+                            <span class="text-secondary">(Bonus: 1 Fridge/Dryer Maintenance per Year)</span>
+                        </td>
+                        <td>
+                            3 Visits / Month
+                            <span class="text-secondary">(Bonus: 1 Fridge/Dryer Maintenance per Quarter)</span>
+                        </td>
+                    </tr>
                     <tr><td>Response Priority</td><td>Standard</td><td>High Priority</td><td>VIP Priority</td></tr>
                 </tbody>
             </table>
@@ -137,72 +152,4 @@
             <input type="checkbox" id="agreeCheckbox" style="margin-top: 5px;"> 
             <span style="font-size: 0.9rem;">I have read and agree to the Service Details Agreement and acknowledge that parts costs are the owner's responsibility.</span>
         </label>
-        <button id="finalPayBtn" class="btn-gold" style="opacity: 0.5; cursor: not-allowed;" disabled>Agree & Pay</button>
-        <p style="margin-top: 15px; font-size: 0.8rem; color: #999; cursor: pointer;" onclick="closeTerms()">Back to Plans</p>
-    </div>
-</div>
-
-<script>
-    let stripeUrl = "";
-    const termsData = {
-        'basic_monthly': { 
-            title: 'Basic Plan (Monthly) Agreement', 
-            content: '<h4>Core Terms:</h4><ul><li><b>Labor:</b> Includes 1 monthly compliance check & minor fixes (<30m). Extra labor at discounted member rates.</li><li><b>Response:</b> Standard (48-72h scheduling).</li><li><b>Appliances:</b> Not included.</li><li><b>Cancellation:</b> Monthly billing, cancel anytime. No refund for current period.</li></ul>' 
-        },
-        'basic_annual': { 
-            title: 'Basic Plan (Annual) Agreement', 
-            content: '<h4>Core Terms:</h4><ul><li><b>Labor:</b> Same as monthly.</li><li><b>Bonus:</b> One deep annual home system safety assessment.</li><li><b>Billing:</b> 10% discount included. Annual fee is non-refundable once charged.</li><li><b>Parts:</b> Landlord covers all material costs.</li></ul>' 
-        },
-        'std_monthly': { 
-            title: 'Standard Plan (Monthly) Agreement', 
-            content: '<h4>Core Terms:</h4><ul><li><b>Labor:</b> Full waiver of labor fees for routine Plumbing, Electrical, and HVAC repairs.</li><li><b>Response:</b> Priority scheduling (24-48h).</li><li><b>Appliances:</b> Not included.</li><li><b>Emergency:</b> Surcharge applies for <24h emergency dispatch.</li></ul>' 
-        },
-        'std_annual': { 
-            title: 'Standard Plan (Annual) Agreement', 
-            content: '<h4>Core Terms:</h4><ul><li><b>Labor:</b> Same as monthly.</li><li><b>Bonus:</b> Quarterly preventive cleaning for HVAC/Hot Water systems (parts extra).</li><li><b>Priority:</b> Higher priority over monthly subscribers in the same tier.</li><li><b>Policy:</b> One-year commitment, non-refundable.</li></ul>' 
-        },
-        'pre_monthly': { 
-            title: 'Premium Plan (Monthly) Agreement', 
-            content: '<h4>Core Terms:</h4><ul><li><b>Labor:</b> Full waiver for routine + Core Appliances (Fridge, Washer, etc.) repairs.</li><li><b>Response:</b> VIP Priority (12-24h response).</li><li><b>Emergency:</b> Includes 1 free after-hours emergency labor dispatch per month.</li></ul>' 
-        },
-        'pre_annual': { 
-            title: 'Premium Plan (Annual) Agreement', 
-            content: '<h4>Core Terms:</h4><ul><li><b>Labor:</b> Same as monthly.</li><li><b>Value-Add:</b> Labor waiver for simple appliance part replacements (e.g., seals, switches).</li><li><b>Dispatch:</b> Tech guaranteed on-site within 24h of request.</li><li><b>Price Lock:</b> Guaranteed price stability during contract term.</li></ul>' 
-        }
-    };
-
-    function openTerms(planId, url) {
-        stripeUrl = url;
-        const data = termsData[planId];
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('termsContent').innerHTML = data.content;
-        document.getElementById('termsModal').style.display = 'block';
-    }
-    
-    function closeTerms() { 
-        document.getElementById('termsModal').style.display = 'none'; 
-        document.getElementById('agreeCheckbox').checked = false; 
-        updateBtn(); 
-    }
-
-    document.getElementById('agreeCheckbox').onchange = updateBtn;
-    
-    function updateBtn() {
-        const btn = document.getElementById('finalPayBtn');
-        const isChecked = document.getElementById('agreeCheckbox').checked;
-        btn.disabled = !isChecked;
-        btn.style.opacity = isChecked ? "1" : "0.5";
-        btn.style.cursor = isChecked ? "pointer" : "not-allowed";
-    }
-
-    document.getElementById('finalPayBtn').onclick = function() { 
-        if(stripeUrl.startsWith('http')) {
-            window.location.href = stripeUrl; 
-        } else {
-            alert("Stripe link pending. Please contact administrator.");
-        }
-    };
-</script>
-<footer>© 2026 L&W Property Solutions LLC. All Rights Reserved.</footer>
-</body>
-</html>
+        <button id="finalPayBtn" class="btn-gold" style="opacity: 0.5; cursor: not
