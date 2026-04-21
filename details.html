@@ -8,7 +8,6 @@
         :root { --dark: #14523B; --green: #4CAF50; --gold: #FFB300; --bg: #ffffff; --text: #1a1a1a; --light-bg: #f9f9f9; }
         body { font-family: 'Inter', 'PingFang SC', sans-serif; margin: 0; color: var(--text); background: var(--bg); line-height: 1.6; }
         
-        /* 导航栏与 Logo 方案二优化 */
         nav { padding: 25px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; background: #fff; }
         .back-link { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; }
         .nav-logo { height: 55px; width: auto; transition: 0.3s ease; display: block; }
@@ -18,26 +17,63 @@
         .section { margin-bottom: 60px; }
         .section h2 { font-size: 1.5rem; color: var(--dark); border-left: 4px solid var(--green); padding-left: 15px; margin-bottom: 25px; }
         
-        /* 表格样式 */
-        .table-container { overflow-x: auto; margin: 20px 0; border: 1px solid #eee; border-radius: 8px; }
-        .comparison-table { width: 100%; border-collapse: collapse; background: #fff; min-width: 600px; }
-        .comparison-table th { background: var(--light-bg); padding: 15px; text-align: center; color: var(--dark); border-bottom: 2px solid #eee; }
-        .comparison-table td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; text-align: center; }
-        .comparison-table td:first-child { text-align: left; font-weight: 600; background: #fafafa; width: 25%; }
-        .highlight-col { background: #fdfaf0; font-weight: 600; }
-        .save-tag { background: var(--gold); color: var(--dark); padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; display: block; margin-top: 4px; }
+        /* --- 绝对对称表格核心样式 --- */
+        .table-container { overflow-x: auto; margin: 20px 0; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         
-        /* 赠送福利的小字灰色样式 */
-        .text-secondary { color: #777; font-size: 0.8rem; display: block; margin-top: 4px; font-weight: normal; }
+        .comparison-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background: #fff; 
+            min-width: 850px; 
+            table-layout: fixed; 
+        }
 
-        /* 流程步骤 */
+        .comparison-table th:first-child, 
+        .comparison-table td:first-child { width: 28%; text-align: left; background: #fafafa; padding-left: 20px; font-weight: 600; }
+        
+        .comparison-table th:not(:first-child), 
+        .comparison-table td:not(:first-child) { width: 24%; text-align: center; }
+
+        .comparison-table th { background: var(--light-bg); padding: 20px 10px; color: var(--dark); border-bottom: 2px solid #eee; }
+        
+        .comparison-table td { 
+            padding: 15px 10px; 
+            border-bottom: 1px solid #eee; 
+            vertical-align: middle; 
+            height: 110px; 
+        }
+
+        .cell-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .highlight-col { background: #fdfaf0; font-weight: 600; }
+        
+        .bonus-text {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 8px;
+            min-height: 32px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.3;
+        }
+
+        .hidden { visibility: hidden; } 
+        .save-tag { background: var(--gold); color: var(--dark); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; margin-top: 5px; display: inline-block; }
+        
         .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 30px; }
         .step-item { text-align: center; background: var(--light-bg); padding: 25px; border-radius: 12px; }
         .step-num { width: 35px; height: 35px; background: var(--dark); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; }
         .step-item h4 { color: var(--dark); margin: 10px 0; }
         .step-item p { font-size: 0.85rem; color: #666; margin: 0; }
 
-        /* 价格卡片布局 */
         .pricing-grid { display: flex; flex-direction: row; gap: 20px; margin-top: 40px; align-items: stretch; justify-content: center; }
         .price-card { flex: 1; border: 1px solid #eee; padding: 35px 25px; border-radius: 15px; display: flex; flex-direction: column; text-align: center; transition: 0.3s; background: #fff; }
         .price-card:hover { border-color: var(--green); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
@@ -48,21 +84,17 @@
         .btn-gold { background: var(--gold); color: var(--dark); padding: 14px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1rem; border: none; cursor: pointer; margin-bottom: 12px; width: 100%; transition: 0.2s; }
         .btn-outline { border: 1.5px solid var(--dark); color: var(--dark); padding: 13px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1rem; background: transparent; cursor: pointer; width: 100%; }
 
-        /* 协议弹窗 */
         .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
         .modal-content { background: #fff; margin: 5% auto; padding: 30px; width: 90%; max-width: 550px; border-radius: 15px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
         .terms-box { height: 280px; overflow-y: auto; border: 1px solid #eee; padding: 20px; font-size: 0.85rem; text-align: left; background: #fcfcfc; margin: 20px 0; line-height: 1.6; border-radius: 8px; }
-        .terms-box h4 { margin-top: 0; color: var(--dark); border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .terms-box ul { padding-left: 20px; }
-
+        
         footer { text-align: center; padding: 60px 8%; color: #999; font-size: 0.8rem; }
 
-        /* 移动端适配 */
         @media (max-width: 992px) {
             .pricing-grid { flex-direction: column; align-items: center; }
             .price-card { width: 100%; max-width: 400px; }
             .steps { grid-template-columns: 1fr; }
-            .nav-logo { height: 45px; } /* 移动端 Logo 稍小 */
+            .comparison-table { table-layout: auto; min-width: 600px; }
         }
     </style>
 </head>
