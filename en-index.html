@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>L&W Property Solutions | NYC Landlord Protection Plan</title>
+    <title>L&W Property Solutions | NYC Landlord & Commercial Protection</title>
     <style>
         :root { --dark: #14523B; --green: #4CAF50; --gold: #FFB300; --bg: #ffffff; --text: #1a1a1a; --light-bg: #f9f9f9; }
         * { box-sizing: border-box; }
@@ -53,26 +53,34 @@
         .faq-item { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         .faq-q { font-weight: 800; color: var(--dark); font-size: 1rem; display: block; margin-bottom: 10px; line-height: 1.4; }
         .faq-a { color: #555; line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 12px; font-size: 0.95rem; }
+
+        /* Commercial Section Styles */
+        .commercial-section { padding: 80px 5%; background: var(--dark); color: #fff; text-align: center; }
+        .commercial-wrap { max-width: 900px; margin: 0 auto; }
+        .commercial-badge { display: inline-block; padding: 5px 15px; border: 1px solid var(--gold); color: var(--gold); border-radius: 30px; font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; }
+        .commercial-title { font-size: 2.2rem; margin-bottom: 20px; color: #fff; }
+        .commercial-desc { font-size: 1.1rem; line-height: 1.8; color: #e0e0e0; margin-bottom: 40px; }
+        .commercial-contact-box { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .com-contact-item { text-align: center; }
+        .com-contact-item a { color: var(--gold); text-decoration: none; font-size: 1.3rem; font-weight: bold; display: block; margin-top: 5px; }
+        .com-contact-item p { font-size: 0.85rem; color: #aaa; margin: 0; }
         
         footer { padding: 40px 5%; background: #111; color: #888; text-align: center; font-size: 0.8rem; }
         .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 0.95rem; line-height: 1.5; }
 
-        /* Mobile Optimization */
         @media (max-width: 768px) { 
             nav { padding: 10px 5%; }
-            .logo-img { height: 45px; } /* Auto-scale logo for mobile */
+            .logo-img { height: 45px; }
             .hero { flex-direction: column-reverse; text-align: center; padding: 30px 5%; gap: 25px; } 
             h1 { font-size: 2.3rem; margin-bottom: 15px; letter-spacing: -1px; } 
             .hero-image { height: 300px; }
             .trust-badges { align-items: center; }
             .btn-black { width: 100%; padding: 16px; } 
             .features { grid-template-columns: 1fr; gap: 20px; }
-            .checklist-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } /* Two columns on mobile */
+            .checklist-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .check-item { padding: 12px; font-size: 0.8rem; }
             .case-grid { grid-template-columns: 1fr; }
-            .comparison-banner { text-align: left; font-size: 0.95rem; }
-            .brand-philosophy { padding: 60px 5%; }
-            .service-checklist { padding: 60px 5%; }
+            .commercial-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -178,6 +186,26 @@
         <div class="faq-item">
             <span class="faq-q">❓ Q5: What is not included?</span>
             <div class="faq-a">Major structural renovations or projects requiring specialized licensed contractors are not covered.</div>
+        </div>
+    </div>
+</section>
+
+<section class="commercial-section">
+    <div class="commercial-wrap">
+        <div class="commercial-badge">FOR COMMERCIAL CLIENTS</div>
+        <h2 class="commercial-title">Commercial Maintenance Solutions</h2>
+        <p class="commercial-desc">
+            Whether you manage an office building, retail storefront, boutique restaurant, or a diverse real estate portfolio, L&W offers professional, prompt, and cost-effective maintenance plans tailored for business operations. We minimize your downtime with high-priority service and transparent pricing.
+        </p>
+        <div class="commercial-contact-box">
+            <div class="com-contact-item">
+                <p>Commercial Hotline</p>
+                <a href="tel:3479892686">347-989-2686</a>
+            </div>
+            <div class="com-contact-item">
+                <p>Business Inquiries</p>
+                <a href="mailto:support@lw-propertysolutions.com">Email Us</a>
+            </div>
         </div>
     </div>
 </section>
