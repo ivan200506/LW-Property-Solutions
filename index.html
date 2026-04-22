@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>L&W Property Solutions | 纽约专业房东保障计划</title>
+    <title>L&W Property Solutions | 纽约专业房东及商业保障计划</title>
     <style>
         :root { --dark: #14523B; --green: #4CAF50; --gold: #FFB300; --bg: #ffffff; --text: #1a1a1a; --light-bg: #f9f9f9; }
         * { box-sizing: border-box; }
@@ -20,7 +20,7 @@
         .hero-content { flex: 1.2; text-align: left; }
         .hero-image { flex: 1; border-radius: 20px; height: 500px; width: 100%; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         
-        h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 20px; color: var(--dark); letter-spacing: -1.5px; word-wrap: break-word; }
+        h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 20px; color: var(--dark); letter-spacing: -1px; word-wrap: break-word; }
         .trust-badges { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; align-items: flex-start; }
         .badge { font-size: 0.8rem; font-weight: 700; color: var(--green); letter-spacing: 1px; text-transform: uppercase; }
         
@@ -32,7 +32,7 @@
         .f-item h3 { font-size: 1.3rem; color: var(--dark); margin-bottom: 10px; }
         .f-item p { color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-        /* 新增：服务清单板块样式 */
+        /* 服务清单 */
         .service-checklist { padding: 80px 5%; background: #fff; text-align: center; }
         .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 40px auto; max-width: 1100px; text-align: left; }
         .check-item { padding: 15px 20px; background: var(--light-bg); border-radius: 8px; display: flex; align-items: center; font-size: 0.95rem; font-weight: 500; transition: 0.3s; border: 1px solid transparent; }
@@ -53,6 +53,17 @@
         .faq-item { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         .faq-q { font-weight: 800; color: var(--dark); font-size: 1rem; display: block; margin-bottom: 10px; line-height: 1.4; }
         .faq-a { color: #555; line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 12px; font-size: 0.95rem; }
+
+        /* 新增：商业客户板块样式 */
+        .commercial-section { padding: 80px 5%; background: var(--dark); color: #fff; text-align: center; }
+        .commercial-wrap { max-width: 900px; margin: 0 auto; }
+        .commercial-badge { display: inline-block; padding: 5px 15px; border: 1px solid var(--gold); color: var(--gold); border-radius: 30px; font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; }
+        .commercial-title { font-size: 2.2rem; margin-bottom: 20px; color: #fff; }
+        .commercial-desc { font-size: 1.1rem; line-height: 1.8; color: #e0e0e0; margin-bottom: 40px; }
+        .commercial-contact-box { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .com-contact-item { text-align: center; }
+        .com-contact-item a { color: var(--gold); text-decoration: none; font-size: 1.3rem; font-weight: bold; display: block; margin-top: 5px; }
+        .com-contact-item p { font-size: 0.85rem; color: #aaa; margin: 0; }
         
         footer { padding: 40px 5%; background: #111; color: #888; text-align: center; font-size: 0.8rem; }
         .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 0.95rem; line-height: 1.5; }
@@ -69,7 +80,7 @@
             .checklist-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .check-item { padding: 12px; font-size: 0.85rem; }
             .case-grid { grid-template-columns: 1fr; }
-            .comparison-banner { text-align: left; }
+            .commercial-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -175,6 +186,26 @@
         <div class="faq-item">
             <span class="faq-q">❓ Q5：什么情况不包含？</span>
             <div class="faq-a">大型工程或需特定执照的结构改造不包含，但我们可以协助协调。</div>
+        </div>
+    </div>
+</section>
+
+<section class="commercial-section">
+    <div class="commercial-wrap">
+        <div class="commercial-badge">FOR COMMERCIAL CLIENTS</div>
+        <h2 class="commercial-title">诚邀商业客户加盟合作</h2>
+        <p class="commercial-desc">
+            无论是办公楼、零售店、小型餐厅还是管理多套物业的机构，L&W 同样为您提供贴心周到且价格合理的一站式维修保障方案。我们深知商业运营中每一分钟的停工损失，因此为您提供更具针对性的快速响应与专业支持。
+        </p>
+        <div class="commercial-contact-box">
+            <div class="com-contact-item">
+                <p>商业直达专线</p>
+                <a href="tel:3479892686">347-989-2686</a>
+            </div>
+            <div class="com-contact-item">
+                <p>商业合作邮箱</p>
+                <a href="mailto:support@lw-propertysolutions.com">Email Us</a>
+            </div>
         </div>
     </div>
 </section>
