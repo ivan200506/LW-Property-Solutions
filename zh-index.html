@@ -1,226 +1,719 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>L&W Property Solutions | 纽约专业房东及商业保障计划</title>
+
+    <title>L&W Property Solutions | 纽约布鲁克林房屋维修与物业保障</title>
+
     <style>
+
         :root { --dark: #14523B; --green: #4CAF50; --gold: #FFB300; --bg: #ffffff; --text: #1a1a1a; --light-bg: #f9f9f9; }
+
         * { box-sizing: border-box; }
-        body { font-family: 'Inter', 'PingFang SC', sans-serif; margin: 0; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; width: 100%; }
+
+        body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; margin: 0; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; width: 100%; line-height: 1.6; }
+
         
+
         /* 导航栏 */
+
         nav { padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo-img { height: 90px; width: auto; display: block; }
+
+        .logo-img { height: 75px; width: auto; display: block; }
+
         .lang-link { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.85rem; border: 1.5px solid var(--dark); padding: 6px 14px; border-radius: 4px; transition: 0.3s; }
+
         .lang-link:hover { background: var(--dark); color: #fff; }
+
         
-        /* Hero 区域 */
-        .hero { padding: 40px 5%; display: flex; align-items: center; gap: 40px; min-height: 70vh; }
+
+        /* Hero 视觉区 */
+
+        .hero { padding: 60px 5%; display: flex; align-items: center; gap: 40px; min-height: 70vh; }
+
         .hero-content { flex: 1.2; text-align: left; }
-        .hero-image { flex: 1; border-radius: 20px; height: 500px; width: 100%; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .hero-image { flex: 1; border-radius: 20px; height: 450px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
         
-        h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 20px; color: var(--dark); letter-spacing: -1px; word-wrap: break-word; }
-        .trust-badges { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; align-items: flex-start; }
-        .badge { font-size: 0.8rem; font-weight: 700; color: var(--green); letter-spacing: 1px; text-transform: uppercase; }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.2; margin: 0 0 15px; color: var(--dark); letter-spacing: -1px; }
+
+        .hero-subtitle { font-size: 1.2rem; color: #555; margin-bottom: 30px; }
+
         
-        .comparison-banner { background: #f4f7f5; padding: 20px; border-left: 4px solid var(--gold); font-size: 1.05rem; margin-bottom: 25px; border-radius: 0 8px 8px 0; line-height: 1.6; }
-        .btn-black { background: var(--dark); color: white; padding: 18px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s; text-align: center; }
-        
-        /* 核心优势 */
+
+        .cta-group { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+
+        .btn { padding: 16px 35px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; text-align: center; border: none; cursor: pointer; display: inline-block; }
+
+        .btn-green { background: var(--green); color: white; }
+
+        .btn-dark { background: var(--dark); color: white; }
+
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        .trust-line { font-size: 0.95rem; color: #666; font-weight: 500; }
+
+
+
+        /* 免费报价表单 */
+
+        .quote-section { padding: 60px 5%; background: var(--light-bg); }
+
+        .quote-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+
+        .quote-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+
+        .quote-form input, .quote-form textarea { padding: 14px; border: 1px solid #ddd; border-radius: 6px; width: 100%; font-size: 1rem; font-family: inherit; }
+
+        .quote-form textarea { height: 100px; }
+
+
+
+        /* 关于我们 */
+
+        .about-section { padding: 80px 5%; text-align: center; max-width: 900px; margin: 0 auto; }
+
+        .about-section h2 { color: var(--dark); margin-bottom: 20px; font-size: 2rem; }
+
+        .about-section p { font-size: 1.1rem; color: #555; line-height: 1.8; }
+
+
+
+/* 核心优势 - 已修复垂直居中 */
+
         .features { padding: 60px 5%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; background: var(--light-bg); }
-        .f-item h3 { font-size: 1.3rem; color: var(--dark); margin-bottom: 10px; }
+
+        .f-item { 
+
+            display: flex; 
+
+            flex-direction: column; 
+
+            justify-content: center; /* 垂直居中核心代码 */
+
+            text-align: center; 
+
+            min-height: 180px; 
+
+            padding: 20px;
+
+            background: #fff;
+
+            border-radius: 12px;
+
+        }
+
+        .f-item h3 { font-size: 1.3rem; color: var(--dark); margin: 0 0 10px; }
+
         .f-item p { color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-        /* 服务清单 */
-        .service-checklist { padding: 80px 5%; background: #fff; text-align: center; }
-        .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 40px auto; max-width: 1100px; text-align: left; }
-        .check-item { padding: 15px 20px; background: var(--light-bg); border-radius: 8px; display: flex; align-items: center; font-size: 0.95rem; font-weight: 500; transition: 0.3s; border: 1px solid transparent; }
-        .check-item:hover { transform: translateY(-3px); border-color: var(--green); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .check-icon { color: var(--green); margin-right: 12px; font-weight: bold; font-size: 1.1rem; }
 
-        .brand-philosophy { padding: 80px 5%; background: var(--light-bg); }
-        .philosophy-content { max-width: 800px; margin: 0 auto; text-align: center; }
+
+/* --- 案例展示区优化 --- */
+
+        .case-carousel-section { padding: 80px 0; background: var(--light-bg); position: relative; }
+
         
-        /* 案例板块 */
-        .cases { padding: 80px 5%; }
-        .section-label { font-weight: bold; color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; margin-bottom: 15px; display: block; }
-        .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .case-card { margin-bottom: 20px; }
-        .case-img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 12px; display: block; }
 
-        .faq-section { padding: 80px 5%; background: var(--light-bg); }
-        .faq-grid { max-width: 800px; margin: 30px auto 0; display: grid; gap: 15px; }
-        .faq-item { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .faq-q { font-weight: 800; color: var(--dark); font-size: 1rem; display: block; margin-bottom: 10px; line-height: 1.4; }
-        .faq-a { color: #555; line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 12px; font-size: 0.95rem; }
+        .case-outer-wrapper { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 50px; }
 
-        /* 商业客户板块样式 */
-        .commercial-section { padding: 80px 5%; background: var(--dark); color: #fff; text-align: center; }
-        .commercial-wrap { max-width: 900px; margin: 0 auto; }
-        .commercial-badge { display: inline-block; padding: 5px 15px; border: 1px solid var(--gold); color: var(--gold); border-radius: 30px; font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; }
-        .commercial-title { font-size: 2.2rem; margin-bottom: 20px; color: #fff; }
-        .commercial-desc { font-size: 1.1rem; line-height: 1.8; color: #e0e0e0; margin-bottom: 40px; }
-        .commercial-contact-box { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .com-contact-item { text-align: center; }
-        .com-contact-item a { color: var(--gold); text-decoration: none; font-size: 1.3rem; font-weight: bold; display: block; margin-top: 5px; }
-        .com-contact-item p { font-size: 0.85rem; color: #aaa; margin: 0; }
         
-        footer { padding: 40px 5%; background: #111; color: #888; text-align: center; font-size: 0.8rem; }
-        .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 0.95rem; line-height: 1.5; }
 
-        /* 移动端特定优化 */
-        @media (max-width: 768px) { 
-            nav { padding: 10px 5%; }
-            .logo-img { height: 45px; }
-            .hero { flex-direction: column-reverse; text-align: center; padding: 30px 5%; gap: 25px; } 
-            h1 { font-size: 2.3rem; margin-bottom: 15px; } 
-            .hero-image { height: 300px; }
-            .trust-badges { align-items: center; }
-            .btn-black { width: 100%; } 
-            .features { grid-template-columns: 1fr; }
-            .checklist-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .check-item { padding: 12px; font-size: 0.85rem; }
-            
-            /* 案例板块移动端缩放优化 */
-            .case-grid { grid-template-columns: 1fr; }
-            .case-img { height: 180px !important; } /* 强制缩小图片高度，防止占据过多屏幕 */
-            .case-card { margin-bottom: 30px; }
-            
-            .commercial-title { font-size: 1.8rem; }
+        .case-scroll-container { 
+
+            display: flex; 
+
+            overflow-x: auto; 
+
+            scroll-snap-type: x mandatory; 
+
+            gap: 20px; 
+
+            padding: 20px 0;
+
+            scrollbar-width: none; 
+
+            scroll-behavior: smooth;
+
         }
+
+        .case-scroll-container::-webkit-scrollbar { display: none; }
+
+        
+
+        .case-large-card { 
+
+            min-width: calc(100%); 
+
+            background: #fff; 
+
+            border-radius: 20px; 
+
+            overflow: hidden; 
+
+            scroll-snap-align: center; 
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+
+            flex-shrink: 0; 
+
+        }
+
+
+
+        /* 图片高度合理化 */
+
+        .case-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 300px; position: relative; scrollbar-width: none; }
+
+        .case-gallery::-webkit-scrollbar { display: none; }
+
+        .gallery-item { min-width: 100%; scroll-snap-align: start; position: relative; }
+
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        .img-tag { position: absolute; bottom: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; backdrop-filter: blur(4px); }
+
+
+
+        .case-info { padding: 20px 25px; }
+
+        .case-category { color: var(--green); font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 5px; }
+
+        .stars { color: var(--gold); font-size: 0.9rem; }
+
+
+
+        /* 导航按钮 */
+
+        .nav-btn {
+
+            position: absolute; top: 50%; transform: translateY(-50%);
+
+            width: 45px; height: 45px; background: #fff; border-radius: 50%;
+
+            display: flex; align-items: center; justify-content: center;
+
+            cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+            z-index: 10; border: none; font-size: 1.2rem; transition: 0.3s;
+
+        }
+
+        .nav-btn:hover { background: var(--green); color: #fff; }
+
+        .btn-prev { left: 0; }
+
+        .btn-next { right: 0; }
+
+
+
+        .scroll-dots { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
+
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; cursor: pointer; }
+
+        .dot.active { background: var(--green); width: 20px; border-radius: 10px; }
+
+
+
+        /* 电脑端一行两张 */
+
+        @media (min-width: 992px) {
+
+            .case-large-card { min-width: calc(50% - 10px); }
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .hero { flex-direction: column-reverse; text-align: center; }
+
+            .hero-image { height: 280px; }
+
+            .case-outer-wrapper { padding: 0 10px; }
+
+            .nav-btn { display: none; } /* 移动端靠手划 */
+
+        }
+
+        /* --- 框架结束 --- */
+
+        
+
+        /* 服务范围 */
+
+        .service-checklist { padding: 80px 5%; background: #fff; text-align: center; }
+
+        .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 40px auto; max-width: 1100px; text-align: left; }
+
+        .check-item { padding: 15px 20px; background: var(--light-bg); border-radius: 8px; display: flex; align-items: center; font-size: 0.95rem; font-weight: 500; transition: 0.3s; border: 1px solid transparent; }
+
+        .check-item:hover { border-color: var(--green); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        .check-icon { color: var(--green); margin-right: 12px; font-weight: bold; }
+
+
+
+        /* 客户故事/案例 */
+
+        .cases { padding: 80px 5%; background: var(--light-bg); }
+
+        .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+
+        .case-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: left; }
+
+        .case-img { width: 100%; height: 230px; object-fit: cover; }
+
+        .case-body { padding: 25px; }
+
+        .stars { color: var(--gold); margin-bottom: 10px; }
+
+
+
+        /* 方案宣传区 */
+
+        .membership-promo { padding: 80px 5%; background: var(--dark); color: white; text-align: center; }
+
+        .comparison-banner { background: rgba(255,255,255,0.1); padding: 20px; border-left: 4px solid var(--gold); display: inline-block; margin: 25px 0; border-radius: 0 8px 8px 0; line-height: 1.8; }
+
+
+
+        /* 商业合作 */
+
+        .commercial-section { padding: 80px 5%; text-align: center; border-top: 1px solid #eee; }
+
+        .commercial-badge { display: inline-block; padding: 5px 15px; border: 1px solid var(--green); color: var(--green); border-radius: 30px; font-size: 0.8rem; font-weight: bold; margin-bottom: 15px; }
+
+        
+
+        footer { padding: 40px 5%; background: #111; color: #888; text-align: center; }
+
+        .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 1.1rem; }
+
+
+
+        @media (max-width: 768px) {
+
+            .hero { flex-direction: column-reverse; text-align: center; padding: 40px 5%; }
+
+            .hero-image { height: 300px; width: 100%; }
+
+            .features { grid-template-columns: 1fr; }
+
+            .cta-group { justify-content: center; }
+
+            .checklist-grid { grid-template-columns: repeat(2, 1fr); }
+
+        }
+
     </style>
+
 </head>
+
 <body>
 
+
+
 <nav>
+
     <img src="Logo.png" alt="L&W Property Solutions" class="logo-img">
-    <a href="index.html" class="lang-link">English</a>
+
+    <a href="index.html" class="lang-link">English Version</a>
+
 </nav>
 
+
+
 <section class="hero">
+
     <div class="hero-content">
-        <div class="trust-badges">
-            <span class="badge">LICENSED & INSURED</span>
-            <span class="badge">无长期合同</span>
+
+        <h1>布鲁克林专业房屋维修与保养服务</h1>
+
+        <p class="hero-subtitle">响应迅速、价格透明、品质卓越，是您值得信赖的物业伙伴。</p>
+
+        
+
+        <div class="cta-group">
+
+            <a href="#quote" class="btn btn-green">获取免费报价</a>
+
+            <a href="tel:3479892686" class="btn btn-dark">立即致电</a>
+
         </div>
-        <h1>建立信任，<br>从守护房产开始</h1>
-        <div class="comparison-banner">纽约大多数维修仅第一小时人工就超过 <strong>$200</strong>。<br>在 L&W，您只需 <strong>$99</strong> 就能买下一整月的安心。</div>
-        <a href="zh-details.html" class="btn-black">开启无忧托管 →</a>
+
+        <div class="trust-line">资质健全 • 纽约本地服务 • 可安排当天上门</div>
+
     </div>
-    <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg" class="hero-image" alt="NYC Property">
+
+    <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg" class="hero-image" alt="维修师傅工作图">
+
 </section>
+
+
+
+<section id="quote" class="quote-section">
+
+    <div class="quote-container">
+
+        <h2 style="text-align: center; color: var(--dark); margin: 0;">获取免费报价</h2>
+
+        <p style="text-align: center; color: #666; margin-bottom: 20px;">告诉我们您的需求，我们会快速与您联系。</p>
+
+        <form class="quote-form">
+
+            <input type="text" placeholder="您的姓名" required>
+
+            <input type="tel" placeholder="联系电话" required>
+
+            <textarea placeholder="请描述您的问题（例如：水龙头漏水、空调维修等...）"></textarea>
+
+            <button type="submit" class="btn btn-green" style="width: 100%;">提交申请</button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<section class="about-section">
+
+    <h2>关于 L&W Property Solutions</h2>
+
+    <p>在 L&W Property Solutions，我们致力于为布鲁克林及全纽约市的业主和房东提供高效可靠的房屋维护与维修服务。我们深知保护房产价值的重要性，因此始终坚持快速响应、清晰沟通和精湛的工艺。我们将每一处房屋都视如己出，为您解决后顾之忧。</p>
+
+</section>
+
+
 
 <section class="features">
-    <div class="f-item"><h3>$0 人工费</h3><p>标准维修人工费永远为 $0。告别意外报价。</p></div>
-    <div class="f-item"><h3>24/7 紧急响应</h3><p>深夜突发故障？我们响应，您继续安睡。</p></div>
-    <div class="f-item"><h3>主动式维护</h3><p>年度健康评估，防患于未然，守护资产价值。</p></div>
+
+    <div class="f-item"><h3>$0 人工费</h3><p>会员可享受标准维修人工费全免，告别高额账单。</p></div>
+
+    <div class="f-item"><h3>24/7 紧急响应</h3><p>深夜漏水？我们快速响应，让您每晚都能安稳入睡。</p></div>
+
+    <div class="f-item"><h3>预防性保养</h3><p>提供年度房屋“健康评估”，在问题发生前及时化解风险。</p></div>
+
 </section>
+
+
 
 <section class="service-checklist">
-    <span class="section-label">Service Scope</span>
-    <h2 style="color: var(--dark); font-size: 2rem; margin-bottom: 10px;">全面的人工费用保障</h2>
-    <p style="color: #666; max-width: 700px; margin: 0 auto;">加入会员计划，以下标准维修项目的人工费用全免，您只需支付零件成本。</p>
+
+    <h2 style="color: var(--dark); font-size: 2rem;">全面的人工覆盖范围</h2>
+
+    <p style="color: #666; max-width: 700px; margin: 0 auto;">会员可享受以下核心服务的人工费全额豁免，您只需支付零件费用。</p>
+
     
+
     <div class="checklist-grid">
+
         <div class="check-item"><span class="check-icon">✓</span> 冷暖气系统维护</div>
-        <div class="check-item"><span class="check-icon">✓</span> 热水系统深度维护</div>
-        <div class="check-item"><span class="check-icon">✓</span> 水管疏通与止漏</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 热水器日常保养</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 管道疏通与漏水修复</div>
+
         <div class="check-item"><span class="check-icon">✓</span> 马桶配件更换与维修</div>
-        <div class="check-item"><span class="check-icon">✓</span> 水龙头/淋浴头修复</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 水龙头及花洒修复</div>
+
         <div class="check-item"><span class="check-icon">✓</span> 电路故障排查</div>
-        <div class="check-item"><span class="check-icon">✓</span> 开关、插座及灯具更换</div>
-        <div class="check-item"><span class="check-icon">✓</span> 门锁更换与调整</div>
-        <div class="check-item"><span class="check-icon">✓</span> 烟雾/一氧化碳报警器维护</div>
-        <div class="check-item"><span class="check-icon">✓</span> 恒温器故障排查</div>
-        <div class="check-item"><span class="check-icon">✓</span> 厨卫密封胶补漏</div>
-        <div class="check-item"><span class="check-icon">✓</span> 年度房产健康安全评估</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 开关及插座更换</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 门锁更换与调节</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 烟雾/一氧化碳报警器检查</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 厨卫玻璃胶加固修复</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 智能家居及温控器安装</div>
+
+        <div class="check-item"><span class="check-icon">✓</span> 年度房屋安全评估</div>
+
     </div>
-    
-    <p style="font-size: 0.85rem; color: #999; margin-top: 20px;">* 涵盖项目不仅限于上述内容，具体以服务详情协议为准。</p>
+
+    <p style="color:#666; font-style: italic;">不确定我们是否能帮忙？欢迎咨询，我们绝大多数问题都能解决。</p>
+
 </section>
 
-<section class="brand-philosophy">
-    <div class="philosophy-content">
-        <h2 style="color: var(--dark); font-size: 1.6rem; margin-bottom: 20px;">守护，是为了让生活一如往常</h2>
-        <p style="color: #555; line-height: 1.7; font-size: 1rem; text-align: justify; margin: 0;">
-            在纽约，一次突如其来的漏水或电路故障，打断的往往不只是家务。L&W 存在的意义，不仅仅是修理管道。我们深知，房屋的核心功能是承载您的日常。我们默默守护那些看不见的基石，只为确保您的生活节奏始终从容，家永远是那个无需操心的避风港。
-        </p>
+
+
+<section class="case-carousel-section" id="cases">
+
+    <div style="text-align: center; margin-bottom: 30px;">
+
+        <h2 style="color: var(--dark); font-size: 2rem; margin: 0;">精选成功案例</h2>
+
+        <p style="color: #666;">← 左右点击箭头或滑动查看 →</p>
+
     </div>
+
+
+
+    <div class="case-outer-wrapper">
+
+        <button class="nav-btn btn-prev" onclick="moveSlide(-1)">&#10094;</button>
+
+        <button class="nav-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
+
+
+
+        <div class="case-scroll-container" id="caseSlider">
+
+            <div class="case-large-card">
+
+                <div class="case-gallery">
+
+                    <div class="gallery-item">
+
+                        <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg">
+
+                        <span class="img-tag">勘查阶段</span>
+
+                    </div>
+
+                    <div class="gallery-item">
+
+                        <img src="https://images.pexels.com/photos/5849559/pexels-photo-5849559.jpeg">
+
+                        <span class="img-tag">完工交付</span>
+
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <span class="case-category">紧急维修 - 布鲁克林</span>
+
+                    <h3>公寓主管道破裂修复</h3>
+
+                    <p>租客深夜报修，30分钟内抵达现场并止水，避免了严重的结构受损。</p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="case-large-card">
+
+                <div class="case-gallery">
+
+                    <div class="gallery-item">
+
+                        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg">
+
+                        <span class="img-tag">旧配电箱</span>
+
+                    </div>
+
+                    <div class="gallery-item">
+
+                        <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg">
+
+                        <span class="img-tag">升级完成</span>
+
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <span class="case-category">商业物业 - 曼哈顿</span>
+
+                    <h3>餐厅后厨电路系统升级</h3>
+
+                    <p>在不影响餐厅正常营业的前提下，利用深夜完成整体电路安全升级。</p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="case-large-card">
+
+                <div class="case-gallery">
+
+                    <div class="gallery-item">
+
+                        <img src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg">
+
+                        <span class="img-tag">布线施工</span>
+
+                    </div>
+
+                    <div class="gallery-item">
+
+                        <img src="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg">
+
+                        <span class="img-tag">智控效果</span>
+
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <span class="case-category">智能升级 - 皇后区</span>
+
+                    <h3>全屋智能恒温与安防改造</h3>
+
+                    <p>为50年楼龄老宅安装智能控制系统，实现远程控温，大幅降低能耗成本。</p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="case-large-card">
+
+                <div class="case-gallery">
+
+                    <div class="gallery-item">
+
+                        <img src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg">
+
+                        <span class="img-tag">翻新前</span>
+
+                    </div>
+
+                    <div class="gallery-item">
+
+                        <img src="https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg">
+
+                        <span class="img-tag">防水加固后</span>
+
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <span class="case-category">厨卫维护 - 法拉盛</span>
+
+                    <h3>浴室防水层重做与瓷砖翻新</h3>
+
+                    <p>彻底解决卫生间漏水渗入楼下的难题，并完成了现代化的墙面瓷砖翻新。</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="scroll-dots">
+
+            <div class="dot active"></div>
+
+            <div class="dot"></div>
+
+            <div class="dot"></div>
+
+            <div class="dot"></div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section class="cases">
-    <span class="section-label">Success Stories</span>
-    <h2 style="font-size: 1.8rem; color: var(--dark); margin-bottom: 30px;">精选服务案例</h2>
-    <div class="case-grid">
-        <div class="case-card">
-            <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg" class="case-img">
-            <h4 style="color:var(--dark); margin-bottom:10px;">布鲁克林：不再担心的周末</h4>
-            <p style="font-size:0.95rem; line-height:1.7; color:#444;">
-                陈先生在布鲁克林管理着几处旧公寓。去年冬天的深夜，一个水管突发爆裂让租客慌了神。陈先生说：“以前这种时候，我得顶着压力打几十个电话找人，还要担心被乱开价。” 加入 L&W 后，我们第一时间赶到处理，不仅人工费全免，更让他彻底从‘随时待命’的焦虑中解脱了出来。
-            </p>
-        </div>
-        <div class="case-card">
-            <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg" class="case-img">
-            <h4 style="color:var(--dark); margin-bottom:10px;">皇后区：未雨绸缪的安心</h4>
-            <p style="font-size:0.95rem; line-height:1.7; color:#444;">
-                这幢别墅的房东最怕纽约夏天的电路过载。在进入酷暑前，我们的团队进行了一次深度的年度健康评估，提前更换了老化严重的几个核心插座和开关。房东感慨道：“比起出事后的手忙脚乱，我更喜欢 L&W 这种默默把隐患解决在前面的专业。这钱花得踏实。”
-            </p>
-        </div>
+
+
+<section class="membership-promo">
+
+    <h2>$99/月 物业保障计划</h2>
+
+    <div class="comparison-banner">
+
+        在纽约，普通维修的第一小时人工费通常超过 <strong>$200</strong>。<br>
+
+        加入 L&W，仅需 <strong>$99/月</strong> 即可享受 <strong>$0 人工费</strong> 及优先响应服务。
+
     </div>
+
+    <br>
+
+    <a href="zh-details.html" class="btn" style="background: white; color: var(--dark);">查看方案详情</a>
+
 </section>
 
-<section class="faq-section">
-    <span class="section-label" style="text-align: center;">Common Questions</span>
-    <h2 style="text-align: center; color: var(--dark); font-size: 1.8rem; margin-bottom: 10px;">常见问题解答</h2>
-    <div class="faq-grid">
-        <div class="faq-item">
-            <span class="faq-q">❓ Q1：为什么要每月花 $99？我现在没问题啊</span>
-            <div class="faq-a">我们让问题发生时，您不用再焦虑和到处找人。提前锁定服务。</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-q">❓ Q2：如果我一个月不用，不就浪费了吗？</span>
-            <div class="faq-a">这就像保险，是为了避免一次大的麻烦。而且您可以随时预约维护。</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-q">❓ Q3：人工真的完全免费？</span>
-            <div class="faq-a">对，我们团队做的标准维修人工费全免，您只需承担实际零件成本。</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-q">❓ Q4：那你们会不会乱加材料费？</span>
-            <div class="faq-a">不会，材料按实际成本计算并提前确认，绝无隐藏收费。</div>
-        </div>
-        <div class="faq-item">
-            <span class="faq-q">❓ Q5：什么情况不包含？</span>
-            <div class="faq-a">大型工程或需特定执照的结构改造不包含，但我们可以协助协调。</div>
-        </div>
-    </div>
-</section>
+
+
+<script>
+
+    const slider = document.getElementById('caseSlider');
+
+    const dots = document.querySelectorAll('.dot');
+
+
+
+    function moveSlide(dir) {
+
+        const scrollAmount = slider.offsetWidth * 0.8;
+
+        slider.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+
+    }
+
+
+
+    slider.addEventListener('scroll', () => {
+
+        const index = Math.round(slider.scrollLeft / (slider.offsetWidth * 0.8));
+
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+
+    });
+
+</script>
+
+
 
 <section class="commercial-section">
-    <div class="commercial-wrap">
-        <div class="commercial-badge">FOR COMMERCIAL CLIENTS</div>
-        <h2 class="commercial-title">诚邀商业客户加盟合作</h2>
-        <p class="commercial-desc">
-            无论是办公楼、零售店、小型餐厅还是管理多套物业的机构，L&W 同样为您提供贴心周到且价格合理的一站式维修保障方案。我们深知商业运营中每一分钟的停工损失，因此为您提供更具针对性的快速响应与专业支持。
-        </p>
-        <div class="commercial-contact-box">
-            <div class="com-contact-item">
-                <p>商业直达专线</p>
-                <a href="tel:3479892686">347-989-2686</a>
-            </div>
-            <div class="com-contact-item">
-                <p>商业合作邮箱</p>
-                <a href="mailto:support@lw-propertysolutions.com">Email Us</a>
-            </div>
-        </div>
+
+    <div class="commercial-badge">诚邀商业客户</div>
+
+    <h2 style="color: var(--dark);">商业物业维护方案</h2>
+
+    <p style="max-width: 800px; margin: 0 auto 30px; color: #555;">为全纽约的办公楼、零售店及餐厅定制维修保障计划。我们深知商业运营的时间成本，为您提供最高优先级的维保支持。</p>
+
+    <div class="cta-group" style="justify-content: center;">
+
+        <a href="tel:3479892686" class="btn btn-dark">联系商业部</a>
+
     </div>
+
 </section>
 
+
+
 <footer>
-    <p>© 2026 L&W Property Solutions LLC.</p>
-    <div class="footer-contact">347-989-2686<br>support@lw-propertysolutions.com</div>
+
+    <p>© 2026 L&W Property Solutions LLC. | 服务覆盖布鲁克林及全纽约</p>
+
+    <div class="footer-contact">电话：347-989-2686 | 邮箱：support@lw-propertysolutions.com</div>
+
 </footer>
 
+
+
 </body>
+
 </html>
