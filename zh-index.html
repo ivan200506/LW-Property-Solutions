@@ -57,91 +57,72 @@
         .f-item h3 { font-size: 1.3rem; color: var(--dark); margin: 0 0 10px; }
         .f-item p { color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-/* 案例展示区 - 移动端优化版 */
-        .case-carousel-section { padding: 60px 0; background: var(--light-bg); position: relative; }
-        .case-outer-wrapper { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 50px; }
+/* 案例展示区 - 针对移动端尺寸大幅优化 */
+        .case-carousel-section { padding: 40px 0; background: var(--light-bg); }
+        .case-outer-wrapper { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        
+        /* 滚动容器 */
         .case-scroll-container { 
             display: flex; 
             overflow-x: auto; 
             scroll-snap-type: x mandatory; 
-            gap: 20px; 
-            padding: 20px 0;
+            gap: 15px; 
+            padding: 10px 0;
             scrollbar-width: none; 
-            scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
         }
         .case-scroll-container::-webkit-scrollbar { display: none; }
+
+        /* 卡片主体 */
         .case-large-card { 
-            min-width: 100%; 
+            min-width: 85%; /* 移动端露出一部分下一张卡片 */
             background: #fff; 
-            border-radius: 20px; 
+            border-radius: 12px; 
             overflow: hidden; 
             scroll-snap-align: center; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
             flex-shrink: 0; 
         }
 
-        .case-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 350px; position: relative; scrollbar-width: none; }
-        .case-gallery::-webkit-scrollbar { display: none; }
-        .gallery-item { min-width: 100%; scroll-snap-align: start; position: relative; overflow: hidden; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .img-tag { position: absolute; bottom: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; backdrop-filter: blur(4px); }
-
-        .case-info { padding: 25px; }
-        .case-category { color: var(--green); font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 8px; }
-
-        .nav-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 45px; height: 45px; background: #fff; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 10; border: none; font-size: 1.2rem; transition: 0.3s;
+        /* 图片区域 - 关键修改：高度 */
+        .case-gallery { 
+            display: flex; 
+            overflow-x: auto; 
+            scroll-snap-type: x mandatory; 
+            height: 260px; /* 默认高度 */
+            scrollbar-width: none; 
         }
-        .btn-prev { left: 0; }
-        .btn-next { right: 0; }
-
-        .scroll-dots { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
-        .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: var(--green); width: 20px; border-radius: 10px; }
-
-        /* 图片高度合理化 */
-        .case-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 300px; position: relative; scrollbar-width: none; }
-        .case-gallery::-webkit-scrollbar { display: none; }
         .gallery-item { min-width: 100%; scroll-snap-align: start; position: relative; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .img-tag { position: absolute; bottom: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; backdrop-filter: blur(4px); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        /* 文字区域 */
+        .case-info { padding: 15px; }
+        .case-category { color: var(--green); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; }
+        .case-info h3 { margin: 5px 0; font-size: 1.1rem; color: var(--dark); }
+        .case-info p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.4; }
 
-        .case-info { padding: 20px 25px; }
-        .case-category { color: var(--green); font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 5px; }
-        .stars { color: var(--gold); font-size: 0.9rem; }
-
-        /* 导航按钮 */
-        .nav-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 45px; height: 45px; background: #fff; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 10; border: none; font-size: 1.2rem; transition: 0.3s;
+        /* 移动端特定适配 */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 20px 5%; }
+            .hero-image { height: 200px; }
+            .btn-dark { margin-left: 0; margin-top: 10px; width: 100%; }
+            .btn-green { width: 100%; }
+            
+            /* 强制缩小案例图片高度 */
+            .case-gallery { height: 180px; } 
+            .case-large-card { min-width: 90%; }
+            .case-info h3 { font-size: 1rem; }
+            .case-info p { font-size: 0.85rem; }
         }
-        .nav-btn:hover { background: var(--green); color: #fff; }
-        .btn-prev { left: 0; }
-        .btn-next { right: 0; }
 
-        .scroll-dots { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
-        .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; cursor: pointer; }
-        .dot.active { background: var(--green); width: 20px; border-radius: 10px; }
-
-        /* 电脑端一行两张 */
         @media (min-width: 992px) {
             .case-large-card { min-width: calc(50% - 10px); }
+            .case-outer-wrapper { padding: 0 50px; }
         }
 
-        @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; }
-            .hero-image { height: 280px; }
-            .case-outer-wrapper { padding: 0 10px; }
-            .nav-btn { display: none; } /* 移动端靠手划 */
-        }
+        .scroll-dots { display: flex; justify-content: center; gap: 6px; margin-top: 15px; }
+        .dot { width: 6px; height: 6px; border-radius: 50%; background: #ccc; }
+        .dot.active { background: var(--green); width: 15px; border-radius: 10px; }
         /* --- 框架结束 --- */
         
         /* 服务范围 */
