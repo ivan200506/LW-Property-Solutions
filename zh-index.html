@@ -47,6 +47,26 @@
         .f-item h3 { font-size: 1.3rem; color: var(--dark); margin-bottom: 10px; }
         .f-item p { color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
+        /* --- 全新案例滚动框架 --- */
+        .case-carousel-wrapper { padding: 80px 0; background: var(--light-bg); overflow: hidden; }
+        .case-scroll-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 25px; padding: 0 5% 40px; scrollbar-width: none; }
+        .case-scroll-container::-webkit-scrollbar { display: none; }
+        
+        .case-large-card { min-width: 85vw; max-width: 750px; background: #fff; border-radius: 20px; overflow: hidden; scroll-snap-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.08); flex-shrink: 0; }
+        
+        /* 案例内多图滑动 */
+        .case-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 380px; position: relative; scrollbar-width: none; }
+        .case-gallery::-webkit-scrollbar { display: none; }
+        .gallery-item { min-width: 100%; scroll-snap-align: start; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .img-tag { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.65); color: #fff; padding: 6px 15px; border-radius: 30px; font-size: 0.8rem; backdrop-filter: blur(5px); }
+
+        .case-info { padding: 25px; }
+        .case-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .case-category { color: var(--green); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
+        .stars { color: var(--gold); }
+        /* --- 框架结束 --- */
+        
         /* 服务范围 */
         .service-checklist { padding: 80px 5%; background: #fff; text-align: center; }
         .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 40px auto; max-width: 1100px; text-align: left; }
@@ -148,25 +168,77 @@
     <p style="color:#666; font-style: italic;">不确定我们是否能帮忙？欢迎咨询，我们绝大多数问题都能解决。</p>
 </section>
 
-<section class="cases">
-    <h2 style="text-align: center; color: var(--dark); margin-bottom: 40px;">客户案例</h2>
-    <div class="case-grid">
-        <div class="case-card">
-            <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg" class="case-img">
-            <div class="case-body">
-                <div class="stars">★★★★★</div>
-                <h4 style="margin: 0 0 10px;">布鲁克林：房东的周末救星</h4>
-                <p style="font-size: 0.95rem; color: #444;">“以前管理公寓意味着 24 小时待命。去年冬天水管爆裂，L&W 抢在租客抱怨前就赶到了。人工费全免很给力，但这种安心感才是无价的。”</p>
-                <p style="font-weight: bold; font-size: 0.85rem; margin-top: 15px;">— Sarah T., 布鲁克林房东</p>
+<section class="case-carousel-wrapper">
+    <div style="text-align: center; margin-bottom: 40px; padding: 0 5%;">
+        <h2 style="color: var(--dark); font-size: 2.2rem; margin: 0;">客户成功案例</h2>
+        <p style="color: #666;">← 左右滑动切换不同案例 | 点击图片内部左右查看对比细节 →</p>
+    </div>
+
+    <div class="case-scroll-container">
+        <div class="case-large-card">
+            <div class="case-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg" alt="Step 1">
+                    <span class="img-tag">第一步：现场勘查与拆卸</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/5849559/pexels-photo-5849559.jpeg" alt="Step 2">
+                    <span class="img-tag">第二步：新型管道铺设</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/4846097/pexels-photo-4846097.jpeg" alt="Step 3">
+                    <span class="img-tag">完工：墙面封闭与还原</span>
+                </div>
+            </div>
+            <div class="case-info">
+                <div class="case-meta">
+                    <span class="case-category">住宅紧急维修 - 布鲁克林</span>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <h3>公寓主管道破裂紧急修复</h3>
+                <p>租客深夜反馈漏水，我们30分钟内抵达。经过三步快速作业，成功避免了楼下住户的赔偿纠纷。</p>
             </div>
         </div>
-        <div class="case-card">
-            <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg" class="case-img">
-            <div class="case-body">
-                <div class="stars">★★★★★</div>
-                <h4 style="margin: 0 0 10px;">皇后区：预防胜过治疗</h4>
-                <p style="font-size: 0.95rem; color: #444;">“在热浪来袭前，他们做了深度检查并更换了老化的火灾隐患插座。我宁愿为预防性维护买单，也不愿在 7 月份处理紧急状况。”</p>
-                <p style="font-weight: bold; font-size: 0.85rem; margin-top: 15px;">— James L., 皇后区业主</p>
+
+        <div class="case-large-card">
+            <div class="case-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg" alt="Before">
+                    <span class="img-tag">维护前：老旧配电箱</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg" alt="After">
+                    <span class="img-tag">维护后：现代化控制柜</span>
+                </div>
+            </div>
+            <div class="case-info">
+                <div class="case-meta">
+                    <span class="case-category">商业物业 - 曼哈顿</span>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <h3>知名餐厅后厨电路系统升级</h3>
+                <p>利用停业间隙（0:00 - 6:00）完成全套升级，确保餐厅白天正常营业，消防检查满分通过。</p>
+            </div>
+        </div>
+
+        <div class="case-large-card">
+            <div class="case-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg" alt="Process">
+                    <span class="img-tag">过程中：智能家居布线</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg" alt="Final">
+                    <span class="img-tag">完工：全屋灯光智控效果</span>
+                </div>
+            </div>
+            <div class="case-info">
+                <div class="case-meta">
+                    <span class="case-category">智能升级 - 皇后区</span>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <h3>老宅智能恒温与安防改造</h3>
+                <p>将50年楼龄的老宅接入现代智能系统，为业主每月节省约20%的能源支出。</p>
             </div>
         </div>
     </div>
