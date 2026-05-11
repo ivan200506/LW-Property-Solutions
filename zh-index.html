@@ -47,24 +47,70 @@
         .f-item h3 { font-size: 1.3rem; color: var(--dark); margin-bottom: 10px; }
         .f-item p { color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-        /* --- 全新案例滚动框架 --- */
-        .case-carousel-wrapper { padding: 80px 0; background: var(--light-bg); overflow: hidden; }
-        .case-scroll-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 25px; padding: 0 5% 40px; scrollbar-width: none; }
+/* --- 案例展示区优化 --- */
+        .case-carousel-section { padding: 80px 0; background: var(--light-bg); position: relative; }
+        
+        .case-outer-wrapper { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 50px; }
+        
+        .case-scroll-container { 
+            display: flex; 
+            overflow-x: auto; 
+            scroll-snap-type: x mandatory; 
+            gap: 20px; 
+            padding: 20px 0;
+            scrollbar-width: none; 
+            scroll-behavior: smooth;
+        }
         .case-scroll-container::-webkit-scrollbar { display: none; }
         
-        .case-large-card { min-width: 85vw; max-width: 750px; background: #fff; border-radius: 20px; overflow: hidden; scroll-snap-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.08); flex-shrink: 0; }
-        
-        /* 案例内多图滑动 */
-        .case-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 380px; position: relative; scrollbar-width: none; }
+        .case-large-card { 
+            min-width: calc(100%); 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            scroll-snap-align: center; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            flex-shrink: 0; 
+        }
+
+        /* 图片高度合理化 */
+        .case-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 300px; position: relative; scrollbar-width: none; }
         .case-gallery::-webkit-scrollbar { display: none; }
         .gallery-item { min-width: 100%; scroll-snap-align: start; position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .img-tag { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.65); color: #fff; padding: 6px 15px; border-radius: 30px; font-size: 0.8rem; backdrop-filter: blur(5px); }
+        .img-tag { position: absolute; bottom: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; backdrop-filter: blur(4px); }
 
-        .case-info { padding: 25px; }
-        .case-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .case-category { color: var(--green); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
-        .stars { color: var(--gold); }
+        .case-info { padding: 20px 25px; }
+        .case-category { color: var(--green); font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 5px; }
+        .stars { color: var(--gold); font-size: 0.9rem; }
+
+        /* 导航按钮 */
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 45px; height: 45px; background: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10; border: none; font-size: 1.2rem; transition: 0.3s;
+        }
+        .nav-btn:hover { background: var(--green); color: #fff; }
+        .btn-prev { left: 0; }
+        .btn-next { right: 0; }
+
+        .scroll-dots { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; cursor: pointer; }
+        .dot.active { background: var(--green); width: 20px; border-radius: 10px; }
+
+        /* 电脑端一行两张 */
+        @media (min-width: 992px) {
+            .case-large-card { min-width: calc(50% - 10px); }
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero-image { height: 280px; }
+            .case-outer-wrapper { padding: 0 10px; }
+            .nav-btn { display: none; } /* 移动端靠手划 */
+        }
         /* --- 框架结束 --- */
         
         /* 服务范围 */
@@ -168,78 +214,95 @@
     <p style="color:#666; font-style: italic;">不确定我们是否能帮忙？欢迎咨询，我们绝大多数问题都能解决。</p>
 </section>
 
-<section class="case-carousel-wrapper">
-    <div style="text-align: center; margin-bottom: 40px; padding: 0 5%;">
-        <h2 style="color: var(--dark); font-size: 2.2rem; margin: 0;">客户成功案例</h2>
-        <p style="color: #666;">← 左右滑动切换不同案例 | 点击图片内部左右查看对比细节 →</p>
+<section class="case-carousel-section" id="cases">
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2 style="color: var(--dark); font-size: 2rem; margin: 0;">精选成功案例</h2>
+        <p style="color: #666;">← 左右点击箭头或滑动查看 →</p>
     </div>
 
-    <div class="case-scroll-container">
-        <div class="case-large-card">
-            <div class="case-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg" alt="Step 1">
-                    <span class="img-tag">第一步：现场勘查与拆卸</span>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/5849559/pexels-photo-5849559.jpeg" alt="Step 2">
-                    <span class="img-tag">第二步：新型管道铺设</span>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/4846097/pexels-photo-4846097.jpeg" alt="Step 3">
-                    <span class="img-tag">完工：墙面封闭与还原</span>
-                </div>
-            </div>
-            <div class="case-info">
-                <div class="case-meta">
-                    <span class="case-category">住宅紧急维修 - 布鲁克林</span>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <h3>公寓主管道破裂紧急修复</h3>
-                <p>租客深夜反馈漏水，我们30分钟内抵达。经过三步快速作业，成功避免了楼下住户的赔偿纠纷。</p>
-            </div>
-        </div>
+    <div class="case-outer-wrapper">
+        <button class="nav-btn btn-prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="nav-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
 
-        <div class="case-large-card">
-            <div class="case-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg" alt="Before">
-                    <span class="img-tag">维护前：老旧配电箱</span>
+        <div class="case-scroll-container" id="caseSlider">
+            <div class="case-large-card">
+                <div class="case-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg">
+                        <span class="img-tag">勘查阶段</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/5849559/pexels-photo-5849559.jpeg">
+                        <span class="img-tag">完工交付</span>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg" alt="After">
-                    <span class="img-tag">维护后：现代化控制柜</span>
+                <div class="case-info">
+                    <span class="case-category">紧急维修 - 布鲁克林</span>
+                    <h3>公寓主管道破裂修复</h3>
+                    <p>租客深夜报修，30分钟内抵达现场并止水，避免了严重的结构受损。</p>
                 </div>
             </div>
-            <div class="case-info">
-                <div class="case-meta">
+
+            <div class="case-large-card">
+                <div class="case-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg">
+                        <span class="img-tag">旧配电箱</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg">
+                        <span class="img-tag">升级完成</span>
+                    </div>
+                </div>
+                <div class="case-info">
                     <span class="case-category">商业物业 - 曼哈顿</span>
-                    <div class="stars">★★★★★</div>
+                    <h3>餐厅后厨电路系统升级</h3>
+                    <p>在不影响餐厅正常营业的前提下，利用深夜完成整体电路安全升级。</p>
                 </div>
-                <h3>知名餐厅后厨电路系统升级</h3>
-                <p>利用停业间隙（0:00 - 6:00）完成全套升级，确保餐厅白天正常营业，消防检查满分通过。</p>
+            </div>
+
+            <div class="case-large-card">
+                <div class="case-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg">
+                        <span class="img-tag">布线施工</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg">
+                        <span class="img-tag">智控效果</span>
+                    </div>
+                </div>
+                <div class="case-info">
+                    <span class="case-category">智能升级 - 皇后区</span>
+                    <h3>全屋智能恒温与安防改造</h3>
+                    <p>为50年楼龄老宅安装智能控制系统，实现远程控温，大幅降低能耗成本。</p>
+                </div>
+            </div>
+
+            <div class="case-large-card">
+                <div class="case-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg">
+                        <span class="img-tag">翻新前</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg">
+                        <span class="img-tag">防水加固后</span>
+                    </div>
+                </div>
+                <div class="case-info">
+                    <span class="case-category">厨卫维护 - 法拉盛</span>
+                    <h3>浴室防水层重做与瓷砖翻新</h3>
+                    <p>彻底解决卫生间漏水渗入楼下的难题，并完成了现代化的墙面瓷砖翻新。</p>
+                </div>
             </div>
         </div>
 
-        <div class="case-large-card">
-            <div class="case-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg" alt="Process">
-                    <span class="img-tag">过程中：智能家居布线</span>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg" alt="Final">
-                    <span class="img-tag">完工：全屋灯光智控效果</span>
-                </div>
-            </div>
-            <div class="case-info">
-                <div class="case-meta">
-                    <span class="case-category">智能升级 - 皇后区</span>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <h3>老宅智能恒温与安防改造</h3>
-                <p>将50年楼龄的老宅接入现代智能系统，为业主每月节省约20%的能源支出。</p>
-            </div>
+        <div class="scroll-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
         </div>
     </div>
 </section>
@@ -253,6 +316,21 @@
     <br>
     <a href="zh-details.html" class="btn" style="background: white; color: var(--dark);">查看方案详情</a>
 </section>
+
+<script>
+    const slider = document.getElementById('caseSlider');
+    const dots = document.querySelectorAll('.dot');
+
+    function moveSlide(dir) {
+        const scrollAmount = slider.offsetWidth * 0.8;
+        slider.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+    }
+
+    slider.addEventListener('scroll', () => {
+        const index = Math.round(slider.scrollLeft / (slider.offsetWidth * 0.8));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    });
+</script>
 
 <section class="commercial-section">
     <div class="commercial-badge">诚邀商业客户</div>
