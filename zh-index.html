@@ -353,12 +353,14 @@
     const dots = document.querySelectorAll('.dot');
 
     function moveSlide(dir) {
-        const scrollAmount = slider.offsetWidth * 0.8;
-        slider.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+        // 动态计算滚动距离，适配不同屏幕宽度
+        const cardWidth = slider.querySelector('.case-large-card').offsetWidth + 20;
+        slider.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
     }
 
     slider.addEventListener('scroll', () => {
-        const index = Math.round(slider.scrollLeft / (slider.offsetWidth * 0.8));
+        const cardWidth = slider.querySelector('.case-large-card').offsetWidth + 20;
+        const index = Math.round(slider.scrollLeft / cardWidth);
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     });
 </script>
