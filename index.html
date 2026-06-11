@@ -122,14 +122,68 @@
         footer { padding: 40px 5%; background: #111; color: #888; text-align: center; }
         .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 1.1rem; }
 
-        @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding: 40px 5%; }
-            .hero-image { height: 280px; width: 100%; }
-            .features { grid-template-columns: 1fr; }
-            .cta-group { justify-content: center; }
-            .checklist-grid { grid-template-columns: repeat(2, 1fr); }
-            .case-outer-wrapper { padding: 0 10px; }
-            .nav-btn { display: none; }
+/* ==========================================================================
+   针对手机端（max-width: 768px）客户案例图片与卡片的终极缩放适配
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. 导航与大图的基础调整 */
+    nav { padding: 10px 5%; }
+    .logo-img { height: 45px; }
+    .hero { flex-direction: column-reverse; text-align: center; padding: 30px 5%; gap: 25px; } 
+    h1 { font-size: 2.3rem; margin-bottom: 15px; } 
+    .hero-image { height: 260px; } /* 顺便把顶部大图在手机端也优化到合理高度 */
+    .trust-badges { align-items: center; }
+    .btn-black { width: 100%; } 
+    .features { grid-template-columns: 1fr; }
+    .checklist-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .check-item { padding: 12px; font-size: 0.85rem; }
+
+    /* 2. 案例板块核心优化：防止单张图片过大 */
+    .cases {
+        padding: 40px 16px !important; /* 让案例板块在手机左右两侧有精致的留白，不贴边 */
+    }
+    
+    .case-grid { 
+        grid-template-columns: 1fr !important; /* 手机端强制单列排版 */
+        gap: 25px !important; /* 每套案例卡片之间保持舒适的上下间距 */
+    }
+    
+    .case-card { 
+        margin-bottom: 0px !important; 
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* 给整个卡片加一层淡淡的阴影，更加立体 */
+        padding-bottom: 15px; /* 让卡片底部的文字离边缘有一点距离 */
+    }
+    
+    /* 3. 图片缩放绝对控制项 */
+    .case-img { 
+        width: 100% !important; 
+        height: 185px !important; /* 🔥 决定性的修改：死死锁住手机端图片高度，绝不撑大 */
+        object-fit: cover !important; /* 像剪贴画一样等比例裁剪，图片绝不拉伸变形 */
+        object-position: center !important; /* 永远居中对齐图片内容 */
+        border-radius: 12px 12px 0 0 !important; /* 仅保留图片上方两个圆角，完美衔接卡片 */
+        margin-bottom: 12px !important; 
+    }
+    
+    /* 4. 案例文字微调，使其在手机上不显得突兀 */
+    .case-card h4 {
+        padding: 0 15px !important;
+        font-size: 1.1rem !important;
+        margin-top: 5px !important;
+        margin-bottom: 8px !important;
+    }
+    .case-card p {
+        padding: 0 15px !important;
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        color: #555 !important;
+    }
+
+    /* 商业客户与页脚 */
+    .commercial-title { font-size: 1.8rem; }
+}
         }
     </style>
 </head>
