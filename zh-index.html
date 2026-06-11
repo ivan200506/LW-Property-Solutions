@@ -360,24 +360,81 @@
 
 
 
-<section id="quote" class="quote-section">
-    <div class="quote-container">
-        <h2 style="text-align: center; color: var(--dark); margin: 0;">获取免费报价</h2>
+<section id="quote" class="quote-section" style="padding: 60px 5%; background: var(--light-bg);">
+    <div class="quote-container" style="max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
         
-        <form action="https://api.web3forms.com/submit" method="POST" class="quote-form">
-            
+        <h2 id="zhQuoteTitle" style="text-align: center; color: var(--dark); margin-top: 0; margin-bottom: 25px; font-size: 1.8rem;">获取免费报价</h2>
+        
+        <form id="zhQuoteForm" class="quote-form" style="display: flex; flex-direction: column; gap: 15px;">
             <input type="hidden" name="access_key" value="fd26b1bf-8ae4-41e6-80e8-448f68a485b6">
-            
-            <input type="hidden" name="redirect" value="https://lw-propertysolutions.com/zh-index.html">
             <input type="hidden" name="subject" value="【L&W官网】收到新的中文免费报价申请！">
+            <input type="checkbox" name="botcheck" style="display: none;">
 
-            <input type="text" name="客户姓名" placeholder="您的姓名" required>
-            <input type="tel" name="联系电话" placeholder="联系电话" required>
-            <textarea name="问题描述" placeholder="请描述您的问题..."></textarea>
-            <button type="submit" class="btn btn-green">提交申请</button>
+            <input type="text" name="客户姓名" placeholder="您的姓名" required style="padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+            <input type="tel" name="联系电话" placeholder="联系电话 (例如: 347-989-2686)" required style="padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+            <textarea name="问题描述" placeholder="请描述您的问题或需要维修的项目..." required style="padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; min-height: 120px; resize: vertical;"></textarea>
+            
+            <button type="submit" id="zhSubmitBtn" class="btn btn-green" style="padding: 15px; background: var(--green); color: white; border: none; border-radius: 6px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s;">提交申请</button>
         </form>
+
+        <div id="zhSuccessMessage" style="display: none; text-align: center; padding: 30px 20px; background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32; border-radius: 8px;">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🎉</div>
+            <h3 style="margin: 0 0 10px 0; font-size: 1.4rem;">提交成功！</h3>
+            <p style="margin: 0; font-size: 1rem; color: #388e3c; line-height: 1.5;">我们已收到您的请求，将尽快拔打您的电话与您联系。</p>
+        </div>
     </div>
 </section>
+
+<script>
+    document.getElementById('zhQuoteForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // 阻止页面刷新跳转
+        
+        const form = e.target;
+        const button = document.getElementById('zhSubmitBtn');
+        const title = document.getElementById('zhQuoteTitle');
+        const successBox = document.getElementById('zhSuccessMessage');
+        
+        // 1. 改变按钮状态，变成加载中，防止客户因网络慢重复点击
+        button.disabled = true;
+        button.innerText = "正在提交...";
+        button.style.opacity = "0.7";
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        // 2. 异步将数据发往后台
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            if (response.status == 200) {
+                // 3. 成功后：隐藏原来的表单和标题，原地弹出漂亮的成功提示
+                form.style.display = 'none';
+                title.style.display = 'none';
+                successBox.style.display = 'block';
+            } else {
+                alert("提交失败，请检查网络或直接拨打电话联系我们。");
+                resetButton();
+            }
+        })
+        .catch(error => {
+            alert("发生错误，请稍后再试。");
+            resetButton();
+        });
+
+        function resetButton() {
+            button.disabled = false;
+            button.innerText = "提交申请";
+            button.style.opacity = "1";
+        }
+    });
+</script>
 
 
 
