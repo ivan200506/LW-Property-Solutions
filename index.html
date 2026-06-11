@@ -122,39 +122,13 @@
         footer { padding: 40px 5%; background: #111; color: #888; text-align: center; }
         .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 1.1rem; }
 
- @media (max-width: 768px) {
+        @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; text-align: center; padding: 40px 5%; }
             .hero-image { height: 280px; width: 100%; }
             .features { grid-template-columns: 1fr; }
             .cta-group { justify-content: center; }
             .checklist-grid { grid-template-columns: repeat(2, 1fr); }
-            
-            /* ==========================================================================
-               ✨ 针对手机端案例卡片与图片的缩放优化适配
-               ========================================================================== */
-            .case-outer-wrapper { 
-                padding: 0 16px; /* 增加两边微弱留白，让滑动的卡片两侧有一点呼吸感 */
-            }
-            .case-large-card {
-                border-radius: 14px; /* 稍微减小圆角，使其在小屏上更精致 */
-                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            }
-            .case-gallery { 
-                height: 190px !important; /* 🔥 关键：将手机端的案例大图高度从 300px 锁死到 190px，视觉比例最舒适 */
-            }
-            .case-info {
-                padding: 15px 18px; /* 略微收紧手机端文字的内边距 */
-            }
-            .case-info h3 {
-                font-size: 1.15rem; /* 让标题字体在手机上更协调 */
-                margin: 5px 0;
-            }
-            .case-info p {
-                font-size: 0.88rem; /* 优化文本字号 */
-                line-height: 1.5;
-            }
-            /* ========================================================================== */
-
+            .case-outer-wrapper { padding: 0 10px; }
             .nav-btn { display: none; }
         }
     </style>
