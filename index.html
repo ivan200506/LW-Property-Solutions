@@ -157,14 +157,22 @@
 <section id="quote" class="quote-section">
     <div class="quote-container">
         <h2 style="text-align: center; color: var(--dark); margin: 0;">Request a Free Quote</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 20px;">Tell us your needs, and we'll get back to you shortly.</p>
-        <form class="quote-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="tel" placeholder="Phone Number" required>
-            <textarea placeholder="Describe the issue (e.g., leaky faucet, AC repair, electrical issues...)"></textarea>
-            <button type="submit" class="btn btn-green" style="width: 100%;">Submit Request</button>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" class="quote-form">
+            
+            <input type="hidden" name="access_key" value="fd26b1bf-8ae4-41e6-80e8-448f68a485b6">
+            
+            <input type="hidden" name="redirect" value="https://lw-propertysolutions.com/index.html">
+            
+            <input type="hidden" name="subject" value="[L&W Web] New Quote Request Received!">
+
+            <input type="text" name="Client Name" placeholder="Your Name" required>
+            <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+            <textarea name="Issue Description" placeholder="Describe your issue or maintenance needs..." required></textarea>
+            
+            <button type="submit" class="btn btn-green">Submit Request</button>
         </form>
-    </div>
+        </div>
 </section>
 
 <section class="about-section">
