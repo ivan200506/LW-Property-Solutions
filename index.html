@@ -154,26 +154,78 @@
     <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg" class="hero-image" alt="Technician working">
 </section>
 
-<section id="quote" class="quote-section">
-    <div class="quote-container">
-        <h2 style="text-align: center; color: var(--dark); margin: 0;">Request a Free Quote</h2>
+<section id="quote" class="quote-section" style="padding: 60px 5%; background: var(--light-bg);">
+    <div class="quote-container" style="max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
         
-        <form action="https://api.web3forms.com/submit" method="POST" class="quote-form">
-            
+        <h2 id="enQuoteTitle" style="text-align: center; color: var(--dark); margin-top: 0; margin-bottom: 25px; font-size: 1.8rem;">Request a Free Quote</h2>
+        
+        <form id="enQuoteForm" class="quote-form" style="display: flex; flex-direction: column; gap: 15px;">
             <input type="hidden" name="access_key" value="fd26b1bf-8ae4-41e6-80e8-448f68a485b6">
-            
-            <input type="hidden" name="redirect" value="https://lw-propertysolutions.com/index.html">
-            
             <input type="hidden" name="subject" value="[L&W Web] New Quote Request Received!">
+            <input type="checkbox" name="botcheck" style="display: none;">
 
-            <input type="text" name="Client Name" placeholder="Your Name" required>
-            <input type="tel" name="Phone Number" placeholder="Phone Number" required>
-            <textarea name="Issue Description" placeholder="Describe your issue or maintenance needs..." required></textarea>
+            <input type="text" name="Client Name" placeholder="Your Name" required style="padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+            <input type="tel" name="Phone Number" placeholder="Phone Number" required style="padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+            <textarea name="Issue Description" placeholder="Describe your issue or maintenance needs..." required style="padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; min-height: 120px; resize: vertical;"></textarea>
             
-            <button type="submit" class="btn btn-green">Submit Request</button>
+            <button type="submit" id="enSubmitBtn" class="btn btn-green" style="padding: 15px; background: var(--green); color: white; border: none; border-radius: 6px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s;">Submit Request</button>
         </form>
+
+        <div id="enSuccessMessage" style="display: none; text-align: center; padding: 30px 20px; background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32; border-radius: 8px;">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🎉</div>
+            <h3 style="margin: 0 0 10px 0; font-size: 1.4rem;">Success!</h3>
+            <p style="margin: 0; font-size: 1rem; color: #388e3c; line-height: 1.5;">We have received your request and will contact you shortly.</p>
         </div>
+    </div>
 </section>
+
+<script>
+    document.getElementById('enQuoteForm').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        const form = e.target;
+        const button = document.getElementById('enSubmitBtn');
+        const title = document.getElementById('enQuoteTitle');
+        const successBox = document.getElementById('enSuccessMessage');
+        
+        button.disabled = true;
+        button.innerText = "Submitting...";
+        button.style.opacity = "0.7";
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            if (response.status == 200) {
+                form.style.display = 'none'; 
+                title.style.display = 'none';
+                successBox.style.display = 'block'; 
+            } else {
+                alert("Submission failed. Please check your network or call us directly.");
+                resetButton();
+            }
+        })
+        .catch(error => {
+            alert("An error occurred. Please try again later.");
+            resetButton();
+        });
+
+        function resetButton() {
+            button.disabled = false;
+            button.innerText = "Submit Request";
+            button.style.opacity = "1";
+        }
+    });
+</script>
 
 <section class="about-section">
     <h2>About L&W Property Solutions</h2>
