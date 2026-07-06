@@ -60,6 +60,7 @@
         /* Case Carousel Section */
         .case-carousel-section { padding: 80px 0; background: var(--light-bg); position: relative; }
         .case-outer-wrapper { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 50px; }
+        
         .case-scroll-container { 
             display: flex; 
             overflow-x: auto; 
@@ -70,6 +71,7 @@
             scroll-behavior: smooth;
         }
         .case-scroll-container::-webkit-scrollbar { display: none; }
+        
         .case-large-card { 
             min-width: calc(100%); 
             background: #fff; 
@@ -79,13 +81,18 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
             flex-shrink: 0; 
         }
+
         .case-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; height: 300px; position: relative; scrollbar-width: none; }
         .case-gallery::-webkit-scrollbar { display: none; }
         .gallery-item { min-width: 100%; scroll-snap-align: start; position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .img-tag { position: absolute; bottom: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; backdrop-filter: blur(4px); }
+        .img-tag { position: absolute; bottom: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; backdrop-filter: blur(4px); z-index: 2; }
+        
         .case-info { padding: 20px 25px; }
         .case-category { color: var(--green); font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 5px; }
+        .stars { color: var(--gold); font-size: 0.9rem; }
+
+        /* Navigation Buttons */
         .nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
             width: 45px; height: 45px; background: #fff; border-radius: 50%;
@@ -96,10 +103,12 @@
         .nav-btn:hover { background: var(--green); color: #fff; }
         .btn-prev { left: 0; }
         .btn-next { right: 0; }
+        
         .scroll-dots { display: flex; justify-content: center; gap: 8px; margin-top: 25px; }
         .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; cursor: pointer; }
         .dot.active { background: var(--green); width: 20px; border-radius: 10px; }
 
+        /* Desktop Layout (2 Cards per row) */
         @media (min-width: 992px) {
             .case-large-card { min-width: calc(50% - 10px); }
         }
@@ -122,14 +131,47 @@
         footer { padding: 40px 5%; background: #111; color: #888; text-align: center; }
         .footer-contact { margin-top: 15px; font-weight: 600; color: #fff; font-size: 1.1rem; }
 
+        /* ==========================================================================
+           🚀 Mobile Responsive Optimization (Prevents large custom images from breaking layout)
+           ========================================================================== */
         @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; text-align: center; padding: 40px 5%; }
             .hero-image { height: 280px; width: 100%; }
             .features { grid-template-columns: 1fr; }
             .cta-group { justify-content: center; }
             .checklist-grid { grid-template-columns: repeat(2, 1fr); }
-            .case-outer-wrapper { padding: 0 10px; }
-            .nav-btn { display: none; }
+            
+            /* Mobile Card & Image Restrictions */
+            .case-outer-wrapper { padding: 0 16px; }
+            .case-large-card {
+                border-radius: 14px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+            .case-gallery { 
+                height: 190px !important; /* Force lock mobile gallery height to 190px */
+                display: flex !important;
+                width: 100% !important;
+                overflow: hidden !important;
+            }
+            .gallery-item {
+                width: 50% !important; /* Before and After take up exactly 50% width each */
+                height: 100% !important;
+                position: relative;
+                overflow: hidden !important;
+                flex-shrink: 0;
+            }
+            .gallery-item img {
+                width: 100% !important;   /* Force fill item width */
+                height: 100% !important;  /* Force fill item height */
+                object-fit: cover !important; /* Smart cropping without distortion */
+            }
+            .case-info { padding: 15px 18px; }
+            .case-info h3 { font-size: 1.15rem; margin: 5px 0; }
+            .case-info p { font-size: 0.88rem; line-height: 1.5; }
+
+            .nav-btn { display: none; } /* Use swipe gestures on mobile devices */
         }
     </style>
 </head>
@@ -154,12 +196,11 @@
     <img src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg" class="hero-image" alt="Technician working">
 </section>
 
-<section id="quote" class="quote-section" style="padding: 60px 5%; background: var(--light-bg);">
-    <div class="quote-container" style="max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+<section id="quote" class="quote-section">
+    <div class="quote-container">
+        <h2 id="enQuoteTitle">Request a Free Quote</h2>
         
-        <h2 id="enQuoteTitle" style="text-align: center; color: var(--dark); margin-top: 0; margin-bottom: 25px; font-size: 1.8rem;">Request a Free Quote</h2>
-        
-        <form id="enQuoteForm" class="quote-form" style="display: flex; flex-direction: column; gap: 15px;">
+        <form id="enQuoteForm" class="quote-form">
             <input type="hidden" name="access_key" value="fd26b1bf-8ae4-41e6-80e8-448f68a485b6">
             <input type="hidden" name="subject" value="[L&W Web] New Quote Request Received!">
             <input type="checkbox" name="botcheck" style="display: none;">
@@ -270,14 +311,15 @@
         <button class="nav-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
 
         <div class="case-scroll-container" id="caseSlider">
+            <!-- Case 1 -->
             <div class="case-large-card">
                 <div class="case-gallery">
                     <div class="gallery-item">
-                        <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg">
+                        <img src="images/RAC_1640.jpg">
                         <span class="img-tag">Inspection</span>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.pexels.com/photos/5849559/pexels-photo-5849559.jpeg">
+                        <img src="images/RAC_1661.jpg">
                         <span class="img-tag">Completed</span>
                     </div>
                 </div>
@@ -288,14 +330,15 @@
                 </div>
             </div>
 
+            <!-- Case 2 -->
             <div class="case-large-card">
                 <div class="case-gallery">
                     <div class="gallery-item">
-                        <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg">
+                        <img src="images/RAC_1640.jpg">
                         <span class="img-tag">Before</span>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg">
+                        <img src="images/RAC_1639.jpg">
                         <span class="img-tag">After Upgrade</span>
                     </div>
                 </div>
@@ -306,6 +349,7 @@
                 </div>
             </div>
 
+            <!-- Case 3 -->
             <div class="case-large-card">
                 <div class="case-gallery">
                     <div class="gallery-item">
@@ -324,6 +368,7 @@
                 </div>
             </div>
 
+            <!-- Case 4 -->
             <div class="case-large-card">
                 <div class="case-gallery">
                     <div class="gallery-item">
