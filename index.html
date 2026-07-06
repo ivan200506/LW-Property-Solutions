@@ -108,10 +108,25 @@
         .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; cursor: pointer; }
         .dot.active { background: var(--green); width: 20px; border-radius: 10px; }
 
-        /* Desktop Layout (2 Cards per row) */
-        @media (min-width: 992px) {
-            .case-large-card { min-width: calc(50% - 10px); }
-        }
+/* Desktop Layout (2 Cards per row) - 彻底锁死电脑端两列并排 */
+@media (min-width: 992px) {
+    .case-outer-wrapper {
+        max-width: 1100px; /* 限制整体最大宽度，防止大屏无限拉伸 */
+        margin: 0 auto;
+    }
+    .case-scroll-container {
+        display: flex;
+        gap: 20px;
+    }
+    .case-large-card { 
+        /* 强制在电脑端每行只占 50% 宽度减去间距，实现一行两张 */
+        min-width: calc(50% - 10px) !important; 
+        max-width: calc(50% - 10px) !important;
+    }
+    .case-gallery {
+        height: 240px !important; /* 锁死电脑端图片区域高度，精致不显大 */
+    }
+}
 
         /* Service Checklist */
         .service-checklist { padding: 80px 5%; background: #fff; text-align: center; }
