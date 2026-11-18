@@ -1,5 +1,5 @@
 // Shared data for the L&W subscription sign-then-pay flow.
-// Terms text mirrors the Subscription Terms document v2 (2026-11-18).
+// Terms text mirrors the Subscription Terms document v3 (2026-11-18).
 // Used by api/create-checkout.js (plan metadata) and api/stripe-webhook.js
 // (signed-agreement email). Keep in sync with lw-subscription-plan-terms.docx.
 
@@ -12,7 +12,7 @@ pre_monthly: { tierEn: 'Premium', tierZh: '至尊方案', billing: 'monthly', bi
 pre_annual: { tierEn: 'Premium', tierZh: '至尊方案', billing: 'annual', billingZh: '年缴', amount: 3229, priceEnv: 'STRIPE_PRICE_PRE_ANNUAL'},
 };
 
-const TERMS_VERSION = 'v2-2026-11-18';
+const TERMS_VERSION = 'v3-2026-11-18';
 
 const TERMS_ZH = `
 <h2>1. 计划总览</h2>
@@ -23,6 +23,8 @@ const TERMS_ZH = `
 <tr><td>年付</td><td>$1,069 / 年</td><td>$2,149 / 年</td><td>$3,229 / 年</td></tr>
 <tr><td>定期检查</td><td>2 次 / 年</td><td>2 次 / 年</td><td>4 次 / 年（每季 1 次）</td></tr>
 <tr><td>大工程折扣</td><td>8 折</td><td>7.5 折</td><td>7 折</td></tr>
+<tr><td>热水器保养（每年 1 次）</td><td>—</td><td>包含</td><td>包含</td></tr>
+<tr><td>紧急上门免附加费（每年 1 次）</td><td>—</td><td>包含</td><td>包含</td></tr>
 <tr><td>年度服务上限</td><td>$2,500</td><td>$5,000</td><td>无上限</td></tr>
 <tr><td>优先预约</td><td>包含</td><td>包含</td><td>包含</td></tr>
 </table>
@@ -45,6 +47,8 @@ const TERMS_ZH = `
 <ul>
 <li>优先预约：订阅客户在预约排序上优先于非订阅客户。</li>
 <li>大工程折扣：超出小维修范围的工程，按第 1 节对应档位折扣计价，以本公司书面报价为准。</li>
+<li>热水器保养（标准版及至尊版，每年 1 次）：热水器排污与检查。</li>
+<li>紧急上门免附加费（标准版及至尊版，每年 1 次）：每年一次夜间紧急上门，免收附加费。</li>
 </ul>
 <h2>3. 不包含的服务</h2>
 <p>以下项目不包含在订阅费内，如需处理，将另行说明及报价：</p>
@@ -54,7 +58,7 @@ const TERMS_ZH = `
 <li>燃气相关工程：不包含在本计划内。</li>
 <li>新装与更换设备（包括热水炉更换）：大型工程（整屋换管、更换锅炉等）由持牌师傅执行，另行报价，会员折扣照常适用；不适用小维修免人工。</li>
 <li>需政府许可的工程：不包含在本计划内；如需办理，另行协商。</li>
-<li>紧急上门附加费（金额待定）：夜间紧急上门（晚 9 点至早 8 点）如产生附加费，本公司会在出车前先行说明，客户确认后才出车。</li>
+<li>紧急上门附加费（金额待定；标准版及至尊版每年可免一次）：夜间紧急上门（晚 9 点至早 8 点）如产生附加费，本公司会在出车前先行说明，客户确认后才出车。</li>
 <li>超出年度服务上限的部分：按本公司标准费率或对应大工程折扣另行报价，客户确认后才进行。</li>
 <li>房龄与结构限制：房龄过高或存在重大结构问题的物业，我们可能无法承接。承接前会先免费上门评估、如实告知；不能承接的，我们不会勉强。</li>
 </ul>
@@ -99,6 +103,8 @@ const TERMS_EN = `
 <tr><td>Annual</td><td>$1,069 / year</td><td>$2,149 / year</td><td>$3,229 / year</td></tr>
 <tr><td>Inspections</td><td>2 per year</td><td>2 per year</td><td>4 per year (quarterly)</td></tr>
 <tr><td>Major-project discount</td><td>20% off</td><td>25% off</td><td>30% off</td></tr>
+<tr><td>Water-heater maintenance (once a year)</td><td>—</td><td>Included</td><td>Included</td></tr>
+<tr><td>Emergency visit surcharge waived (once a year)</td><td>—</td><td>Included</td><td>Included</td></tr>
 <tr><td>Annual service cap</td><td>$2,500</td><td>$5,000</td><td>No cap</td></tr>
 <tr><td>Priority scheduling</td><td>Included</td><td>Included</td><td>Included</td></tr>
 </table>
@@ -121,6 +127,8 @@ const TERMS_EN = `
 <ul>
 <li>Priority scheduling: members are scheduled ahead of non-members.</li>
 <li>Major-project discount: work beyond the small-repair scope is priced at the tier discount in Section 1, based on our written quote.</li>
+<li>Water-heater maintenance (Standard and Premium, once a year): water-heater drain and inspection.</li>
+<li>Emergency visit surcharge waived (Standard and Premium, once a year): one after-hours emergency visit per year with the surcharge waived.</li>
 </ul>
 <h2>3. What's not included</h2>
 <p>The following are not included in the subscription fee. Where we can help, we will explain the options and quote separately:</p>
@@ -130,7 +138,7 @@ const TERMS_EN = `
 <li>Gas work: not included in this plan.</li>
 <li>New installations and equipment replacement (including water heater replacement): major projects (such as full repiping or boiler replacement) are performed by licensed contractors and quoted separately; your member discount still applies; labor-free small repairs do not apply.</li>
 <li>Work requiring a government permit: not included in this plan; arrangements, if any, will be discussed separately.</li>
-<li>Emergency visit surcharge (amount to be determined): for after-hours emergency visits (9 PM to 8 AM), if a surcharge applies, we will state it before dispatch, and will only dispatch after the customer confirms.</li>
+<li>Emergency visit surcharge (amount to be determined; Standard and Premium members get one waiver per year): for after-hours emergency visits (9 PM to 8 AM), if a surcharge applies, we will state it before dispatch, and will only dispatch after the customer confirms.</li>
 <li>Work beyond the annual service cap: quoted at our standard rates or the applicable major-project discount, and carried out only after the customer confirms.</li>
 <li>Age and structural limits: properties that are very old or have major structural issues may be beyond what we can take on. We assess every property in person, free of charge, and tell you honestly — if we can't take it on, we won't pretend otherwise.</li>
 </ul>
