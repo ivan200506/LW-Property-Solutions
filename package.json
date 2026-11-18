@@ -1,0 +1,1 @@
+{"dependencies":{"resend":"^4.0.0","stripe":"^17.0.0"},"description":"L&W Property Solutions website (Vercel static site + serverless functions for the sign-then-pay subscription flow).","name":"lw-property-solutions","private":true,"version":"1.0.0"}

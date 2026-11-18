@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign the Subscription Terms | L&W Property Solutions</title>
+<style>
+  :root { --green: #0a5a44; --green-mid: #35946a; --lime: #a9dc7f; --cream: #f7f5ef; --ink: #1c2b25; --muted: #5c6b64; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.6; }
+  header { background: var(--green); color: #fff; padding: 18px 20px; }
+  header .inner { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  header a { color: var(--lime); text-decoration: none; font-size: 0.95rem; }
+  header .brand { font-weight: 700; font-size: 1.15rem; letter-spacing: 0.02em; }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+  h1 { color: var(--green); font-size: 1.7rem; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .card { background: #fff; border: 1px solid #e3e0d5; border-radius: 12px; padding: 20px 22px; margin-bottom: 20px; }
+  .plan-line { font-size: 1.15rem; }
+  .plan-line strong { color: var(--green); }
+  .terms-box { max-height: 420px; overflow-y: auto; border: 1px solid #d8d5c9; border-radius: 8px; padding: 18px 20px; background: #fffdf7; font-size: 0.95rem; }
+  .terms-box h2 { color: var(--green); font-size: 1.1rem; margin: 18px 0 6px; }
+  .terms-box h2:first-child { margin-top: 0; }
+  .terms-box table { border-collapse: collapse; width: 100%; font-size: 0.9rem; margin: 8px 0; }
+  .terms-box th, .terms-box td { border: 1px solid #cfccc0; padding: 6px 8px; text-align: left; }
+  .terms-box th { background: #eef4ec; }
+  label { display: block; font-weight: 600; margin: 14px 0 4px; }
+  input[type="text"], input[type="email"], input[type="tel"] { width: 100%; padding: 11px 12px; border: 1px solid #c9c6b8; border-radius: 8px; font-size: 1rem; }
+  .sig-note { font-size: 0.88rem; color: var(--muted); margin-top: 4px; }
+  .agree { display: flex; gap: 10px; align-items: flex-start; margin-top: 18px; font-weight: 600; }
+  .agree input { margin-top: 4px; width: 18px; height: 18px; }
+  .btn { display: block; width: 100%; margin-top: 22px; padding: 14px; border: none; border-radius: 10px; background: var(--green); color: #fff; font-size: 1.05rem; font-weight: 700; cursor: pointer; }
+  .btn:disabled { background: #9db3a8; cursor: not-allowed; }
+  .error { display: none; background: #fdecea; color: #8f1d13; border: 1px solid #f3c1bb; border-radius: 8px; padding: 12px 14px; margin-top: 16px; }
+  .back { display: inline-block; margin-top: 18px; color: var(--green); text-decoration: none; font-weight: 600; }
+  footer { text-align: center; color: var(--muted); font-size: 0.88rem; padding: 0 20px 40px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <span class="brand">L&amp;W Property Solutions</span>
+    <a href="details.html">&larr; Back to plans</a>
+  </div>
+</header>
+<main>
+  <h1>Review &amp; sign the subscription terms</h1>
+  <p class="sub">Please read the terms below, fill in your details and sign. After signing you will be taken to secure payment. A signed copy of the terms will be emailed to you and to us after payment.</p>
+
+  <div class="card">
+    <div class="plan-line">Your plan: <strong id="planName">—</strong></div>
+    <div class="plan-line">Price: <strong id="planPrice">—</strong></div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0;color:var(--green);">Property Protection Plan — Subscription Terms</h2>
+    <p style="color:var(--muted);font-size:0.92rem;">L&amp;W Home Solutions LLC • Service area: Brooklyn, Queens, Manhattan, Staten Island • Phone: (347) 989-2686 • Email: support@lw-propertysolutions.com • Terms version v2, Nov 18, 2026</p>
+    <div class="terms-box" id="termsBox">
+      <h2>1. Plan overview</h2>
+      <p>This is a subscription home protection plan. Members pay monthly or annually and, during the subscription term, receive the scheduled inspections, labor-free small repairs, priority scheduling, and major-project discounts listed below. Priority scheduling is included in every tier.</p>
+      <table>
+        <tr><th>Item</th><th>Basic</th><th>Standard</th><th>Premium</th></tr>
+        <tr><td>Monthly</td><td>$99 / month</td><td>$199 / month</td><td>$299 / month</td></tr>
+        <tr><td>Annual</td><td>$1,069 / year</td><td>$2,149 / year</td><td>$3,229 / year</td></tr>
+        <tr><td>Inspections</td><td>2 per year</td><td>2 per year</td><td>4 per year (quarterly)</td></tr>
+        <tr><td>Major-project discount</td><td>20% off</td><td>25% off</td><td>30% off</td></tr>
+        <tr><td>Annual service cap</td><td>$2,500</td><td>$5,000</td><td>No cap</td></tr>
+        <tr><td>Priority scheduling</td><td>Included</td><td>Included</td><td>Included</td></tr>
+      </table>
+      <p><strong>Annual service cap:</strong> the maximum value of services included in the subscription fee in one subscription year, calculated at our standard labor rates. Work beyond the cap is handled under Section 3.</p>
+      <h2>2. What's included</h2>
+      <p><strong>Scheduled inspections (number of visits as in Section 1):</strong></p>
+      <ul>
+        <li>Heating and cooling maintenance check: filters cleaned, refrigerant checked, outdoor unit inspected, drainage tested.</li>
+        <li>Leak check: under every sink, water-heater joints, toilet bases, and washer hoses — each checked in turn.</li>
+        <li>Electrical safety check: panel, outlets, smoke and CO alarms — all tested; alarm batteries are replaced for you.</li>
+      </ul>
+      <p><strong>Labor-free small repairs (defined as follows):</strong></p>
+      <ul>
+        <li>Handled only during a scheduled visit;</li>
+        <li>Limited to small repairs that can be completed within 60 minutes per visit;</li>
+        <li>Maximum of 2 items per visit;</li>
+        <li>Labor is free; parts are charged at actual cost (see Section 3);</li>
+        <li>Does not include teardown or major overhaul work.</li>
+      </ul>
+      <ul>
+        <li>Priority scheduling: members are scheduled ahead of non-members.</li>
+        <li>Major-project discount: work beyond the small-repair scope is priced at the tier discount in Section 1, based on our written quote.</li>
+      </ul>
+      <h2>3. What's not included</h2>
+      <p>The following are not included in the subscription fee. Where we can help, we will explain the options and quote separately:</p>
+      <ul>
+        <li>Parts and materials: all parts and materials are charged at actual cost, verifiable against the original invoices; we never mark up materials.</li>
+        <li>Refrigerant work: must be performed by EPA Section 608 certified personnel and is not provided directly under the plan's general services.</li>
+        <li>Gas work: not included in this plan.</li>
+        <li>New installations and equipment replacement (including water heater replacement): major projects (such as full repiping or boiler replacement) are performed by licensed contractors and quoted separately; your member discount still applies; labor-free small repairs do not apply.</li>
+        <li>Work requiring a government permit: not included in this plan; arrangements, if any, will be discussed separately.</li>
+        <li>Emergency visit surcharge (amount to be determined): for after-hours emergency visits (9 PM to 8 AM), if a surcharge applies, we will state it before dispatch, and will only dispatch after the customer confirms.</li>
+        <li>Work beyond the annual service cap: quoted at our standard rates or the applicable major-project discount, and carried out only after the customer confirms.</li>
+        <li>Age and structural limits: properties that are very old or have major structural issues may be beyond what we can take on. We assess every property in person, free of charge, and tell you honestly — if we can't take it on, we won't pretend otherwise.</li>
+      </ul>
+      <h2>4. How it works</h2>
+      <ul>
+        <li>Free first visit: the first visit is free of charge and takes about 20 minutes; after the visit you receive a written Home Health Report. Even if you do not join the plan, the report is yours to keep, with no obligation.</li>
+        <li>Step 1 — Book: the customer books a visit by phone or email.</li>
+        <li>Step 2 — Visit and inspection: we attend at the booked time and inspect as set out in the plan.</li>
+        <li>Step 3 — Home Health Report: after each inspection we provide a report with photos, findings, and recommended next steps.</li>
+        <li>Step 4 — Written quote and confirmation: follow-up work is quoted in writing. We schedule it only after the customer confirms. No chargeable work is carried out without confirmation.</li>
+      </ul>
+      <h2>5. Fees and payment</h2>
+      <ul>
+        <li>Payment method: online payment via Stripe, monthly or annual.</li>
+        <li>Auto-renewal: the subscription renews automatically unless the customer cancels before the renewal date.</li>
+        <li>Monthly cancellation: may be cancelled at any time with 30 days' notice, effective at the end of the paid period; amounts already paid are not refunded.</li>
+        <li>Annual cancellation refunds: full refund within 7 days; after 7 days, refund pro-rated by remaining months, minus the cost of services already used.</li>
+        <li>Late payment: if subscription fees are overdue, we may pause service until payment is received.</li>
+      </ul>
+      <h2>6. What we need from you</h2>
+      <ul>
+        <li>Provide access so our technician can enter all areas to be inspected.</li>
+        <li>Tell us about known issues, including past leaks, faults, and repairs already done.</li>
+        <li>Secure pets during the visit so work can be carried out safely.</li>
+        <li>Give at least 24 hours' notice to reschedule.</li>
+      </ul>
+      <h2>7. Compliance and liability</h2>
+      <ul>
+        <li>We provide services only within the scope we are licensed and lawfully permitted to provide, and we make no claim to hold a license we do not hold.</li>
+        <li>Work outside our scope is performed by licensed partners.</li>
+        <li>Plan services are limited to the annual service cap in Section 1 (except Premium, which has no cap).</li>
+        <li>This document is the final signed version of the agreement; it takes effect once signed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <form class="card" id="signForm">
+    <h2 style="margin-top:0;color:var(--green);">Your details &amp; signature</h2>
+    <label for="fName">Full name</label>
+    <input type="text" id="fName" autocomplete="name" required>
+    <label for="fEmail">Email</label>
+    <input type="email" id="fEmail" autocomplete="email" required>
+    <label for="fPhone">Phone</label>
+    <input type="tel" id="fPhone" autocomplete="tel">
+    <label for="fSig">Electronic signature — type your full name</label>
+    <input type="text" id="fSig" autocomplete="off" required>
+    <p class="sig-note">Typing your full name above counts as your electronic signature. It will appear on the signed copy emailed to you after payment.</p>
+    <label class="agree"><input type="checkbox" id="fAgree" required> <span>I have read and agree to the subscription terms above.</span></label>
+    <div class="error" id="errBox"></div>
+    <button class="btn" type="submit" id="submitBtn">Sign &amp; Continue to Payment →</button>
+  </form>
+
+  <a class="back" href="details.html">&larr; Back to plans</a>
+</main>
+<footer>L&amp;W Property Solutions (L&amp;W Home Solutions LLC) • (347) 989-2686 • support@lw-propertysolutions.com</footer>
+
+<script>
+  const PLANS = {
+    basic_monthly: { name: 'Basic Plan — Monthly', price: '$99 / month' },
+    basic_annual: { name: 'Basic Plan — Annual', price: '$1,069 / year' },
+    std_monthly: { name: 'Standard Plan — Monthly', price: '$199 / month' },
+    std_annual: { name: 'Standard Plan — Annual', price: '$2,149 / year' },
+    pre_monthly: { name: 'Premium Plan — Monthly', price: '$299 / month' },
+    pre_annual: { name: 'Premium Plan — Annual', price: '$3,229 / year' }
+  };
+  const params = new URLSearchParams(window.location.search);
+  const planKey = params.get('plan') || 'basic_monthly';
+  const plan = PLANS[planKey] || PLANS.basic_monthly;
+  document.getElementById('planName').textContent = plan.name;
+  document.getElementById('planPrice').textContent = plan.price;
+
+  const form = document.getElementById('signForm');
+  const errBox = document.getElementById('errBox');
+  const btn = document.getElementById('submitBtn');
+  function showError(msg) { errBox.style.display = 'block'; errBox.textContent = msg; }
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errBox.style.display = 'none';
+    const name = document.getElementById('fName').value.trim();
+    const email = document.getElementById('fEmail').value.trim();
+    const phone = document.getElementById('fPhone').value.trim();
+    const signature = document.getElementById('fSig').value.trim();
+    if (!name || !email || !signature) { showError('Please fill in your name, email and signature.'); return; }
+    if (!document.getElementById('fAgree').checked) { showError('Please tick the box to agree to the terms.'); return; }
+    btn.disabled = true;
+    btn.textContent = 'Preparing secure payment…';
+    try {
+      const resp = await fetch('/api/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan: planKey, name, email, phone, signature, lang: 'en' })
+      });
+      const data = await resp.json().catch(function () { return {}; });
+      if (!resp.ok || !data.url) { throw new Error(data.error || 'Could not start checkout. Please call (347) 989-2686.'); }
+      window.location.href = data.url;
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Sign & Continue to Payment →';
+      showError(err.message || 'Something went wrong. Please call (347) 989-2686.');
+    }
+  });
+</script>
+</body>
+</html>

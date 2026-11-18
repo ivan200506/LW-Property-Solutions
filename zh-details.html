@@ -639,21 +639,11 @@ body { padding-bottom: 58px;}
 
     let stripeUrl = '';
 
+    // New flow (2026-11-18): the customer reads and signs the full terms
+    // on a dedicated signing page first, then pays via Stripe Checkout.
+    // The modal + Payment Links below are no longer used.
     function openTerms(planKey, planTitle) {
-        const data = termsData[planKey];
-        stripeUrl = stripeLinks[planKey];
-
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('termsContent').innerHTML = data.terms;
-
-        document.getElementById('agreeCheckbox').checked = false;
-        const btn = document.getElementById('finalPayBtn');
-        btn.disabled = true;
-        btn.classList.remove('enabled');
-        btn.innerText = '请先勾选同意条款';
-
-        document.getElementById('termsModal').classList.add('show');
-        document.body.style.overflow = 'hidden';
+        window.location.href = 'zh-sign.html?plan=' + planKey;
     }
 
     function closeTerms(e) {
