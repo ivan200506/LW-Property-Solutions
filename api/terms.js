@@ -1,5 +1,5 @@
 // Shared data for the L&W subscription sign-then-pay flow.
-// Terms text mirrors the Subscription Terms document v3 (2026-11-18).
+// Terms text mirrors the Subscription Terms document v4 (2026-11-24).
 // Used by api/create-checkout.js (plan metadata) and api/stripe-webhook.js
 // (signed-agreement email). Keep in sync with lw-subscription-plan-terms.docx.
 
@@ -12,7 +12,7 @@ pre_monthly: { tierEn: 'Premium', tierZh: '至尊方案', billing: 'monthly', bi
 pre_annual: { tierEn: 'Premium', tierZh: '至尊方案', billing: 'annual', billingZh: '年缴', amount: 3229, priceEnv: 'STRIPE_PRICE_PRE_ANNUAL'},
 };
 
-const TERMS_VERSION = 'v3-2026-11-18';
+const TERMS_VERSION = 'v4-2026-11-24';
 
 const TERMS_ZH = `
 <h2>1. 计划总览</h2>
@@ -26,6 +26,7 @@ const TERMS_ZH = `
 <tr><td>热水器保养（每年 1 次）</td><td>—</td><td>包含</td><td>包含</td></tr>
 <tr><td>紧急上门免附加费（每年 1 次）</td><td>—</td><td>包含</td><td>包含</td></tr>
 <tr><td>年度服务上限</td><td>$2,500</td><td>$5,000</td><td>无上限</td></tr>
+<tr><td>维修金（每月累积，见第 8 节）</td><td>$50 / 月，上限 $150</td><td>$100 / 月，上限 $300</td><td>$150 / 月，上限 $450</td></tr>
 <tr><td>优先预约</td><td>包含</td><td>包含</td><td>包含</td></tr>
 </table>
 <p><strong>年度服务上限说明：</strong>指本公司在一个订阅年度内为客户提供的、已包含在订阅费内的服务价值上限（按本公司标准人工费率计算）。超出上限的部分，按第 3 节处理。</p>
@@ -45,6 +46,7 @@ const TERMS_ZH = `
 <li>不含拆机大修。</li>
 </ul>
 <ul>
+<li>小维修范围：冷暖气、热水器、洗衣机、干衣机、冰箱、洗碗机、炉具及水暖小修；超出范围的工程按第 3 节另行报价。</li>
 <li>优先预约：订阅客户在预约排序上优先于非订阅客户。</li>
 <li>大工程折扣：超出小维修范围的工程，按第 1 节对应档位折扣计价，以本公司书面报价为准。</li>
 <li>热水器保养（标准版及至尊版，每年 1 次）：热水器排污与检查。</li>
@@ -92,6 +94,15 @@ const TERMS_ZH = `
 <li>本计划服务以第 1 节所列年度服务上限为限（Premium 除外）。</li>
 <li>本文件为双方最终签署版本；签署后生效。</li>
 </ul>
+<h2>8. 维修金</h2>
+<ul>
+<li>每月无叫修，月费的一半转为维修金：基础版 $50、标准版 $100、至尊版 $150。</li>
+<li>维修金最多累积 3 个月：基础版上限 $150、标准版上限 $300、至尊版上限 $450。</li>
+<li>维修金只可抵零件与材料费用，不可抵人工费；小维修人工本身已免（见第 2 节）。</li>
+<li>每次维修先扣维修金，不足部分由客户按实际成本补付。</li>
+<li>维修金按标准月费计算，月缴与年缴相同。</li>
+<li>取消订阅即失效，不可兑现、不可转让。</li>
+</ul>
 `;
 
 const TERMS_EN = `
@@ -106,6 +117,7 @@ const TERMS_EN = `
 <tr><td>Water-heater maintenance (once a year)</td><td>—</td><td>Included</td><td>Included</td></tr>
 <tr><td>Emergency visit surcharge waived (once a year)</td><td>—</td><td>Included</td><td>Included</td></tr>
 <tr><td>Annual service cap</td><td>$2,500</td><td>$5,000</td><td>No cap</td></tr>
+<tr><td>Repair credit (accrues monthly, see Section 8)</td><td>$50 / month, $150 max</td><td>$100 / month, $300 max</td><td>$150 / month, $450 max</td></tr>
 <tr><td>Priority scheduling</td><td>Included</td><td>Included</td><td>Included</td></tr>
 </table>
 <p><strong>Annual service cap:</strong> the maximum value of services included in the subscription fee in one subscription year, calculated at our standard labor rates. Work beyond the cap is handled under Section 3.</p>
@@ -125,6 +137,7 @@ const TERMS_EN = `
 <li>Does not include teardown or major overhaul work.</li>
 </ul>
 <ul>
+<li>Small-repair scope: heating and cooling, water heaters, washers, dryers, refrigerators, dishwashers, stoves, and minor plumbing; work beyond this scope is quoted separately under Section 3.</li>
 <li>Priority scheduling: members are scheduled ahead of non-members.</li>
 <li>Major-project discount: work beyond the small-repair scope is priced at the tier discount in Section 1, based on our written quote.</li>
 <li>Water-heater maintenance (Standard and Premium, once a year): water-heater drain and inspection.</li>
@@ -171,6 +184,15 @@ const TERMS_EN = `
 <li>Work outside our scope is performed by licensed partners.</li>
 <li>Plan services are limited to the annual service cap in Section 1 (except Premium, which has no cap).</li>
 <li>This document is the final signed version of the agreement; it takes effect once signed.</li>
+</ul>
+<h2>8. Repair credit</h2>
+<ul>
+<li>Each month with no service call, half your monthly fee banks as repair credit: Basic $50, Standard $100, Premium $150.</li>
+<li>Credit accrues for up to 3 months: Basic $150 max, Standard $300 max, Premium $450 max.</li>
+<li>Credit offsets parts and materials costs only, not labor; labor for small repairs is already free (see Section 2).</li>
+<li>Each repair draws down credit first; any shortfall is paid by the customer at actual cost.</li>
+<li>Credit is calculated on the standard monthly fee, the same for monthly and annual billing.</li>
+<li>Credit expires on cancellation. It cannot be cashed out or transferred.</li>
 </ul>
 `;
 
